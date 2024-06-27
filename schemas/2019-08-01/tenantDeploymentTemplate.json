@@ -533,6 +533,18 @@
                   "$ref": "https://schema.management.azure.com/schemas/2022-11-16-preview/Microsoft.AppComplianceAutomation.json#/tenant_resourceDefinitions/reports"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-06-27/Microsoft.AppComplianceAutomation.json#/tenant_resourceDefinitions/reports"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-06-27/Microsoft.AppComplianceAutomation.json#/tenant_resourceDefinitions/reports_evidences"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-06-27/Microsoft.AppComplianceAutomation.json#/tenant_resourceDefinitions/reports_scopingConfigurations"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-06-27/Microsoft.AppComplianceAutomation.json#/tenant_resourceDefinitions/reports_webhooks"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2015-07-01/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignments"
                 },
                 {
@@ -746,6 +758,12 @@
                   "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.CostManagement.json#/tenant_resourceDefinitions/views"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.CostManagement.json#/tenant_resourceDefinitions/scheduledActions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.CostManagement.json#/tenant_resourceDefinitions/views"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2023-08-01/Microsoft.CostManagement.json#/tenant_resourceDefinitions/scheduledActions"
                 },
                 {
@@ -950,6 +968,9 @@
                   "$ref": "https://schema.management.azure.com/schemas/2020-09-01-preview/Microsoft.Portal.json#/tenant_resourceDefinitions/tenantConfigurations"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01-preview/Microsoft.PortalServices.json#/tenant_resourceDefinitions/copilotSettings"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2019-07-01/Microsoft.Resources.json#/tenant_resourceDefinitions/deployments"
                 },
                 {
@@ -978,6 +999,9 @@
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.Resources.json#/tenant_resourceDefinitions/deployments"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.Resources.json#/tenant_resourceDefinitions/deployments"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2023-02-15-preview/Microsoft.Security.json#/tenant_resourceDefinitions/sensitivitySettings"
@@ -1086,6 +1110,12 @@
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.Web.json#/tenant_resourceDefinitions/sourcecontrols"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2023-12-01/Microsoft.Web.json#/tenant_resourceDefinitions/publishingUsers"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2023-12-01/Microsoft.Web.json#/tenant_resourceDefinitions/sourcecontrols"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2022-08-29/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks"
