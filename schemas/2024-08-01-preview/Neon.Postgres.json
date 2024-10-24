@@ -1,0 +1,363 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-08-01-preview/Neon.Postgres.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Neon.Postgres",
+  "description": "Neon Postgres Resource Types",
+  "resourceDefinitions": {
+    "organizations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-08-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\-.: ]*$",
+              "minLength": 1,
+              "maxLength": 50
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Neon Organizations resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseDataOrganizationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties specific to Data Organization resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Neon.Postgres/organizations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Neon.Postgres/organizations"
+    }
+  },
+  "definitions": {
+    "LiftrBaseCompanyDetails": {
+      "type": "object",
+      "properties": {
+        "businessPhone": {
+          "type": "string",
+          "description": "Business phone number of the company"
+        },
+        "companyName": {
+          "type": "string",
+          "description": "Company name"
+        },
+        "country": {
+          "type": "string",
+          "description": "Country name of the company"
+        },
+        "domain": {
+          "type": "string",
+          "description": "Domain of the user"
+        },
+        "numberOfEmployees": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number of employees in the company"
+        },
+        "officeAddress": {
+          "type": "string",
+          "description": "Office address of the company"
+        }
+      },
+      "description": "Company details for an organization"
+    },
+    "LiftrBaseDataOrganizationProperties": {
+      "type": "object",
+      "properties": {
+        "companyDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseCompanyDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Company details for an organization"
+        },
+        "marketplaceDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseMarketplaceDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Marketplace details for an organization"
+        },
+        "partnerOrganizationProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseDataPartnerOrganizationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties specific to Partner's organization"
+        },
+        "userDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseUserDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "User details for an organization"
+        }
+      },
+      "required": [
+        "companyDetails",
+        "marketplaceDetails",
+        "userDetails"
+      ],
+      "description": "Properties specific to Data Organization resource"
+    },
+    "LiftrBaseDataPartnerOrganizationProperties": {
+      "type": "object",
+      "properties": {
+        "organizationId": {
+          "type": "string",
+          "description": "Organization Id in partner's system"
+        },
+        "organizationName": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\-.: ]*$",
+              "minLength": 1,
+              "maxLength": 50
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Organization name in partner's system"
+        },
+        "singleSignOnProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseSingleSignOnProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties specific to Single Sign On Resource"
+        }
+      },
+      "required": [
+        "organizationName"
+      ],
+      "description": "Properties specific to Partner's organization"
+    },
+    "LiftrBaseMarketplaceDetails": {
+      "type": "object",
+      "properties": {
+        "offerDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseOfferDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Offer details for the marketplace that is selected by the user"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "SaaS subscription id for the the marketplace offer"
+        },
+        "subscriptionStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "PendingFulfillmentStart",
+                "Subscribed",
+                "Suspended",
+                "Unsubscribed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Marketplace subscription status."
+        }
+      },
+      "required": [
+        "offerDetails"
+      ],
+      "description": "Marketplace details for an organization"
+    },
+    "LiftrBaseOfferDetails": {
+      "type": "object",
+      "properties": {
+        "offerId": {
+          "type": "string",
+          "description": "Offer Id for the marketplace offer"
+        },
+        "planId": {
+          "type": "string",
+          "description": "Plan Id for the marketplace offer"
+        },
+        "planName": {
+          "type": "string",
+          "description": "Plan Name for the marketplace offer"
+        },
+        "publisherId": {
+          "type": "string",
+          "description": "Publisher Id for the marketplace offer"
+        },
+        "termId": {
+          "type": "string",
+          "description": "Term Id for the marketplace offer"
+        },
+        "termUnit": {
+          "type": "string",
+          "description": "Term Name for the marketplace offer"
+        }
+      },
+      "required": [
+        "offerId",
+        "planId",
+        "publisherId"
+      ],
+      "description": "Offer details for the marketplace that is selected by the user"
+    },
+    "LiftrBaseSingleSignOnProperties": {
+      "type": "object",
+      "properties": {
+        "aadDomains": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of AAD domains fetched from Microsoft Graph for user."
+        },
+        "enterpriseAppId": {
+          "type": "string",
+          "description": "AAD enterprise application Id used to setup SSO"
+        },
+        "singleSignOnState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Initial",
+                "Enable",
+                "Disable"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "State of the Single Sign On for the organization."
+        },
+        "singleSignOnUrl": {
+          "type": "string",
+          "description": "A string that represents a URI."
+        }
+      },
+      "description": "Properties specific to Single Sign On Resource"
+    },
+    "LiftrBaseUserDetails": {
+      "type": "object",
+      "properties": {
+        "emailAddress": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9._%+-]+@(?:[A-Za-z0-9-]+\\.)+[A-Za-z]{2,}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Reusable representation of an email address."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "First name of the user"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Last name of the user"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "User's phone number"
+        },
+        "upn": {
+          "type": "string",
+          "description": "User's principal name"
+        }
+      },
+      "description": "User details for an organization"
+    }
+  }
+}
