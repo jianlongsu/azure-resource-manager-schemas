@@ -1,0 +1,367 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2025-06-01-preview/Microsoft.FileShares.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.FileShares",
+  "description": "Microsoft FileShares Resource Types",
+  "resourceDefinitions": {
+    "fileShares": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-06-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^([a-z]|[0-9])([a-z]|[0-9]|(-(?!-))){1,61}([a-z]|[0-9])$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource name of the file share, as seen by the administrator through Azure Resource Manager."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FileShareProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "File share properties"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/fileShares_fileShareSnapshots_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.FileShares/fileShares"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.FileShares/fileShares"
+    },
+    "fileShares_fileShareSnapshots": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-06-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^([a-z]|[0-9])([a-z]|[0-9]|(-(?!-))){1,61}([a-z]|[0-9])$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the FileShareSnapshot"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FileShareSnapshotProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "FileShareSnapshot properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.FileShares/fileShares/fileShareSnapshots"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.FileShares/fileShares/fileShareSnapshots"
+    }
+  },
+  "definitions": {
+    "FileShareProperties": {
+      "type": "object",
+      "properties": {
+        "mediaTier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SSD"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The storage media tier of the file share."
+        },
+        "mountName": {
+          "type": "string",
+          "description": "The name of the file share as seen by the end user when mounting the share, such as in a URI or UNC format in their operating system."
+        },
+        "nfsProtocolProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NfsProtocolProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties specific to the NFS protocol."
+        },
+        "protocol": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NFS"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The file sharing protocol for this file share."
+        },
+        "provisionedIOPerSec": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioned IO / sec of the share."
+        },
+        "provisionedStorageGiB": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioned storage size of the share in GiB (1 GiB is 1024^3 bytes or 1073741824 bytes). A component of the file share's bill is the provisioned storage, regardless of the amount of used storage."
+        },
+        "provisionedThroughputMiBPerSec": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioned throughput / sec of the share."
+        },
+        "publicAccessProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PublicAccessProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of properties for control public access."
+        },
+        "publicNetworkAccess": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets allow or disallow public network access to azure managed file share."
+        },
+        "redundancy": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Local",
+                "Zone"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The chosen redundancy level of the file share."
+        }
+      },
+      "description": "File share properties"
+    },
+    "FileShareSnapshotProperties": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The metadata"
+        }
+      },
+      "description": "FileShareSnapshot properties"
+    },
+    "fileShares_fileShareSnapshots_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-06-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^([a-z]|[0-9])([a-z]|[0-9]|(-(?!-))){1,61}([a-z]|[0-9])$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the FileShareSnapshot"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FileShareSnapshotProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "FileShareSnapshot properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "fileShareSnapshots"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.FileShares/fileShares/fileShareSnapshots"
+    },
+    "NfsProtocolProperties": {
+      "type": "object",
+      "properties": {
+        "rootSquash": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NoRootSquash",
+                "RootSquash",
+                "AllSquash"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Root squash defines how root users on clients are mapped to the NFS share."
+        }
+      },
+      "description": "Properties specific to the NFS protocol."
+    },
+    "PublicAccessProperties": {
+      "type": "object",
+      "properties": {
+        "allowedSubnets": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The allowed set of subnets when access is restricted."
+        }
+      },
+      "description": "The set of properties for control public access."
+    }
+  }
+}

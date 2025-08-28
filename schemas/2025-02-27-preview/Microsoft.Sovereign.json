@@ -1,0 +1,924 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2025-02-27-preview/Microsoft.Sovereign.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Sovereign",
+  "description": "Microsoft Sovereign Resource Types",
+  "resourceDefinitions": {
+    "landingZoneAccounts": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-02-27-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,64}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The landing zone account."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LandingZoneAccountResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of landing zone account resource type."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/landingZoneAccounts_landingZoneConfigurations_childResource"
+              },
+              {
+                "$ref": "#/definitions/landingZoneAccounts_landingZoneRegistrations_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sovereign/landingZoneAccounts"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sovereign/landingZoneAccounts"
+    },
+    "landingZoneAccounts_landingZoneConfigurations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-02-27-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,64}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The landing zone configuration name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LandingZoneConfigurationResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of landing zone configuration resource type."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sovereign/landingZoneAccounts/landingZoneConfigurations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sovereign/landingZoneAccounts/landingZoneConfigurations"
+    },
+    "landingZoneAccounts_landingZoneRegistrations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-02-27-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,64}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the landing zone registration resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LandingZoneRegistrationResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of landing zone registration resource type."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Sovereign/landingZoneAccounts/landingZoneRegistrations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sovereign/landingZoneAccounts/landingZoneRegistrations"
+    }
+  },
+  "definitions": {
+    "CustomNamingConvention": {
+      "type": "object",
+      "properties": {
+        "formula": {
+          "type": "string",
+          "description": "The custom naming formula for the resource type."
+        },
+        "resourceType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "azureFirewalls",
+                "workspaces",
+                "automationAccounts",
+                "dashboards",
+                "userAssignedIdentities",
+                "bastionHosts",
+                "ddosProtectionPlans",
+                "networkSecurityGroups",
+                "virtualNetworks",
+                "routeTables"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of the resource."
+        }
+      },
+      "required": [
+        "formula",
+        "resourceType"
+      ],
+      "description": "The details for the custom naming convention override for a specific resource type."
+    },
+    "DecommissionedManagementGroupProperties": {
+      "type": "object",
+      "properties": {
+        "create": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This parameter determines whether the 'Decommissioned' management group will be created. If set to true, the group will be created; if set to false, it will not be created. The default value is false."
+        },
+        "policyInitiativesAssignmentProperties": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PolicyInitiativeAssignmentProperties"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of policy initiatives applied to the management group."
+        }
+      },
+      "required": [
+        "create",
+        "policyInitiativesAssignmentProperties"
+      ],
+      "description": "The 'Decommissioned' management group properties."
+    },
+    "LandingZoneAccountResourceProperties": {
+      "type": "object",
+      "properties": {
+        "storageAccount": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "The storage account that will host the generated infrastructure as code (IaC) for a landing zone deployment."
+        }
+      },
+      "required": [
+        "storageAccount"
+      ],
+      "description": "The properties of landing zone account resource type."
+    },
+    "landingZoneAccounts_landingZoneConfigurations_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-02-27-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,64}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The landing zone configuration name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LandingZoneConfigurationResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of landing zone configuration resource type."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "landingZoneConfigurations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sovereign/landingZoneAccounts/landingZoneConfigurations"
+    },
+    "landingZoneAccounts_landingZoneRegistrations_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-02-27-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,64}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the landing zone registration resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LandingZoneRegistrationResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of landing zone registration resource type."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "landingZoneRegistrations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Sovereign/landingZoneAccounts/landingZoneRegistrations"
+    },
+    "LandingZoneConfigurationResourceProperties": {
+      "type": "object",
+      "properties": {
+        "azureBastionCreationOption": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Yes",
+                "No",
+                "UseExisting"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Parameter used to deploy a Bastion: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing Bastion."
+        },
+        "azureBastionSubnetCidrBlock": {
+          "type": "string",
+          "description": "The Bastion subnet address. Specify the address using IPv4 CIDR notation."
+        },
+        "customNamingConvention": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CustomNamingConvention"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The custom naming convention applied to specific resource types for this landing zone configuration, which overrides the default naming convention for those resource types. Example - 'customNamingConvention': [{'resourceType': 'azureFirewalls', 'formula': '{DeploymentPrefix}-afwl-{DeploymentSuffix}'}]"
+        },
+        "ddosProtectionCreationOption": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Yes",
+                "No",
+                "UseExisting"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Parameter used to deploy a DDoS protection plan: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing DDoS protection plan."
+        },
+        "decommissionedMgMetadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DecommissionedManagementGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The 'Decommissioned' management group properties."
+        },
+        "existingAzureBastionId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "The resource ID of the Bastion when reusing an existing one."
+        },
+        "existingDdosProtectionId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "The resource ID of the DDoS protection plan when reusing an existing one."
+        },
+        "existingLogAnalyticsWorkspaceId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "The resource ID of the log analytics workspace when reusing an existing one."
+        },
+        "firewallCreationOption": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "Standard",
+                "Premium"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Parameter used for deploying a Firewall: Select 'No' to skip deployment, 'Standard' to deploy the Standard SKU, or 'Premium' to deploy the Premium SKU."
+        },
+        "firewallSubnetCidrBlock": {
+          "type": "string",
+          "description": "The Firewall subnet address used for deploying a firewall. Specify the Firewall subnet using IPv4 CIDR notation."
+        },
+        "gatewaySubnetCidrBlock": {
+          "type": "string",
+          "description": "The gateway subnet address used for deploying a virtual network. Specify the subnet using IPv4 CIDR notation."
+        },
+        "hubNetworkCidrBlock": {
+          "type": "string",
+          "description": "The Virtual Network address. Specify the address using IPv4 CIDR notation."
+        },
+        "landingZonesMgChildren": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LandingZoneManagementGroupProperties"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The child management groups of 'Landing Zones' management group and their assigned policies."
+        },
+        "landingZonesMgMetadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagementGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of policy initiatives applied to the management group."
+        },
+        "logAnalyticsWorkspaceCreationOption": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Yes",
+                "No",
+                "UseExisting"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Parameter used to deploy a log analytics workspace: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing log analytics workspace."
+        },
+        "logRetentionInDays": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 30,
+              "maximum": 730
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Parameter to define the retention period for logs, in days. The minimum duration is 30 days and the maximum is 730 days."
+        },
+        "managedIdentity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedIdentityProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of managed identity, specifically including type and resource ID."
+        },
+        "namingConventionFormula": {
+          "type": "string",
+          "description": "The default naming convention applied to all resources for this landing zone configuration. Example - {DeploymentPrefix}-Contoso-{ResourceTypeAbbreviation}{DeploymentSuffix}-{Environment}-testing"
+        },
+        "platformConnectivityMgMetadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagementGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of policy initiatives applied to the management group."
+        },
+        "platformIdentityMgMetadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagementGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of policy initiatives applied to the management group."
+        },
+        "platformManagementMgMetadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagementGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of policy initiatives applied to the management group."
+        },
+        "platformMgChildren": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PlatformManagementGroupProperties"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The names of the 'Platform' child management groups and their assigned policies, excluding the default ones: 'Connectivity', 'Identity', and 'Management'"
+        },
+        "platformMgMetadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagementGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of policy initiatives applied to the management group."
+        },
+        "sandboxMgMetadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SandboxManagementGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The 'Sandbox' management group properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tags"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tags are key-value pairs that can be assigned to a resource to organize and manage it more effectively. Example: {'name': 'a tag name', 'value': 'a tag value'}"
+        },
+        "topLevelMgMetadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagementGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of policy initiatives applied to the management group."
+        }
+      },
+      "required": [
+        "azureBastionCreationOption",
+        "ddosProtectionCreationOption",
+        "firewallCreationOption",
+        "gatewaySubnetCidrBlock",
+        "hubNetworkCidrBlock",
+        "logAnalyticsWorkspaceCreationOption",
+        "logRetentionInDays",
+        "managedIdentity"
+      ],
+      "description": "The properties of landing zone configuration resource type."
+    },
+    "LandingZoneManagementGroupProperties": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Management group name."
+        },
+        "policyInitiativesAssignmentProperties": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PolicyInitiativeAssignmentProperties"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of policy initiatives applied to the management group."
+        }
+      },
+      "required": [
+        "name",
+        "policyInitiativesAssignmentProperties"
+      ],
+      "description": "The 'Landing Zones' management group properties.."
+    },
+    "LandingZoneRegistrationResourceProperties": {
+      "type": "object",
+      "properties": {
+        "existingLandingZoneConfigurationId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "The resource id of the associated landing zone configuration."
+        },
+        "existingTopLevelMgId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "The resource id of the top level management group"
+        },
+        "managedIdentity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedIdentityProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of managed identity, specifically including type and resource ID."
+        }
+      },
+      "required": [
+        "existingLandingZoneConfigurationId",
+        "existingTopLevelMgId"
+      ],
+      "description": "The properties of landing zone registration resource type."
+    },
+    "ManagedIdentityProperties": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SystemAssigned",
+                "UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of managed identity."
+        },
+        "userAssignedIdentityResourceId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "The resource id of the managed identity."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "The properties of managed identity, specifically including type and resource ID."
+    },
+    "ManagedServiceIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
+    },
+    "ManagementGroupProperties": {
+      "type": "object",
+      "properties": {
+        "policyInitiativesAssignmentProperties": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PolicyInitiativeAssignmentProperties"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of policy initiatives applied to the management group."
+        }
+      },
+      "required": [
+        "policyInitiativesAssignmentProperties"
+      ],
+      "description": "The properties of policy initiatives applied to the management group."
+    },
+    "PlatformManagementGroupProperties": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Management group name."
+        },
+        "policyInitiativesAssignmentProperties": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PolicyInitiativeAssignmentProperties"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of policy initiatives applied to the management group."
+        }
+      },
+      "required": [
+        "name",
+        "policyInitiativesAssignmentProperties"
+      ],
+      "description": "The 'Platform' management group properties."
+    },
+    "PolicyInitiativeAssignmentProperties": {
+      "type": "object",
+      "properties": {
+        "assignmentParameters": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The parameters of the assigned policy initiative."
+        },
+        "policyInitiativeId": {
+          "type": "string",
+          "description": "The fully qualified id of the policy initiative."
+        }
+      },
+      "required": [
+        "assignmentParameters",
+        "policyInitiativeId"
+      ],
+      "description": "The properties of assigned policy initiatives."
+    },
+    "SandboxManagementGroupProperties": {
+      "type": "object",
+      "properties": {
+        "create": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This parameter determines whether the 'Sandbox' management group will be created. If set to true, the group will be created; if set to false, it will not be created. The default value is false."
+        },
+        "policyInitiativesAssignmentProperties": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PolicyInitiativeAssignmentProperties"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of policy initiatives applied to the management group."
+        }
+      },
+      "required": [
+        "create",
+        "policyInitiativesAssignmentProperties"
+      ],
+      "description": "The 'Sandbox' management group properties."
+    },
+    "Tags": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A tag name."
+        },
+        "value": {
+          "type": "string",
+          "description": "A tag value."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Key-value pairs that can be assigned to this resource."
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User assigned identity properties"
+    }
+  }
+}

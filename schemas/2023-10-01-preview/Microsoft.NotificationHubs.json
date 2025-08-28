@@ -47,10 +47,10 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/namespaces_notificationHubs_childResource"
+                "$ref": "#/definitions/namespaces_authorizationRules_childResource"
               },
               {
-                "$ref": "#/definitions/namespaces_authorizationRules_childResource"
+                "$ref": "#/definitions/namespaces_notificationHubs_childResource"
               },
               {
                 "$ref": "#/definitions/namespaces_privateEndpointConnections_childResource"
@@ -111,8 +111,7 @@
           ]
         },
         "location": {
-          "type": "string",
-          "description": "Deprecated - only for compatibility."
+          "type": "string"
         },
         "name": {
           "oneOf": [
@@ -151,8 +150,7 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ],
-          "description": "Deprecated - only for compatibility."
+          ]
         },
         "type": {
           "type": "string",
@@ -269,8 +267,7 @@
           ]
         },
         "location": {
-          "type": "string",
-          "description": "Deprecated - only for compatibility."
+          "type": "string"
         },
         "name": {
           "oneOf": [
@@ -309,8 +306,7 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ],
-          "description": "Deprecated - only for compatibility."
+          ]
         },
         "type": {
           "type": "string",
@@ -404,16 +400,19 @@
         "authTokenUrl": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets the URL of the authorization token."
         },
         "clientId": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets the client identifier."
         },
         "clientSecret": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets the credential secret access key."
         }
       },
@@ -449,36 +448,44 @@
       "properties": {
         "apnsCertificate": {
           "type": "string",
+          "format": "password",
           "description": "Gets or sets the APNS certificate."
         },
         "appId": {
           "type": "string",
-          "description": "Gets or sets the issuer (iss) registered claim key, whose value is\r\nyour 10-character Team ID, obtained from your developer account"
+          "format": "password",
+          "description": "Gets or sets the issuer (iss) registered claim key, whose value is\nyour 10-character Team ID, obtained from your developer account"
         },
         "appName": {
           "type": "string",
+          "format": "password",
           "description": "Gets or sets the name of the application"
         },
         "certificateKey": {
           "type": "string",
+          "format": "password",
           "description": "Gets or sets the certificate key."
         },
         "endpoint": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets the endpoint of this credential."
         },
         "keyId": {
           "type": "string",
-          "description": "Gets or sets a 10-character key identifier (kid) key, obtained from\r\nyour developer account"
+          "format": "password",
+          "description": "Gets or sets a 10-character key identifier (kid) key, obtained from\nyour developer account"
         },
         "thumbprint": {
           "type": "string",
+          "format": "password",
           "description": "Gets or sets the APNS certificate Thumbprint"
         },
         "token": {
           "type": "string",
-          "description": "Gets or sets provider Authentication Token, obtained through your\r\ndeveloper account"
+          "format": "password",
+          "description": "Gets or sets provider Authentication Token, obtained through your\ndeveloper account"
         }
       },
       "required": [
@@ -512,16 +519,19 @@
         "baiduApiKey": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets baidu Api Key."
         },
         "baiduEndPoint": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets baidu Endpoint."
         },
         "baiduSecretKey": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets baidu Secret Key"
         }
       },
@@ -558,16 +568,19 @@
         "subject": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets web push subject."
         },
         "vapidPrivateKey": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets VAPID private key."
         },
         "vapidPublicKey": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets VAPID public key."
         }
       },
@@ -604,16 +617,19 @@
         "clientEmail": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets client email."
         },
         "privateKey": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets private key."
         },
         "projectId": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets project id."
         }
       },
@@ -649,11 +665,13 @@
       "properties": {
         "gcmEndpoint": {
           "type": "string",
+          "format": "password",
           "description": "Gets or sets the GCM endpoint."
         },
         "googleApiKey": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets the Google API key."
         }
       },
@@ -722,16 +740,19 @@
         "certificateKey": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets the certificate key for this credential."
         },
         "mpnsCertificate": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets the MPNS certificate."
         },
         "thumbprint": {
           "type": "string",
           "minLength": 1,
+          "format": "password",
           "description": "Gets or sets the MPNS certificate Thumbprint"
         }
       },
@@ -761,7 +782,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Defines values for NamespaceType."
         },
         "networkAcls": {
           "oneOf": [
@@ -802,7 +824,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Defines values for OperationProvisioningState."
         },
         "publicNetworkAccess": {
           "oneOf": [
@@ -816,7 +839,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Type of public network access."
         },
         "replicationRegion": {
           "oneOf": [
@@ -836,7 +860,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Allowed replication region."
         },
         "scaleUnit": {
           "type": "string",
@@ -856,7 +881,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Namespace status."
         },
         "zoneRedundancy": {
           "oneOf": [
@@ -870,7 +896,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Namespace SKU name."
         }
       },
       "description": "Represents namespace properties."
@@ -885,8 +912,7 @@
           ]
         },
         "location": {
-          "type": "string",
-          "description": "Deprecated - only for compatibility."
+          "type": "string"
         },
         "name": {
           "oneOf": [
@@ -925,8 +951,7 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ],
-          "description": "Deprecated - only for compatibility."
+          ]
         },
         "type": {
           "type": "string",
@@ -953,8 +978,7 @@
           ]
         },
         "location": {
-          "type": "string",
-          "description": "Deprecated - only for compatibility."
+          "type": "string"
         },
         "name": {
           "oneOf": [
@@ -993,8 +1017,7 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ],
-          "description": "Deprecated - only for compatibility."
+          ]
         },
         "type": {
           "type": "string",
@@ -1432,7 +1455,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "State of Private Endpoint Connection."
         }
       },
       "description": "Private Endpoint Connection properties."
@@ -1487,7 +1511,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "State of Private Link Connection."
         }
       },
       "description": "State of the Private Link Service connection."
@@ -1497,7 +1522,8 @@
       "properties": {
         "primaryKey": {
           "type": "string",
-          "description": "Gets a base64-encoded 256-bit primary key for signing and\r\nvalidating the SAS token."
+          "format": "password",
+          "description": "Gets a base64-encoded 256-bit primary key for signing and\nvalidating the SAS token."
         },
         "rights": {
           "oneOf": [
@@ -1520,7 +1546,8 @@
         },
         "secondaryKey": {
           "type": "string",
-          "description": "Gets a base64-encoded 256-bit primary key for signing and\r\nvalidating the SAS token."
+          "format": "password",
+          "description": "Gets a base64-encoded 256-bit primary key for signing and\nvalidating the SAS token."
         }
       },
       "required": [
@@ -1559,7 +1586,8 @@
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
-          ]
+          ],
+          "description": "Namespace SKU name."
         },
         "size": {
           "type": "string",
@@ -1600,22 +1628,27 @@
       "properties": {
         "certificateKey": {
           "type": "string",
+          "format": "password",
           "description": "Ges or sets the WNS Certificate Key."
         },
         "packageSid": {
           "type": "string",
+          "format": "password",
           "description": "Gets or sets the package ID for this credential."
         },
         "secretKey": {
           "type": "string",
+          "format": "password",
           "description": "Gets or sets the secret key."
         },
         "windowsLiveEndpoint": {
           "type": "string",
+          "format": "password",
           "description": "Gets or sets the Windows Live endpoint."
         },
         "wnsCertificate": {
           "type": "string",
+          "format": "password",
           "description": "Gets or sets the WNS Certificate."
         }
       },
@@ -1646,10 +1679,12 @@
       "properties": {
         "appSecret": {
           "type": "string",
+          "format": "password",
           "description": "Gets or sets app secret."
         },
         "endpoint": {
           "type": "string",
+          "format": "password",
           "description": "Gets or sets xiaomi service endpoint."
         }
       },

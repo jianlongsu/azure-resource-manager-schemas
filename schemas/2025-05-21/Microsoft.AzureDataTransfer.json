@@ -1,0 +1,1151 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2025-05-21/Microsoft.AzureDataTransfer.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.AzureDataTransfer",
+  "description": "Microsoft AzureDataTransfer Resource Types",
+  "resourceDefinitions": {
+    "connections": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-05-21"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,64}$",
+              "minLength": 3,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name for the connection to perform the operation on."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of connection"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/connections_flows_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureDataTransfer/connections"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureDataTransfer/connections"
+    },
+    "connections_flows": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-05-21"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,64}$",
+              "minLength": 3,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name for the flow to perform the operation on."
+        },
+        "plan": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Plan"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Plan for the resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FlowProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of flow"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureDataTransfer/connections/flows"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureDataTransfer/connections/flows"
+    },
+    "pipelines": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-05-21"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,64}$",
+              "minLength": 3,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the pipeline on which to operate."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PipelineProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of pipeline"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AzureDataTransfer/pipelines"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureDataTransfer/pipelines"
+    }
+  },
+  "definitions": {
+    "ApiFlowOptions": {
+      "type": "object",
+      "properties": {
+        "apiMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SDK",
+                "Endpoint"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Remote Calling Mode in the Azure Data Transfer API Flow, which describes how the API Flow will be invoked."
+        },
+        "audienceOverride": {
+          "type": "string",
+          "description": "Optional field to override the audience of the remote endpoint. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead."
+        },
+        "cname": {
+          "type": "string",
+          "description": "Unique CNAME to represent the Azure Data Transfer API Flow instance"
+        },
+        "identityTranslation": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "UserIdentity",
+                "ServiceIdentity"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Determines which identity to use for extracting the user token for Azure Data Transfer API Flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead."
+        },
+        "remoteCallingModeClientId": {
+          "type": "string",
+          "description": "Remote stub app registration Client ID. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead."
+        },
+        "remoteEndpoint": {
+          "type": "string",
+          "description": "Remote host to which communication needs to be made. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the remoteEndpointSettings.endpoint property instead."
+        },
+        "senderClientId": {
+          "type": "string",
+          "description": "Sender's app user assigned Manage Identity client ID. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead."
+        }
+      },
+      "description": "Properties specific to API Flow Type"
+    },
+    "ConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "direction": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Send",
+                "Receive"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Direction of data movement."
+        },
+        "flowTypes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Unknown",
+                  "Complex",
+                  "DevSecOps",
+                  "Messaging",
+                  "Mission",
+                  "MicrosoftInternal",
+                  "BasicFiles",
+                  "Data",
+                  "Standard",
+                  "StreamingVideo",
+                  "Opaque",
+                  "MissionOpaqueXML",
+                  "DiskImages",
+                  "API"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The flow types being requested for this connection. This FlowType property has reached end of life support starting version 2025-05-30-preview. Please create a FlowProfile resource instead."
+        },
+        "justification": {
+          "type": "string",
+          "description": "Justification for the connection request"
+        },
+        "pin": {
+          "type": "string",
+          "description": "PIN to link requests together"
+        },
+        "pipeline": {
+          "type": "string",
+          "description": "Pipeline to use to transfer data"
+        },
+        "policies": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policies for this connection. The policies property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead."
+        },
+        "primaryContact": {
+          "type": "string",
+          "description": "The primary contact for this connection request"
+        },
+        "remoteSubscriptionId": {
+          "type": "string",
+          "description": "Subscription ID to link cloud subscriptions together"
+        },
+        "requirementId": {
+          "type": "string",
+          "description": "Requirement ID of the connection"
+        },
+        "schemas": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Schema"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The schemas for this connection. The schemas property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead."
+        },
+        "schemaUris": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The schema URIs for this connection. The schemaUris property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead."
+        },
+        "secondaryContacts": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The secondary contacts for this connection request"
+        }
+      },
+      "required": [
+        "pipeline"
+      ],
+      "description": "Properties of connection"
+    },
+    "connections_flows_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-05-21"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,64}$",
+              "minLength": 3,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name for the flow to perform the operation on."
+        },
+        "plan": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Plan"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Plan for the resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FlowProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of flow"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "flows"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AzureDataTransfer/connections/flows"
+    },
+    "FlowProperties": {
+      "type": "object",
+      "properties": {
+        "apiFlowOptions": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApiFlowOptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties specific to API Flow Type"
+        },
+        "connection": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SelectedResource"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A resource selected from ARM"
+        },
+        "consumerGroup": {
+          "type": "string",
+          "description": "Event Hub Consumer Group"
+        },
+        "customerManagedKeyVaultUri": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URI to the customer managed key for this flow"
+        },
+        "dataType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Blob",
+                "Table"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of data to transfer via the flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead."
+        },
+        "destinationEndpointPorts": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The destination endpoint ports of the stream"
+        },
+        "destinationEndpoints": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The destination endpoints of the stream"
+        },
+        "eventHubId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Event Hub ID"
+        },
+        "flowType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Complex",
+                "DevSecOps",
+                "Messaging",
+                "Mission",
+                "MicrosoftInternal",
+                "BasicFiles",
+                "Data",
+                "Standard",
+                "StreamingVideo",
+                "Opaque",
+                "MissionOpaqueXML",
+                "DiskImages",
+                "API"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The flow type for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead."
+        },
+        "keyVaultUri": {
+          "type": "string",
+          "description": "URI to a Key Vault Secret containing a SAS token."
+        },
+        "messagingOptions": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MessagingOptions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The option associated with messaging flows."
+        },
+        "passphrase": {
+          "type": "string",
+          "description": "The passphrase used for SRT streams"
+        },
+        "policies": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policies for this flow. The property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead."
+        },
+        "schema": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Schema"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The schema object. Schemas has reached end of life support starting version 2025-05-30-preview. Please manage schemas with a FlowProfile resource instead."
+        },
+        "serviceBusQueueId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Service Bus Queue ID"
+        },
+        "sourceAddresses": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamSourceAddresses"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The source IP address and CIDR ranges of the stream"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Status of the current flow."
+        },
+        "storageAccountId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Storage Account ID"
+        },
+        "storageAccountName": {
+          "type": "string",
+          "description": "Storage Account"
+        },
+        "storageContainerName": {
+          "type": "string",
+          "description": "Storage Container Name"
+        },
+        "storageTableName": {
+          "type": "string",
+          "description": "Storage Table Name"
+        },
+        "streamId": {
+          "type": "string",
+          "description": "The flow stream identifier"
+        },
+        "streamLatency": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The latency of the stream in milliseconds"
+        },
+        "streamProtocol": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "UDP",
+                "SRT",
+                "RTP"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The protocol of the stream."
+        }
+      },
+      "description": "Properties of flow"
+    },
+    "ManagedServiceIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
+    },
+    "MessagingOptions": {
+      "type": "object",
+      "properties": {
+        "billingTier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "BlobTransport",
+                "Standard",
+                "Premium"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Billing tier for this messaging flow."
+        }
+      },
+      "description": "The option associated with messaging flows."
+    },
+    "PipelineProperties": {
+      "type": "object",
+      "properties": {
+        "disabledFlowTypes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Unknown",
+                  "Complex",
+                  "DevSecOps",
+                  "Messaging",
+                  "Mission",
+                  "MicrosoftInternal",
+                  "BasicFiles",
+                  "Data",
+                  "Standard",
+                  "StreamingVideo",
+                  "Opaque",
+                  "MissionOpaqueXML",
+                  "DiskImages",
+                  "API"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The flow types that are disabled for this pipeline"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of this pipeline"
+        },
+        "flowTypes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Unknown",
+                  "Complex",
+                  "DevSecOps",
+                  "Messaging",
+                  "Mission",
+                  "MicrosoftInternal",
+                  "BasicFiles",
+                  "Data",
+                  "Standard",
+                  "StreamingVideo",
+                  "Opaque",
+                  "MissionOpaqueXML",
+                  "DiskImages",
+                  "API"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The flow type for this flow. The flowTypes property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead."
+        },
+        "policies": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policies for this pipeline. The policies property has reached end of life support starting version 2025-05-30-preview. Please create and use a FlowProfile resource instead."
+        },
+        "quarantineDownloadStorageAccount": {
+          "type": "string",
+          "description": "Quarantine Download Storage Account"
+        },
+        "quarantineDownloadStorageContainer": {
+          "type": "string",
+          "description": "Quarantine Download Storage Container"
+        },
+        "remoteCloud": {
+          "type": "string",
+          "description": "Remote cloud of the data to be transferred or received"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Status of the current pipeline."
+        },
+        "subscribers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Subscriber"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Subscribers of this resource"
+        }
+      },
+      "required": [
+        "remoteCloud"
+      ],
+      "description": "Properties of pipeline"
+    },
+    "Plan": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A user defined name of the 3rd Party Artifact that is being procured."
+        },
+        "product": {
+          "type": "string",
+          "description": "The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. "
+        },
+        "promotionCode": {
+          "type": "string",
+          "description": "A publisher provided promotion code as provisioned in Data Market for the said product/artifact."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic"
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of the desired product/artifact."
+        }
+      },
+      "required": [
+        "name",
+        "product",
+        "publisher"
+      ],
+      "description": "Plan for the resource."
+    },
+    "Schema": {
+      "type": "object",
+      "properties": {
+        "connectionId": {
+          "type": "string",
+          "description": "Connection ID associated with this schema"
+        },
+        "content": {
+          "type": "string",
+          "description": "Content of the schema"
+        },
+        "direction": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Send",
+                "Receive"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The direction of the schema."
+        },
+        "id": {
+          "type": "string",
+          "description": "ID associated with this schema"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the schema"
+        },
+        "schemaType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Xsd",
+                "Zip"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Schema Type."
+        },
+        "schemaUri": {
+          "type": "string",
+          "format": "uri",
+          "description": "Uri containing SAS token for the zipped schema"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "New",
+                "Approved"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Status of the schema."
+        }
+      },
+      "description": "The schema object. Schemas has reached end of life support starting version 2025-05-30-preview. Please manage schemas with a FlowProfile resource instead."
+    },
+    "SelectedResource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Id of the connection"
+        },
+        "location": {
+          "type": "string",
+          "description": "Location of the connection"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the connection"
+        },
+        "subscriptionName": {
+          "type": "string",
+          "description": "Name of the subscription with the connection"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "description": "A resource selected from ARM"
+    },
+    "StreamSourceAddresses": {
+      "type": "object",
+      "properties": {
+        "sourceAddresses": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A source IP address or CIDR range"
+        }
+      },
+      "description": "The source IP address and CIDR ranges of the stream"
+    },
+    "Subscriber": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "Email of the subscriber"
+        },
+        "notifications": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number specifying what notifications to receive"
+        }
+      },
+      "description": "An individual that would like to subscribe to events that occur on a pipeline."
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User assigned identity properties"
+    }
+  }
+}

@@ -1,0 +1,1927 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2025-07-17-preview/Microsoft.Confluent.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Confluent",
+  "description": "Microsoft Confluent Resource Types",
+  "resourceDefinitions": {
+    "organizations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-17-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "Organization resource name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OrganizationResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Organization resource property"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/organizations_environments_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Confluent/organizations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Confluent/organizations"
+    },
+    "organizations_environments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-17-preview"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "Type of environment"
+        },
+        "name": {
+          "type": "string",
+          "description": "Confluent environment id"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnvironmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Environment resource property"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/organizations_environments_clusters_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Confluent/organizations/environments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Confluent/organizations/environments"
+    },
+    "organizations_environments_clusters": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-17-preview"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "Type of cluster"
+        },
+        "name": {
+          "type": "string",
+          "description": "Confluent kafka or schema registry cluster id"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Service Connector Cluster Properties"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/organizations_environments_clusters_connectors_childResource"
+              },
+              {
+                "$ref": "#/definitions/organizations_environments_clusters_topics_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Confluent/organizations/environments/clusters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Confluent/organizations/environments/clusters"
+    },
+    "organizations_environments_clusters_connectors": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-17-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Confluent connector name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectorResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource properties of the Connector"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Confluent/organizations/environments/clusters/connectors"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Confluent/organizations/environments/clusters/connectors"
+    },
+    "organizations_environments_clusters_topics": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-17-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Confluent kafka or schema registry topic name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TopicProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Topic Properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Confluent/organizations/environments/clusters/topics"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Confluent/organizations/environments/clusters/topics"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "agreements": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-17-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "default"
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConfluentAgreementProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Terms properties for Marketplace and Confluent."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Confluent/agreements"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Confluent/agreements"
+    }
+  },
+  "definitions": {
+    "AzureBlobStorageSinkConnectorServiceInfo": {
+      "type": "object",
+      "properties": {
+        "connectorServiceType": {
+          "type": "string",
+          "enum": [
+            "AzureBlobStorageSinkConnector"
+          ]
+        },
+        "storageAccountKey": {
+          "type": "string",
+          "description": "Azure Blob Storage Account Key"
+        },
+        "storageAccountName": {
+          "type": "string",
+          "description": "Azure Blob Storage Account Name"
+        },
+        "storageContainerName": {
+          "type": "string",
+          "description": "Azure Blob Storage Account Container Name"
+        }
+      },
+      "required": [
+        "connectorServiceType"
+      ],
+      "description": "The authentication info when auth_type is azureBlobStorageSinkConnector"
+    },
+    "AzureBlobStorageSourceConnectorServiceInfo": {
+      "type": "object",
+      "properties": {
+        "connectorServiceType": {
+          "type": "string",
+          "enum": [
+            "AzureBlobStorageSourceConnector"
+          ]
+        },
+        "storageAccountKey": {
+          "type": "string",
+          "format": "password",
+          "description": "Azure Blob Storage Account Key"
+        },
+        "storageAccountName": {
+          "type": "string",
+          "description": "Azure Blob Storage Account Name"
+        },
+        "storageContainerName": {
+          "type": "string",
+          "description": "Azure Blob Storage Account Container Name"
+        }
+      },
+      "required": [
+        "connectorServiceType"
+      ],
+      "description": "The connector service type is AzureBlobStorageSourceConnector"
+    },
+    "AzureCosmosDBSinkConnectorServiceInfo": {
+      "type": "object",
+      "properties": {
+        "connectorServiceType": {
+          "type": "string",
+          "enum": [
+            "AzureCosmosDBSinkConnector"
+          ]
+        },
+        "cosmosConnectionEndpoint": {
+          "type": "string",
+          "description": "Azure Cosmos Database Connection Endpoint"
+        },
+        "cosmosContainersTopicMapping": {
+          "type": "string",
+          "description": "Azure Cosmos Database Containers Topic Mapping"
+        },
+        "cosmosDatabaseName": {
+          "type": "string",
+          "description": "Azure Cosmos Database Name"
+        },
+        "cosmosIdStrategy": {
+          "type": "string",
+          "description": "Azure Cosmos Database Id Strategy"
+        },
+        "cosmosMasterKey": {
+          "type": "string",
+          "description": "Azure Cosmos Database Master Key"
+        },
+        "cosmosWriteDetails": {
+          "type": "string",
+          "description": "Azure Cosmos write config details"
+        }
+      },
+      "required": [
+        "connectorServiceType"
+      ],
+      "description": "The authentication info when auth_type is AzureCosmosDBSinkConnector"
+    },
+    "AzureCosmosDBSourceConnectorServiceInfo": {
+      "type": "object",
+      "properties": {
+        "connectorServiceType": {
+          "type": "string",
+          "enum": [
+            "AzureCosmosDBSourceConnector"
+          ]
+        },
+        "cosmosConnectionEndpoint": {
+          "type": "string",
+          "description": "Azure Cosmos Database Connection Endpoint"
+        },
+        "cosmosContainersTopicMapping": {
+          "type": "string",
+          "description": "Azure Cosmos Database Containers Topic Mapping"
+        },
+        "cosmosDatabaseName": {
+          "type": "string",
+          "description": "Azure Cosmos Database Name"
+        },
+        "cosmosIncludeAllContainers": {
+          "type": "string",
+          "description": "Azure Cosmos Database Include all the containers in the database."
+        },
+        "cosmosMasterKey": {
+          "type": "string",
+          "description": "Azure Cosmos Database Master Key"
+        },
+        "cosmosMessageKeyEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Cosmos Database Message Key Enabled"
+        },
+        "cosmosMessageKeyField": {
+          "type": "string",
+          "description": "Azure Cosmos Database Message Key Field"
+        }
+      },
+      "required": [
+        "connectorServiceType"
+      ],
+      "description": "The authentication info when auth_type is AzureCosmosDBSourceConnector"
+    },
+    "AzureSynapseAnalyticsSinkConnectorServiceInfo": {
+      "type": "object",
+      "properties": {
+        "connectorServiceType": {
+          "type": "string",
+          "enum": [
+            "AzureSynapseAnalyticsSinkConnector"
+          ]
+        },
+        "synapseSqlDatabaseName": {
+          "type": "string",
+          "description": "Azure Synapse Dedicated SQL Pool Database Name"
+        },
+        "synapseSqlPassword": {
+          "type": "string",
+          "description": "Azure Synapse SQL login details"
+        },
+        "synapseSqlServerName": {
+          "type": "string",
+          "description": "Azure Synapse Analytics SQL Server Name"
+        },
+        "synapseSqlUser": {
+          "type": "string",
+          "description": "Azure Synapse SQL login details"
+        }
+      },
+      "required": [
+        "connectorServiceType"
+      ],
+      "description": "The authentication info when auth_type is AzureSynapseAnalyticsSinkConnector"
+    },
+    "ClusterConfigEntity": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "description": "The lifecycle phase of the cluster"
+        }
+      },
+      "description": "The configuration of the Kafka cluster"
+    },
+    "ClusterProperties": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SCMetadataEntity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata of the data record"
+        },
+        "spec": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SCClusterSpecEntity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Spec of the cluster record"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClusterStatusEntity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Status of the cluster record"
+        }
+      },
+      "description": "Service Connector Cluster Properties"
+    },
+    "ClusterStatusEntity": {
+      "type": "object",
+      "properties": {
+        "cku": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The number of Confluent Kafka Units"
+        },
+        "phase": {
+          "type": "string",
+          "description": "The lifecycle phase of the cluster"
+        }
+      },
+      "description": "Status of the cluster record"
+    },
+    "ConfluentAgreementProperties": {
+      "type": "object",
+      "properties": {
+        "accepted": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If any version of the terms have been accepted, otherwise false."
+        },
+        "licenseTextLink": {
+          "type": "string",
+          "description": "Link to HTML with Microsoft and Publisher terms."
+        },
+        "plan": {
+          "type": "string",
+          "description": "Plan identifier string."
+        },
+        "privacyPolicyLink": {
+          "type": "string",
+          "description": "Link to the privacy policy of the publisher."
+        },
+        "product": {
+          "type": "string",
+          "description": "Product identifier string."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "Publisher identifier string."
+        },
+        "retrieveDatetime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false."
+        },
+        "signature": {
+          "type": "string",
+          "description": "Terms signature."
+        }
+      },
+      "description": "Terms properties for Marketplace and Confluent."
+    },
+    "ConnectorInfoBase": {
+      "type": "object",
+      "properties": {
+        "connectorClass": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AZUREBLOBSOURCE",
+                "AZUREBLOBSINK",
+                "AZURECOSMOSV2SINK",
+                "AZURECOSMOSV2SOURCE"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connector Class."
+        },
+        "connectorId": {
+          "type": "string",
+          "description": "Connector Id"
+        },
+        "connectorName": {
+          "type": "string",
+          "description": "Connector Name"
+        },
+        "connectorState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "PROVISIONING",
+                "RUNNING",
+                "PAUSED",
+                "FAILED"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connector Status."
+        },
+        "connectorType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SINK",
+                "SOURCE"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connector Type."
+        }
+      },
+      "description": "Connector Info Base properties"
+    },
+    "ConnectorResourceProperties": {
+      "type": "object",
+      "properties": {
+        "connectorBasicInfo": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectorInfoBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connector Info Base properties"
+        },
+        "connectorServiceTypeInfo": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectorServiceTypeInfoBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The connector service type info"
+        },
+        "partnerConnectorInfo": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PartnerInfoBase"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The partner info base"
+        }
+      },
+      "description": "The resource properties of the Connector"
+    },
+    "ConnectorServiceTypeInfoBase": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AzureBlobStorageSinkConnectorServiceInfo"
+        },
+        {
+          "$ref": "#/definitions/AzureBlobStorageSourceConnectorServiceInfo"
+        },
+        {
+          "$ref": "#/definitions/AzureCosmosDBSinkConnectorServiceInfo"
+        },
+        {
+          "$ref": "#/definitions/AzureCosmosDBSourceConnectorServiceInfo"
+        },
+        {
+          "$ref": "#/definitions/AzureSynapseAnalyticsSinkConnectorServiceInfo"
+        }
+      ],
+      "properties": {},
+      "description": "The connector service type info"
+    },
+    "EnvironmentProperties": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SCMetadataEntity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata of the data record"
+        },
+        "streamGovernanceConfig": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StreamGovernanceConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Stream governance configuration"
+        }
+      },
+      "description": "Environment resource property"
+    },
+    "KafkaAzureBlobStorageSinkConnectorInfo": {
+      "type": "object",
+      "properties": {
+        "apiKey": {
+          "type": "string",
+          "description": "Kafka API Key"
+        },
+        "apiSecret": {
+          "type": "string",
+          "description": "Kafka API Key Secret"
+        },
+        "authType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SERVICE_ACCOUNT",
+                "KAFKA_API_KEY"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Auth Type."
+        },
+        "flushSize": {
+          "type": "string",
+          "description": "Flush size"
+        },
+        "inputFormat": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AVRO",
+                "JSON",
+                "STRING",
+                "BYTES",
+                "PROTOBUF"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Input Data Format Type."
+        },
+        "maxTasks": {
+          "type": "string",
+          "description": "Maximum Tasks"
+        },
+        "outputFormat": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AVRO",
+                "JSON",
+                "STRING",
+                "BYTES",
+                "PROTOBUF"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Output Data Format Type."
+        },
+        "partnerConnectorType": {
+          "type": "string",
+          "enum": [
+            "KafkaAzureBlobStorageSink"
+          ]
+        },
+        "serviceAccountId": {
+          "type": "string",
+          "description": "Kafka Service Account Id"
+        },
+        "timeInterval": {
+          "type": "string",
+          "description": "Time Interval"
+        },
+        "topics": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka topics list"
+        },
+        "topicsDir": {
+          "type": "string",
+          "description": "Kafka topics directory"
+        }
+      },
+      "required": [
+        "partnerConnectorType"
+      ],
+      "description": "The partner connector type is KafkaAzureBlobStorageSink"
+    },
+    "KafkaAzureBlobStorageSourceConnectorInfo": {
+      "type": "object",
+      "properties": {
+        "apiKey": {
+          "type": "string",
+          "description": "Kafka API Key"
+        },
+        "apiSecret": {
+          "type": "string",
+          "format": "password",
+          "description": "Kafka API Secret"
+        },
+        "authType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SERVICE_ACCOUNT",
+                "KAFKA_API_KEY"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Auth Type."
+        },
+        "inputFormat": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AVRO",
+                "JSON",
+                "STRING",
+                "BYTES",
+                "PROTOBUF"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Input Data Format Type."
+        },
+        "maxTasks": {
+          "type": "string",
+          "description": "Maximum Tasks"
+        },
+        "outputFormat": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AVRO",
+                "JSON",
+                "STRING",
+                "BYTES",
+                "PROTOBUF"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Output Data Format Type."
+        },
+        "partnerConnectorType": {
+          "type": "string",
+          "enum": [
+            "KafkaAzureBlobStorageSource"
+          ]
+        },
+        "serviceAccountId": {
+          "type": "string",
+          "description": "Kafka Service Account Id"
+        },
+        "topicRegex": {
+          "type": "string",
+          "description": "Kafka topics Regex pattern"
+        },
+        "topicsDir": {
+          "type": "string",
+          "description": "Kafka topics directory"
+        }
+      },
+      "required": [
+        "partnerConnectorType"
+      ],
+      "description": "The partner connector type is KafkaAzureBlobStorageSource"
+    },
+    "KafkaAzureCosmosDBSinkConnectorInfo": {
+      "type": "object",
+      "properties": {
+        "apiKey": {
+          "type": "string",
+          "description": "Kafka API Key"
+        },
+        "apiSecret": {
+          "type": "string",
+          "description": "Kafka API Key Secret"
+        },
+        "authType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SERVICE_ACCOUNT",
+                "KAFKA_API_KEY"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Auth Type."
+        },
+        "flushSize": {
+          "type": "string",
+          "description": "Flush size"
+        },
+        "inputFormat": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AVRO",
+                "JSON",
+                "STRING",
+                "BYTES",
+                "PROTOBUF"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Input Data Format Type."
+        },
+        "maxTasks": {
+          "type": "string",
+          "description": "Maximum Tasks"
+        },
+        "outputFormat": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AVRO",
+                "JSON",
+                "STRING",
+                "BYTES",
+                "PROTOBUF"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Output Data Format Type."
+        },
+        "partnerConnectorType": {
+          "type": "string",
+          "enum": [
+            "KafkaAzureCosmosDBSink"
+          ]
+        },
+        "serviceAccountId": {
+          "type": "string",
+          "description": "Kafka Service Account Id"
+        },
+        "timeInterval": {
+          "type": "string",
+          "description": "Time Interval"
+        },
+        "topics": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka topics list"
+        },
+        "topicsDir": {
+          "type": "string",
+          "description": "Kafka topics directory"
+        }
+      },
+      "required": [
+        "partnerConnectorType"
+      ],
+      "description": "The partner connector type is KafkaAzureCosmosDBSink"
+    },
+    "KafkaAzureCosmosDBSourceConnectorInfo": {
+      "type": "object",
+      "properties": {
+        "apiKey": {
+          "type": "string",
+          "description": "Kafka API Key"
+        },
+        "apiSecret": {
+          "type": "string",
+          "format": "password",
+          "description": "Kafka API Secret"
+        },
+        "authType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SERVICE_ACCOUNT",
+                "KAFKA_API_KEY"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Auth Type."
+        },
+        "inputFormat": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AVRO",
+                "JSON",
+                "STRING",
+                "BYTES",
+                "PROTOBUF"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Input Data Format Type."
+        },
+        "maxTasks": {
+          "type": "string",
+          "description": "Maximum Tasks"
+        },
+        "outputFormat": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AVRO",
+                "JSON",
+                "STRING",
+                "BYTES",
+                "PROTOBUF"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Output Data Format Type."
+        },
+        "partnerConnectorType": {
+          "type": "string",
+          "enum": [
+            "KafkaAzureCosmosDBSource"
+          ]
+        },
+        "serviceAccountId": {
+          "type": "string",
+          "description": "Kafka Service Account Id"
+        },
+        "topicRegex": {
+          "type": "string",
+          "description": "Kafka topics Regex pattern"
+        },
+        "topicsDir": {
+          "type": "string",
+          "description": "Kafka topics directory"
+        }
+      },
+      "required": [
+        "partnerConnectorType"
+      ],
+      "description": "The partner connector type is KafkaAzureCosmosDBSource"
+    },
+    "KafkaAzureSynapseAnalyticsSinkConnectorInfo": {
+      "type": "object",
+      "properties": {
+        "apiKey": {
+          "type": "string",
+          "description": "Kafka API Key"
+        },
+        "apiSecret": {
+          "type": "string",
+          "description": "Kafka API Key Secret"
+        },
+        "authType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SERVICE_ACCOUNT",
+                "KAFKA_API_KEY"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Auth Type."
+        },
+        "flushSize": {
+          "type": "string",
+          "description": "Flush size"
+        },
+        "inputFormat": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AVRO",
+                "JSON",
+                "STRING",
+                "BYTES",
+                "PROTOBUF"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Input Data Format Type."
+        },
+        "maxTasks": {
+          "type": "string",
+          "description": "Maximum Tasks"
+        },
+        "outputFormat": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AVRO",
+                "JSON",
+                "STRING",
+                "BYTES",
+                "PROTOBUF"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka Output Data Format Type."
+        },
+        "partnerConnectorType": {
+          "type": "string",
+          "enum": [
+            "KafkaAzureSynapseAnalyticsSink"
+          ]
+        },
+        "serviceAccountId": {
+          "type": "string",
+          "description": "Kafka Service Account Id"
+        },
+        "timeInterval": {
+          "type": "string",
+          "description": "Time Interval"
+        },
+        "topics": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kafka topics list"
+        },
+        "topicsDir": {
+          "type": "string",
+          "description": "Kafka topics directory"
+        }
+      },
+      "required": [
+        "partnerConnectorType"
+      ],
+      "description": "The partner connector type is KafkaAzureSynapseAnalyticsSink"
+    },
+    "LinkOrganization": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "format": "password",
+          "description": "User auth token"
+        }
+      },
+      "required": [
+        "token"
+      ],
+      "description": "Link an existing Confluent organization"
+    },
+    "OfferDetail": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "Offer Id"
+        },
+        "planId": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Offer Plan Id"
+        },
+        "planName": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Offer Plan Name"
+        },
+        "privateOfferId": {
+          "type": "string",
+          "maxLength": 255,
+          "description": "Private Offer Id"
+        },
+        "privateOfferIds": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of Private Offer Ids"
+        },
+        "publisherId": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "Publisher Id"
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Started",
+                "PendingFulfillmentStart",
+                "InProgress",
+                "Subscribed",
+                "Suspended",
+                "Reinstated",
+                "Succeeded",
+                "Failed",
+                "Unsubscribed",
+                "Updating"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "SaaS Offer Status."
+        },
+        "termId": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "Offer Plan Term Id"
+        },
+        "termUnit": {
+          "type": "string",
+          "maxLength": 25,
+          "description": "Offer Plan Term unit"
+        }
+      },
+      "required": [
+        "id",
+        "planId",
+        "planName",
+        "publisherId",
+        "termUnit"
+      ],
+      "description": "Confluent Offer detail"
+    },
+    "OrganizationResourceProperties": {
+      "type": "object",
+      "properties": {
+        "linkOrganization": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkOrganization"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Link an existing Confluent organization"
+        },
+        "offerDetail": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OfferDetail"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Confluent Offer detail"
+        },
+        "userDetail": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserDetail"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Subscriber detail"
+        }
+      },
+      "required": [
+        "offerDetail",
+        "userDetail"
+      ],
+      "description": "Organization resource property"
+    },
+    "organizations_environments_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-17-preview"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "Type of environment"
+        },
+        "name": {
+          "type": "string",
+          "description": "Confluent environment id"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnvironmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Environment resource property"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "environments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Confluent/organizations/environments"
+    },
+    "organizations_environments_clusters_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-17-preview"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "Type of cluster"
+        },
+        "name": {
+          "type": "string",
+          "description": "Confluent kafka or schema registry cluster id"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Service Connector Cluster Properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "clusters"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Confluent/organizations/environments/clusters"
+    },
+    "organizations_environments_clusters_connectors_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-17-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Confluent connector name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectorResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource properties of the Connector"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "connectors"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Confluent/organizations/environments/clusters/connectors"
+    },
+    "organizations_environments_clusters_topics_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-17-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Confluent kafka or schema registry topic name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TopicProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Topic Properties"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "topics"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Confluent/organizations/environments/clusters/topics"
+    },
+    "PartnerInfoBase": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/KafkaAzureBlobStorageSinkConnectorInfo"
+        },
+        {
+          "$ref": "#/definitions/KafkaAzureBlobStorageSourceConnectorInfo"
+        },
+        {
+          "$ref": "#/definitions/KafkaAzureCosmosDBSinkConnectorInfo"
+        },
+        {
+          "$ref": "#/definitions/KafkaAzureCosmosDBSourceConnectorInfo"
+        },
+        {
+          "$ref": "#/definitions/KafkaAzureSynapseAnalyticsSinkConnectorInfo"
+        }
+      ],
+      "properties": {},
+      "description": "The partner info base"
+    },
+    "SCClusterByokEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "ID of the referred resource"
+        },
+        "related": {
+          "type": "string",
+          "description": "API URL for accessing or modifying the referred object"
+        },
+        "resourceName": {
+          "type": "string",
+          "description": "CRN reference to the referred resource"
+        }
+      },
+      "description": "The network associated with this object"
+    },
+    "SCClusterNetworkEnvironmentEntity": {
+      "type": "object",
+      "properties": {
+        "environment": {
+          "type": "string",
+          "description": "Environment of the referred resource"
+        },
+        "id": {
+          "type": "string",
+          "description": "ID of the referred resource"
+        },
+        "related": {
+          "type": "string",
+          "description": "API URL for accessing or modifying the referred object"
+        },
+        "resourceName": {
+          "type": "string",
+          "description": "CRN reference to the referred resource"
+        }
+      },
+      "description": "The environment or the network to which cluster belongs"
+    },
+    "SCClusterSpecEntity": {
+      "type": "object",
+      "properties": {
+        "apiEndpoint": {
+          "type": "string",
+          "description": "The Kafka API cluster endpoint"
+        },
+        "availability": {
+          "type": "string",
+          "description": "The availability zone configuration of the cluster"
+        },
+        "byok": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SCClusterByokEntity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The network associated with this object"
+        },
+        "cloud": {
+          "type": "string",
+          "description": "The cloud service provider"
+        },
+        "config": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ClusterConfigEntity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The configuration of the Kafka cluster"
+        },
+        "environment": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SCClusterNetworkEnvironmentEntity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The environment or the network to which cluster belongs"
+        },
+        "httpEndpoint": {
+          "type": "string",
+          "description": "The cluster HTTP request URL."
+        },
+        "kafkaBootstrapEndpoint": {
+          "type": "string",
+          "description": "The bootstrap endpoint used by Kafka clients to connect to the cluster"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the cluster"
+        },
+        "network": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SCClusterNetworkEnvironmentEntity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The environment or the network to which cluster belongs"
+        },
+        "package": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ESSENTIALS",
+                "ADVANCED"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Stream governance configuration."
+        },
+        "region": {
+          "type": "string",
+          "description": "The cloud service provider region"
+        },
+        "zone": {
+          "type": "string",
+          "description": "type of zone availability"
+        }
+      },
+      "description": "Spec of the cluster record"
+    },
+    "SCMetadataEntity": {
+      "type": "object",
+      "properties": {
+        "createdTimestamp": {
+          "type": "string",
+          "description": "Created Date Time"
+        },
+        "deletedTimestamp": {
+          "type": "string",
+          "description": "Deleted Date time"
+        },
+        "resourceName": {
+          "type": "string",
+          "description": "Resource name of the record"
+        },
+        "self": {
+          "type": "string",
+          "description": "Self lookup url"
+        },
+        "updatedTimestamp": {
+          "type": "string",
+          "description": "Updated Date time"
+        }
+      },
+      "description": "Metadata of the data record"
+    },
+    "StreamGovernanceConfig": {
+      "type": "object",
+      "properties": {
+        "package": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "ESSENTIALS",
+                "ADVANCED"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Stream governance configuration."
+        }
+      },
+      "description": "Stream governance configuration"
+    },
+    "TopicMetadataEntity": {
+      "type": "object",
+      "properties": {
+        "resourceName": {
+          "type": "string",
+          "description": "Resource name of the record"
+        },
+        "self": {
+          "type": "string",
+          "description": "Self lookup url"
+        }
+      },
+      "description": "Metadata of the data record"
+    },
+    "TopicProperties": {
+      "type": "object",
+      "properties": {
+        "configs": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TopicsRelatedLink"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Partition Config spec of the topic record"
+        },
+        "inputConfigs": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TopicsInputConfig"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Input Config Specification of the topic"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Type of topic"
+        },
+        "metadata": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TopicMetadataEntity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata of the data record"
+        },
+        "partitions": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TopicsRelatedLink"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Partition Config spec of the topic record"
+        },
+        "partitionsCount": {
+          "type": "string",
+          "description": "Partition count of the topic"
+        },
+        "partitionsReassignments": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TopicsRelatedLink"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Partition Config spec of the topic record"
+        },
+        "replicationFactor": {
+          "type": "string",
+          "description": "Replication factor of the topic"
+        },
+        "topicId": {
+          "type": "string",
+          "description": "Topic Id returned by Confluent"
+        }
+      },
+      "description": "Topic Properties"
+    },
+    "TopicsInputConfig": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the topic input config"
+        },
+        "value": {
+          "type": "string",
+          "description": "Value of the topic input config"
+        }
+      },
+      "description": "Topics input config"
+    },
+    "TopicsRelatedLink": {
+      "type": "object",
+      "properties": {
+        "related": {
+          "type": "string",
+          "description": "Relationship of the topic"
+        }
+      },
+      "description": "Partition Config spec of the topic record"
+    },
+    "UserDetail": {
+      "type": "object",
+      "properties": {
+        "aadEmail": {
+          "type": "string",
+          "description": "AAD email address"
+        },
+        "emailAddress": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^\\S+@\\S+\\.\\S+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Email address"
+        },
+        "firstName": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "First name"
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "Last name"
+        },
+        "userPrincipalName": {
+          "type": "string",
+          "description": "User principal name"
+        }
+      },
+      "required": [
+        "emailAddress"
+      ],
+      "description": "Subscriber detail"
+    }
+  }
+}

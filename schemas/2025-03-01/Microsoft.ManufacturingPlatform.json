@@ -1,0 +1,469 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2025-03-01/Microsoft.ManufacturingPlatform.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.ManufacturingPlatform",
+  "description": "Microsoft ManufacturingPlatform Resource Types",
+  "resourceDefinitions": {
+    "manufacturingDataServices": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-03-01"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,23}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MdsResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details of the ManufacturingPlatform MdsResource."
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ManufacturingPlatform/manufacturingDataServices"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ManufacturingPlatform/manufacturingDataServices"
+    }
+  },
+  "definitions": {
+    "CmkProfile": {
+      "type": "object",
+      "properties": {
+        "keyUri": {
+          "type": "string",
+          "description": "URI of Key in AKV"
+        }
+      },
+      "required": [
+        "keyUri"
+      ],
+      "description": "The properties related to CMK"
+    },
+    "DenyAssignmentExclusion": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Object Id of Identity"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of Identity"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "description": "The properties related to Deny Assignment Exclusions"
+    },
+    "FabricProfile": {
+      "type": "object",
+      "properties": {
+        "keyUri": {
+          "type": "string",
+          "description": "Azure Key Vault Uri"
+        },
+        "oneLakePath": {
+          "type": "string",
+          "description": "One Lake Path"
+        },
+        "oneLakeUri": {
+          "type": "string",
+          "description": "URI of One Lake"
+        }
+      },
+      "required": [
+        "keyUri",
+        "oneLakePath",
+        "oneLakeUri"
+      ],
+      "description": "The properties related to Fabric"
+    },
+    "ManagedServiceIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
+    },
+    "MdsResourceProperties": {
+      "type": "object",
+      "properties": {
+        "aadApplicationId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "AAD Application Id."
+        },
+        "aksAdminGroupId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$|^$",
+              "default": "00000000-0000-0000-0000-000000000000"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "AKS Admin Group Id."
+        },
+        "cmkProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CmkProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties related to CMK"
+        },
+        "denyAssignmentExclusions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DenyAssignmentExclusion"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Deny Assignments exclusion list."
+        },
+        "enableCopilot": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enable Copilot."
+        },
+        "enableDiagnosticSettings": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enable Diagnostic Settings."
+        },
+        "fabricProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FabricProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties related to Fabric"
+        },
+        "openAIProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OpenAIProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties related to OpenAI Resource"
+        },
+        "redundancyState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Zonal",
+                "None"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Zone redundancy state for resources."
+        },
+        "resourceState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Active",
+                "Inactive"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "State of the resource."
+        },
+        "userManagedOpenAIProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserManagedOpenAIProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties related to User Managed OpenAI Resource"
+        },
+        "version": {
+          "type": "string",
+          "description": "Mds Resource Version."
+        }
+      },
+      "required": [
+        "aadApplicationId"
+      ],
+      "description": "Details of the ManufacturingPlatform MdsResource."
+    },
+    "OpenAIProfile": {
+      "type": "object",
+      "properties": {
+        "embeddingModelCapacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Embedding Model Capacity"
+        },
+        "embeddingModelName": {
+          "type": "string",
+          "description": "Embedding Model Name"
+        },
+        "embeddingModelSkuName": {
+          "type": "string",
+          "description": "Embedding Model SKU Name"
+        },
+        "embeddingModelVersion": {
+          "type": "string",
+          "description": "Embedding Model Version"
+        },
+        "gptModelCapacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "GPT Model Capacity"
+        },
+        "gptModelName": {
+          "type": "string",
+          "description": "GPT Model Name"
+        },
+        "gptModelSkuName": {
+          "type": "string",
+          "description": "GPT Model SKU Name"
+        },
+        "gptModelVersion": {
+          "type": "string",
+          "description": "GPT Model Version"
+        }
+      },
+      "description": "The properties related to OpenAI Resource"
+    },
+    "Sku": {
+      "type": "object",
+      "properties": {
+        "capacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted."
+        },
+        "family": {
+          "type": "string",
+          "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the SKU. E.g. P3. It is typically a letter+number code"
+        },
+        "size": {
+          "type": "string",
+          "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. "
+        },
+        "tier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Free",
+                "Basic",
+                "Standard",
+                "Premium"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "The resource model definition representing SKU"
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User assigned identity properties"
+    },
+    "UserManagedOpenAIProfile": {
+      "type": "object",
+      "properties": {
+        "embeddingModelDeploymentName": {
+          "type": "string",
+          "description": "Embedding Model Deployment Name"
+        },
+        "gptModelDeploymentName": {
+          "type": "string",
+          "description": "GPT Model Deployment Name"
+        },
+        "id": {
+          "type": "string",
+          "description": "Resource Id of OpenAI Resource"
+        }
+      },
+      "required": [
+        "embeddingModelDeploymentName",
+        "gptModelDeploymentName",
+        "id"
+      ],
+      "description": "The properties related to User Managed OpenAI Resource"
+    }
+  }
+}

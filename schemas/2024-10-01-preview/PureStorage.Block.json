@@ -1,0 +1,479 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-10-01-preview/PureStorage.Block.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "PureStorage.Block",
+  "description": "PureStorage Block Resource Types",
+  "resourceDefinitions": {
+    "reservations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-10-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\-_]{1,127}$",
+              "minLength": 1,
+              "maxLength": 127
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the reservation."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ReservationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource-specific properties for this resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "PureStorage.Block/reservations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "PureStorage.Block/reservations"
+    },
+    "storagePools": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-10-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\-_]{1,127}$",
+              "minLength": 1,
+              "maxLength": 127
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the storage pool"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StoragePoolProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of a storage pool"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "PureStorage.Block/storagePools"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "PureStorage.Block/storagePools"
+    }
+  },
+  "definitions": {
+    "LiftrBaseAddress": {
+      "type": "object",
+      "properties": {
+        "addressLine1": {
+          "type": "string",
+          "description": "Address line 1"
+        },
+        "addressLine2": {
+          "type": "string",
+          "description": "Address line 1"
+        },
+        "city": {
+          "type": "string",
+          "description": "Name of the city"
+        },
+        "country": {
+          "type": "string",
+          "description": "Name of the country"
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "Postal code"
+        },
+        "state": {
+          "type": "string",
+          "description": "State (if any)"
+        }
+      },
+      "required": [
+        "addressLine1",
+        "city",
+        "country",
+        "postalCode",
+        "state"
+      ],
+      "description": "Address details"
+    },
+    "LiftrBaseCompanyDetails": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseAddress"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Address details"
+        },
+        "companyName": {
+          "type": "string",
+          "description": "Company name"
+        }
+      },
+      "required": [
+        "companyName"
+      ],
+      "description": "Company details"
+    },
+    "LiftrBaseMarketplaceDetails": {
+      "type": "object",
+      "properties": {
+        "offerDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseOfferDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Offer details for the marketplace that is selected by the user"
+        },
+        "subscriptionStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "PendingFulfillmentStart",
+                "Subscribed",
+                "Suspended",
+                "Unsubscribed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Marketplace subscription status."
+        }
+      },
+      "required": [
+        "offerDetails"
+      ],
+      "description": "Marketplace details"
+    },
+    "LiftrBaseOfferDetails": {
+      "type": "object",
+      "properties": {
+        "offerId": {
+          "type": "string",
+          "description": "Offer ID for the marketplace offer"
+        },
+        "planId": {
+          "type": "string",
+          "description": "Plan ID for the marketplace offer"
+        },
+        "planName": {
+          "type": "string",
+          "description": "Plan Name for the marketplace offer"
+        },
+        "publisherId": {
+          "type": "string",
+          "description": "Publisher ID for the marketplace offer"
+        },
+        "termId": {
+          "type": "string",
+          "description": "Term ID for the marketplace offer"
+        },
+        "termUnit": {
+          "type": "string",
+          "description": "Term Unit for the marketplace offer"
+        }
+      },
+      "required": [
+        "offerId",
+        "planId",
+        "publisherId"
+      ],
+      "description": "Offer details for the marketplace that is selected by the user"
+    },
+    "ManagedServiceIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
+    },
+    "ReservationProperties": {
+      "type": "object",
+      "properties": {
+        "marketplace": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseMarketplaceDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Marketplace details"
+        },
+        "user": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "User details"
+        }
+      },
+      "required": [
+        "marketplace",
+        "user"
+      ],
+      "description": "The resource-specific properties for this resource."
+    },
+    "StoragePoolProperties": {
+      "type": "object",
+      "properties": {
+        "availabilityZone": {
+          "type": "string",
+          "description": "Azure Availability Zone the Pool is located in"
+        },
+        "provisionedBandwidthMbPerSec": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Total bandwidth provisioned for the pool, in MB/s"
+        },
+        "reservationResourceId": {
+          "type": "string",
+          "description": "Azure resource ID of the Pure Storage Cloud service (reservation resource) this storage pool belongs to"
+        },
+        "vnetInjection": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VnetInjection"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Network in which the storage pool will be made available"
+        }
+      },
+      "required": [
+        "availabilityZone",
+        "provisionedBandwidthMbPerSec",
+        "reservationResourceId",
+        "vnetInjection"
+      ],
+      "description": "Properties of a storage pool"
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User assigned identity properties"
+    },
+    "UserDetails": {
+      "type": "object",
+      "properties": {
+        "companyDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseCompanyDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Company details"
+        },
+        "emailAddress": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9._%+-]+@(?:[A-Za-z0-9-]+\\.)+[A-Za-z]{2,}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Reusable representation of an email address."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "First name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Last name"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number"
+        },
+        "upn": {
+          "type": "string",
+          "description": "Principal name"
+        }
+      },
+      "required": [
+        "emailAddress",
+        "firstName",
+        "lastName"
+      ],
+      "description": "User details"
+    },
+    "VnetInjection": {
+      "type": "object",
+      "properties": {
+        "subnetId": {
+          "type": "string",
+          "description": "Azure resource ID of the Virtual Network subnet where the storage pool will be connected"
+        },
+        "vnetId": {
+          "type": "string",
+          "description": "Azure resource ID of the Virtual Network in which the subnet is located"
+        }
+      },
+      "required": [
+        "subnetId",
+        "vnetId"
+      ],
+      "description": "Network in which the storage pool will be made available"
+    }
+  }
+}

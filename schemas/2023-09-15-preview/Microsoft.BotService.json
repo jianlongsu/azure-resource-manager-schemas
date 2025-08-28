@@ -69,10 +69,10 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/botServices_channels_childResource"
+                "$ref": "#/definitions/botServices_connections_childResource"
               },
               {
-                "$ref": "#/definitions/botServices_connections_childResource"
+                "$ref": "#/definitions/botServices_channels_childResource"
               },
               {
                 "$ref": "#/definitions/botServices_privateEndpointConnections_childResource"
@@ -910,61 +910,61 @@
       "type": "object",
       "oneOf": [
         {
+          "$ref": "#/definitions/AcsChatChannel"
+        },
+        {
           "$ref": "#/definitions/AlexaChannel"
-        },
-        {
-          "$ref": "#/definitions/FacebookChannel"
-        },
-        {
-          "$ref": "#/definitions/EmailChannel"
-        },
-        {
-          "$ref": "#/definitions/OutlookChannel"
-        },
-        {
-          "$ref": "#/definitions/MsTeamsChannel"
-        },
-        {
-          "$ref": "#/definitions/SkypeChannel"
-        },
-        {
-          "$ref": "#/definitions/KikChannel"
-        },
-        {
-          "$ref": "#/definitions/WebChatChannel"
         },
         {
           "$ref": "#/definitions/DirectLineChannel"
         },
         {
-          "$ref": "#/definitions/TelegramChannel"
+          "$ref": "#/definitions/DirectLineSpeechChannel"
         },
         {
-          "$ref": "#/definitions/SmsChannel"
+          "$ref": "#/definitions/EmailChannel"
         },
         {
-          "$ref": "#/definitions/SlackChannel"
+          "$ref": "#/definitions/FacebookChannel"
+        },
+        {
+          "$ref": "#/definitions/KikChannel"
         },
         {
           "$ref": "#/definitions/LineChannel"
         },
         {
-          "$ref": "#/definitions/DirectLineSpeechChannel"
+          "$ref": "#/definitions/M365Extensions"
+        },
+        {
+          "$ref": "#/definitions/MsTeamsChannel"
         },
         {
           "$ref": "#/definitions/Omnichannel"
         },
         {
-          "$ref": "#/definitions/TelephonyChannel"
-        },
-        {
-          "$ref": "#/definitions/AcsChatChannel"
+          "$ref": "#/definitions/OutlookChannel"
         },
         {
           "$ref": "#/definitions/SearchAssistant"
         },
         {
-          "$ref": "#/definitions/M365Extensions"
+          "$ref": "#/definitions/SkypeChannel"
+        },
+        {
+          "$ref": "#/definitions/SlackChannel"
+        },
+        {
+          "$ref": "#/definitions/SmsChannel"
+        },
+        {
+          "$ref": "#/definitions/TelegramChannel"
+        },
+        {
+          "$ref": "#/definitions/TelephonyChannel"
+        },
+        {
+          "$ref": "#/definitions/WebChatChannel"
         }
       ],
       "properties": {
@@ -1003,6 +1003,7 @@
         },
         "clientSecret": {
           "type": "string",
+          "format": "password",
           "description": "Client Secret associated with the Connection Setting"
         },
         "id": {
@@ -1298,6 +1299,7 @@
         },
         "cognitiveServiceSubscriptionKey": {
           "type": "string",
+          "format": "password",
           "description": "The cognitive service subscription key to use with this channel registration."
         },
         "customSpeechModelId": {
@@ -1438,6 +1440,7 @@
         },
         "appSecret": {
           "type": "string",
+          "format": "password",
           "description": "Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty."
         },
         "isEnabled": {
@@ -1477,6 +1480,7 @@
       "properties": {
         "accessToken": {
           "type": "string",
+          "format": "password",
           "description": "Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty."
         },
         "id": {
@@ -1609,10 +1613,12 @@
       "properties": {
         "channelAccessToken": {
           "type": "string",
+          "format": "password",
           "description": "Access token for the line channel registration"
         },
         "channelSecret": {
           "type": "string",
+          "format": "password",
           "description": "Secret for the line channel registration"
         }
       },
@@ -1679,7 +1685,7 @@
         },
         "deploymentEnvironment": {
           "type": "string",
-          "default": "FallbackDeploymentEnvironment",
+          "default": "CommercialDeployment",
           "description": "Deployment environment for Microsoft Teams channel calls"
         },
         "enableCalling": {
@@ -1788,23 +1794,6 @@
             }
           ],
           "description": "A collection of information about the state of the connection between service consumer and provider."
-        },
-        "provisioningState": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Succeeded",
-                "Creating",
-                "Deleting",
-                "Failed"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The provisioning state of the private endpoint connection resource."
         }
       },
       "required": [
@@ -2041,6 +2030,7 @@
         },
         "clientSecret": {
           "type": "string",
+          "format": "password",
           "description": "The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty."
         },
         "isEnabled": {
@@ -2075,10 +2065,12 @@
         },
         "signingSecret": {
           "type": "string",
+          "format": "password",
           "description": "The Slack signing secret."
         },
         "verificationToken": {
           "type": "string",
+          "format": "password",
           "description": "The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty."
         }
       },
@@ -2122,6 +2114,7 @@
         },
         "authToken": {
           "type": "string",
+          "format": "password",
           "description": "The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty."
         },
         "isEnabled": {
@@ -2189,6 +2182,7 @@
       "properties": {
         "accessToken": {
           "type": "string",
+          "format": "password",
           "description": "The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty."
         },
         "isEnabled": {

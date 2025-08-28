@@ -1,0 +1,725 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-05-08/Informatica.DataManagement.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Informatica.DataManagement",
+  "description": "Informatica DataManagement Resource Types",
+  "resourceDefinitions": {
+    "organizations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-05-08"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Organizations resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OrganizationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties specific to the Informatica DataManagement Organization resource."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/organizations_serverlessRuntimes_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Informatica.DataManagement/organizations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Informatica.DataManagement/organizations"
+    },
+    "organizations_serverlessRuntimes": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-05-08"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Serverless Runtime resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InformaticaServerlessRuntimeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Serverless Runtime properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Informatica.DataManagement/organizations/serverlessRuntimes"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Informatica.DataManagement/organizations/serverlessRuntimes"
+    }
+  },
+  "definitions": {
+    "AdvancedCustomProperties": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "advanced custom properties key"
+        },
+        "value": {
+          "type": "string",
+          "description": "advanced custom properties value"
+        }
+      },
+      "description": "Informatica Serverless advanced custom properties"
+    },
+    "ApplicationConfigs": {
+      "type": "object",
+      "properties": {
+        "customized": {
+          "type": "string",
+          "description": "Customized value of the application config."
+        },
+        "defaultValue": {
+          "type": "string",
+          "description": "Default value of the application config."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the application config."
+        },
+        "platform": {
+          "type": "string",
+          "description": "Platform type of the application config."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of the application config."
+        },
+        "value": {
+          "type": "string",
+          "description": "Value of the application config."
+        }
+      },
+      "required": [
+        "customized",
+        "defaultValue",
+        "name",
+        "platform",
+        "type",
+        "value"
+      ],
+      "description": "Application configs"
+    },
+    "CdiConfigProps": {
+      "type": "object",
+      "properties": {
+        "applicationConfigs": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ApplicationConfigs"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ApplicationConfigs of the CDI or CDIE."
+        },
+        "engineName": {
+          "type": "string",
+          "description": "EngineName of the application config."
+        },
+        "engineVersion": {
+          "type": "string",
+          "description": "EngineVersion of the application config."
+        }
+      },
+      "required": [
+        "applicationConfigs",
+        "engineName",
+        "engineVersion"
+      ],
+      "description": "Informatica CDI Configuration Properties."
+    },
+    "CompanyDetails": {
+      "type": "object",
+      "properties": {
+        "business": {
+          "type": "string",
+          "description": "Business phone number"
+        },
+        "companyName": {
+          "type": "string",
+          "description": "company Name"
+        },
+        "country": {
+          "type": "string",
+          "description": "Country name"
+        },
+        "domain": {
+          "type": "string",
+          "description": "Domain name"
+        },
+        "numberOfEmployees": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Number Of Employees"
+        },
+        "officeAddress": {
+          "type": "string",
+          "description": "Office Address"
+        }
+      },
+      "description": "Company Details."
+    },
+    "InformaticaProperties": {
+      "type": "object",
+      "properties": {
+        "informaticaRegion": {
+          "type": "string",
+          "description": "Informatica organization region"
+        },
+        "organizationId": {
+          "type": "string",
+          "description": "Organization id"
+        },
+        "organizationName": {
+          "type": "string",
+          "description": "Organization name"
+        },
+        "singleSignOnUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Single sing on URL for informatica organization"
+        }
+      },
+      "description": "Properties of the Informatica organization."
+    },
+    "InformaticaServerlessRuntimeProperties": {
+      "type": "object",
+      "properties": {
+        "advancedCustomProperties": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdvancedCustomProperties"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "String KV pairs indicating Advanced custom properties."
+        },
+        "applicationType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "CDI",
+                "CDIE"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Application type of the Serverless Runtime environment."
+        },
+        "computeUnits": {
+          "type": "string",
+          "description": "Compute units of the serverless runtime."
+        },
+        "description": {
+          "type": "string",
+          "description": "description of the serverless runtime."
+        },
+        "executionTimeout": {
+          "type": "string",
+          "description": "Serverless Execution timeout"
+        },
+        "platform": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AZURE"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Platform type of the Serverless Runtime."
+        },
+        "serverlessAccountLocation": {
+          "type": "string",
+          "description": "Serverless account creation location"
+        },
+        "serverlessRuntimeConfig": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerlessRuntimeConfigProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Serverless Runtime config properties."
+        },
+        "serverlessRuntimeNetworkProfile": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerlessRuntimeNetworkProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Informatica Serverless Runtime Network Profile."
+        },
+        "serverlessRuntimeTags": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServerlessRuntimeTag"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Serverless Runtime Tags"
+        },
+        "serverlessRuntimeUserContextProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServerlessRuntimeUserContextProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Informatica Serverless Runtime User context properties"
+        },
+        "supplementaryFileLocation": {
+          "type": "string",
+          "description": "Supplementary file location."
+        }
+      },
+      "required": [
+        "serverlessAccountLocation"
+      ],
+      "description": "Serverless Runtime properties."
+    },
+    "LinkOrganization": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "Link organization token"
+        }
+      },
+      "description": "Link Organization"
+    },
+    "MarketplaceDetails": {
+      "type": "object",
+      "properties": {
+        "marketplaceSubscriptionId": {
+          "type": "string",
+          "description": "Marketplace Subscription Id"
+        },
+        "offerDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OfferDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details of the product offering."
+        }
+      },
+      "required": [
+        "offerDetails"
+      ],
+      "description": "Marketplace details."
+    },
+    "NetworkInterfaceConfiguration": {
+      "type": "object",
+      "properties": {
+        "subnetId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Virtual network subnet resource id"
+        },
+        "vnetId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Virtual network resource id"
+        },
+        "vnetResourceGuid": {
+          "type": "string",
+          "description": "Virtual network resource guid"
+        }
+      },
+      "required": [
+        "subnetId",
+        "vnetId"
+      ],
+      "description": "Informatica Serverless Runtime Network Interface configurations."
+    },
+    "OfferDetails": {
+      "type": "object",
+      "properties": {
+        "offerId": {
+          "type": "string",
+          "maxLength": 250,
+          "description": "Id of the product offering."
+        },
+        "planId": {
+          "type": "string",
+          "maxLength": 250,
+          "description": "Id of the product offer plan."
+        },
+        "planName": {
+          "type": "string",
+          "maxLength": 250,
+          "description": "Name of the product offer plan."
+        },
+        "publisherId": {
+          "type": "string",
+          "maxLength": 250,
+          "description": "Id of the product publisher."
+        },
+        "termId": {
+          "type": "string",
+          "maxLength": 250,
+          "description": "Offer plan term id."
+        },
+        "termUnit": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "Offer plan term unit."
+        }
+      },
+      "required": [
+        "offerId",
+        "planId",
+        "planName",
+        "publisherId",
+        "termId"
+      ],
+      "description": "Details of the product offering."
+    },
+    "OrganizationProperties": {
+      "type": "object",
+      "properties": {
+        "companyDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CompanyDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Company Details."
+        },
+        "informaticaProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InformaticaProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of the Informatica organization."
+        },
+        "linkOrganization": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkOrganization"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Link Organization"
+        },
+        "marketplaceDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MarketplaceDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Marketplace details."
+        },
+        "userDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "User Info of Informatica Organization resource."
+        }
+      },
+      "description": "Properties specific to the Informatica DataManagement Organization resource."
+    },
+    "organizations_serverlessRuntimes_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-05-08"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Serverless Runtime resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InformaticaServerlessRuntimeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Serverless Runtime properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "serverlessRuntimes"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Informatica.DataManagement/organizations/serverlessRuntimes"
+    },
+    "ServerlessRuntimeConfigProperties": {
+      "type": "object",
+      "properties": {
+        "cdiConfigProps": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CdiConfigProps"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The List of Informatica Serverless Runtime CDI Config Properties."
+        },
+        "cdieConfigProps": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CdiConfigProps"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The List of Informatica Serverless Runtime CDIE Config Properties."
+        }
+      },
+      "description": "Serverless Runtime config properties."
+    },
+    "ServerlessRuntimeNetworkProfile": {
+      "type": "object",
+      "properties": {
+        "networkInterfaceConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkInterfaceConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Informatica Serverless Runtime Network Interface configurations."
+        }
+      },
+      "required": [
+        "networkInterfaceConfiguration"
+      ],
+      "description": "Informatica Serverless Runtime Network Profile."
+    },
+    "ServerlessRuntimeTag": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name (also known as the key) of the tag."
+        },
+        "value": {
+          "type": "string",
+          "description": "The value of the tag."
+        }
+      },
+      "description": "Serverless Runtime Tags"
+    },
+    "ServerlessRuntimeUserContextProperties": {
+      "type": "object",
+      "properties": {
+        "userContextToken": {
+          "type": "string",
+          "description": "User context token for OBO flow."
+        }
+      },
+      "required": [
+        "userContextToken"
+      ],
+      "description": "Informatica Serverless Runtime User context properties"
+    },
+    "UserDetails": {
+      "type": "object",
+      "properties": {
+        "emailAddress": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9._%+-]+@(?:[A-Za-z0-9-]+\\.)+[A-Za-z]{2,}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Reusable representation of an email address."
+        },
+        "firstName": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "User first name."
+        },
+        "lastName": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "User last name."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "maxLength": 40,
+          "description": "Phone number of the user used by for contacting them if needed"
+        },
+        "upn": {
+          "type": "string",
+          "description": "UPN of user"
+        }
+      },
+      "description": "User Info of Informatica Organization resource."
+    }
+  }
+}

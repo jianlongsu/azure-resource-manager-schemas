@@ -1,0 +1,463 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-09-30-preview/Microsoft.MySQLDiscovery.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.MySQLDiscovery",
+  "description": "Microsoft MySQLDiscovery Resource Types",
+  "resourceDefinitions": {
+    "MySQLSites": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-09-30-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The extended location for off-azure resources."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]*$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of Site"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MySQLSiteProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "MySQL Site properties"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/MySQLSites_MySQLServers_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MySQLDiscovery/MySQLSites"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "extendedLocation",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MySQLDiscovery/MySQLSites"
+    },
+    "MySQLSites_MySQLServers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-09-30-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]*$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of Server"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MySQLServerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "MySQL Server properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.MySQLDiscovery/MySQLSites/MySQLServers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MySQLDiscovery/MySQLSites/MySQLServers"
+    }
+  },
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The error code."
+        },
+        "id": {
+          "type": "string",
+          "description": "The error ID."
+        },
+        "message": {
+          "type": "string",
+          "description": "The detailed error message."
+        },
+        "possibleCause": {
+          "type": "string",
+          "description": "The error possible cause."
+        },
+        "recommendedAction": {
+          "type": "string",
+          "description": "Gets description of the checkpoint."
+        },
+        "runAsAccountId": {
+          "type": "string",
+          "description": "The account ID used to login."
+        },
+        "severity": {
+          "type": "string",
+          "description": "Gets description of the severity."
+        },
+        "summaryMessage": {
+          "type": "string",
+          "description": "The summarized error message."
+        },
+        "updatedTimeStamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time when this error was last updated."
+        }
+      },
+      "description": "Defines the error."
+    },
+    "ExtendedLocation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The extended location name."
+        },
+        "type": {
+          "type": "string",
+          "description": "The extended location type."
+        }
+      },
+      "description": "The extended location for off-azure resources."
+    },
+    "MySQLServerProperties": {
+      "type": "object",
+      "properties": {
+        "edition": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Community",
+                "Enterprise"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "mysql server edition."
+        },
+        "errors": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Error"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of errors."
+        },
+        "hostIp": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Server IP/host name."
+        },
+        "hostName": {
+          "type": "string",
+          "description": "The Server IP/host name."
+        },
+        "labels": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource labels."
+        },
+        "machineId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "discovery Machine Id"
+        },
+        "mysqlVersion": {
+          "type": "string",
+          "description": "The mysql server version."
+        },
+        "numberOfDatabase": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The number of database."
+        },
+        "portNumber": {
+          "type": "string",
+          "description": "MySQL Server port number"
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Creating",
+                "Deleting",
+                "Updating"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets the provisioning state."
+        },
+        "supportEndIn": {
+          "type": "string",
+          "format": "date",
+          "description": "Time when mysql version support end."
+        },
+        "supportStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "OutOfSupport",
+                "Extended",
+                "Mainstream"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "mysql version support status."
+        }
+      },
+      "required": [
+        "hostName",
+        "portNumber"
+      ],
+      "description": "MySQL Server properties"
+    },
+    "MySQLSiteProperties": {
+      "type": "object",
+      "properties": {
+        "masterSiteId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "The mapped master Site Id."
+        },
+        "migrateProjectId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "The mapped migrate project Id."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Succeeded",
+                "Failed",
+                "Canceled",
+                "Creating",
+                "Deleting",
+                "Updating"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets the provisioning state."
+        }
+      },
+      "required": [
+        "masterSiteId",
+        "migrateProjectId"
+      ],
+      "description": "MySQL Site properties"
+    },
+    "MySQLSites_MySQLServers_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-09-30-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]*$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of Server"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MySQLServerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "MySQL Server properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "MySQLServers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.MySQLDiscovery/MySQLSites/MySQLServers"
+    }
+  }
+}

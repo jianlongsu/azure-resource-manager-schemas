@@ -114,7 +114,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the artifact source."
+          "description": "The name of the ArtifactSource"
         },
         "properties": {
           "oneOf": [
@@ -172,7 +172,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the cost."
+          "description": "The name of the LabCost"
         },
         "properties": {
           "oneOf": [
@@ -230,7 +230,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the custom image."
+          "description": "The name of the CustomImage"
         },
         "properties": {
           "oneOf": [
@@ -288,7 +288,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the formula."
+          "description": "The name of the Formula"
         },
         "properties": {
           "oneOf": [
@@ -346,7 +346,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the notification channel."
+          "description": "The name of the NotificationChannel"
         },
         "properties": {
           "oneOf": [
@@ -404,7 +404,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The name of the Schedule"
         },
         "properties": {
           "oneOf": [
@@ -462,7 +462,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the schedule."
+          "description": "The name of the Schedule"
         },
         "properties": {
           "oneOf": [
@@ -531,7 +531,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the service runner."
+          "description": "The name of the ServiceRunner"
         },
         "tags": {
           "oneOf": [
@@ -577,7 +577,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the user profile."
+          "description": "The name of the User"
         },
         "properties": {
           "oneOf": [
@@ -654,7 +654,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the disk."
+          "description": "The name of the Disk"
         },
         "properties": {
           "oneOf": [
@@ -712,7 +712,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the environment."
+          "description": "The name of the DtlEnvironment"
         },
         "properties": {
           "oneOf": [
@@ -770,7 +770,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the secret."
+          "description": "The name of the Secret"
         },
         "properties": {
           "oneOf": [
@@ -828,7 +828,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the service fabric."
+          "description": "The name of the ServiceFabric"
         },
         "properties": {
           "oneOf": [
@@ -896,7 +896,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the schedule."
+          "description": "The name of the Schedule"
         },
         "properties": {
           "oneOf": [
@@ -954,7 +954,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the virtual machine."
+          "description": "The name of the LabVirtualMachine"
         },
         "properties": {
           "oneOf": [
@@ -1022,7 +1022,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the schedule."
+          "description": "The name of the Schedule"
         },
         "properties": {
           "oneOf": [
@@ -1080,7 +1080,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the virtual network."
+          "description": "The name of the VirtualNetwork"
         },
         "properties": {
           "oneOf": [
@@ -1138,7 +1138,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the schedule."
+          "description": "The name of the Schedule"
         },
         "properties": {
           "oneOf": [
@@ -2141,7 +2141,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The setting to enable usage of premium data disks.\r\nWhen its value is 'Enabled', creation of standard or premium data disks is allowed.\r\nWhen its value is 'Disabled', only creation of standard data disks is allowed."
+          "description": "The setting to enable usage of premium data disks.\nWhen its value is 'Enabled', creation of standard or premium data disks is allowed.\nWhen its value is 'Disabled', only creation of standard data disks is allowed."
         },
         "support": {
           "oneOf": [
@@ -2197,7 +2197,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the artifact source."
+          "description": "The name of the ArtifactSource"
         },
         "properties": {
           "oneOf": [
@@ -2255,7 +2255,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the cost."
+          "description": "The name of the LabCost"
         },
         "properties": {
           "oneOf": [
@@ -2313,7 +2313,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the custom image."
+          "description": "The name of the CustomImage"
         },
         "properties": {
           "oneOf": [
@@ -2371,7 +2371,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the formula."
+          "description": "The name of the Formula"
         },
         "properties": {
           "oneOf": [
@@ -2429,7 +2429,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the notification channel."
+          "description": "The name of the NotificationChannel"
         },
         "properties": {
           "oneOf": [
@@ -2487,7 +2487,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the schedule."
+          "description": "The name of the Schedule"
         },
         "properties": {
           "oneOf": [
@@ -2556,7 +2556,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the service runner."
+          "description": "The name of the ServiceRunner"
         },
         "tags": {
           "oneOf": [
@@ -2602,7 +2602,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the user profile."
+          "description": "The name of the User"
         },
         "properties": {
           "oneOf": [
@@ -2660,7 +2660,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the disk."
+          "description": "The name of the Disk"
         },
         "properties": {
           "oneOf": [
@@ -2718,7 +2718,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the environment."
+          "description": "The name of the DtlEnvironment"
         },
         "properties": {
           "oneOf": [
@@ -2776,7 +2776,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the secret."
+          "description": "The name of the Secret"
         },
         "properties": {
           "oneOf": [
@@ -2834,7 +2834,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the service fabric."
+          "description": "The name of the ServiceFabric"
         },
         "properties": {
           "oneOf": [
@@ -2892,7 +2892,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the schedule."
+          "description": "The name of the Schedule"
         },
         "properties": {
           "oneOf": [
@@ -2950,7 +2950,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the virtual machine."
+          "description": "The name of the LabVirtualMachine"
         },
         "properties": {
           "oneOf": [
@@ -3008,7 +3008,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the schedule."
+          "description": "The name of the Schedule"
         },
         "properties": {
           "oneOf": [
@@ -3066,7 +3066,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the virtual network."
+          "description": "The name of the VirtualNetwork"
         },
         "properties": {
           "oneOf": [

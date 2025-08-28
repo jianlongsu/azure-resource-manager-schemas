@@ -1,0 +1,91 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-04-01/GitHub.Network.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "GitHub.Network",
+  "description": "GitHub Network Resource Types",
+  "resourceDefinitions": {
+    "networkSettings": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the GitHub.Network resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkSettingsResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "NetworkSettings resource-specific properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "GitHub.Network/networkSettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "GitHub.Network/networkSettings"
+    }
+  },
+  "definitions": {
+    "NetworkSettingsResourceProperties": {
+      "type": "object",
+      "properties": {
+        "businessId": {
+          "type": "string",
+          "description": "Specifies the GitHub business (enterprise/organization) ID associated to the Azure subscription."
+        },
+        "subnetId": {
+          "type": "string",
+          "description": "Specifies a subnet ID for vnet-injection."
+        }
+      },
+      "description": "NetworkSettings resource-specific properties."
+    }
+  }
+}

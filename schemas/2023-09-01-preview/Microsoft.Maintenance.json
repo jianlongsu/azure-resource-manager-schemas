@@ -385,7 +385,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Classification category of patches to be patched"
+          "description": "Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'."
         },
         "packageNameMasksToExclude": {
           "oneOf": [
@@ -477,7 +477,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Classification category of patches to be patched"
+          "description": "Classification category of patches to be patched. Allowed values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', and 'Updates'."
         },
         "excludeKbsRequiringReboot": {
           "oneOf": [

@@ -197,7 +197,7 @@
         "adxClusterResourceId": {
           "type": "string",
           "format": "arm-id",
-          "description": "The Azure ResourceId of an Azure Data Explorer cluster."
+          "description": "The Azure resource ID of an Azure Data Explorer cluster."
         },
         "kustoClusterDisplayName": {
           "type": "string",
@@ -290,7 +290,7 @@
       "properties": {
         "dnsZone": {
           "type": "string",
-          "description": "The DNS zone to be included in the DNS name of the shared private link. Value is service-specific."
+          "description": "The DNS zone segment to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances, and must be omitted for SQL logical servers and key vaults. The value is the second segment of the host FQDN name of the resource that the shared private link resource is for. For example: if the host name is 'adx-cluster-21187695.eastus.kusto.windows.net', then the value is 'eastus'; if the host name is 'sql-mi-23961134.767d5869f605.database.windows.net', then the value is '767d5869f605'."
         },
         "groupId": {
           "type": "string",
@@ -299,7 +299,7 @@
         "privateLinkResourceId": {
           "type": "string",
           "format": "arm-id",
-          "description": "The resource id of the resource the shared private link resource is for."
+          "description": "The resource ID of the resource the shared private link resource is for."
         },
         "requestMessage": {
           "type": "string",
@@ -319,7 +319,7 @@
         "anchorDatabaseResourceId": {
           "type": "string",
           "format": "arm-id",
-          "description": "The Azure ResourceId of the anchor database used to connect to an elastic pool."
+          "description": "The Azure resource ID of the anchor database used to connect to an elastic pool."
         },
         "readIntent": {
           "oneOf": [
@@ -336,7 +336,7 @@
         "sqlEpResourceId": {
           "type": "string",
           "format": "arm-id",
-          "description": "The Azure ResourceId of an Azure SQL DB elastic pool target."
+          "description": "The Azure resource ID of an Azure SQL DB elastic pool target."
         },
         "targetType": {
           "type": "string",
@@ -350,7 +350,7 @@
         "sqlEpResourceId",
         "targetType"
       ],
-      "description": "The properties specific to elastic pool in Azure SQL Database."
+      "description": "The properties specific to an elastic pool in Azure SQL Database."
     },
     "SqlDbSingleDatabaseTargetProperties": {
       "type": "object",
@@ -370,7 +370,7 @@
         "sqlDbResourceId": {
           "type": "string",
           "format": "arm-id",
-          "description": "The Azure ResourceId of an Azure SQL DB single database target."
+          "description": "The Azure resource ID of an Azure SQL DB database target."
         },
         "targetType": {
           "type": "string",
@@ -383,7 +383,7 @@
         "sqlDbResourceId",
         "targetType"
       ],
-      "description": "The properties specific to single database in Azure SQL Database."
+      "description": "The properties specific to a database in Azure SQL Database."
     },
     "SqlMiTargetProperties": {
       "type": "object",
@@ -415,7 +415,7 @@
         "sqlMiResourceId": {
           "type": "string",
           "format": "arm-id",
-          "description": "The Azure ResourceId of an Azure SQL Managed Instance target."
+          "description": "The Azure resource ID of an Azure SQL Managed Instance target."
         },
         "targetType": {
           "type": "string",
@@ -452,7 +452,7 @@
         "sqlVmResourceId": {
           "type": "string",
           "format": "arm-id",
-          "description": "The Azure ResourceId of an Azure SQL VM target."
+          "description": "The Azure resource ID of an Azure SQL VM target."
         },
         "targetType": {
           "type": "string",
@@ -487,7 +487,7 @@
         "connectionServerName": {
           "type": "string",
           "maxLength": 200,
-          "description": "The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately."
+          "description": "The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately."
         },
         "targetAuthenticationType": {
           "oneOf": [
@@ -503,21 +503,6 @@
             }
           ],
           "description": "The type of authentication to use when connecting to a target."
-        },
-        "targetCollectionStatus": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Enabled",
-                "Disabled"
-              ]
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "The target collection status."
         },
         "targetVault": {
           "oneOf": [
@@ -548,14 +533,30 @@
         "akvResourceId": {
           "type": "string",
           "format": "arm-id",
-          "description": "The Azure ResourceId of the Key Vault instance storing database authentication secrets."
+          "description": "The Azure resource ID of the Key Vault instance storing database authentication secrets."
         },
         "akvTargetPassword": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{1,127}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "The path to the Key Vault secret storing the password for authentication to a target."
         },
         "akvTargetUser": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{1,127}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
           "description": "The path to the Key Vault secret storing the login name (aka user name, aka account name) for authentication to a target."
         }
       },

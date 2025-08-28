@@ -530,7 +530,31 @@
                   "$ref": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.Advisor.json#/unknown_resourceDefinitions/recommendations_suppressions"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2023-09-01-preview/Microsoft.Advisor.json#/unknown_resourceDefinitions/recommendations_suppressions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-11-18-preview/Microsoft.Advisor.json#/unknown_resourceDefinitions/recommendations_suppressions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-01-01/Microsoft.Advisor.json#/unknown_resourceDefinitions/recommendations_suppressions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-05-01-preview/Microsoft.Advisor.json#/unknown_resourceDefinitions/recommendations_suppressions"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2022-11-16-preview/Microsoft.AppComplianceAutomation.json#/tenant_resourceDefinitions/reports"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-06-27/Microsoft.AppComplianceAutomation.json#/tenant_resourceDefinitions/reports"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-06-27/Microsoft.AppComplianceAutomation.json#/tenant_resourceDefinitions/reports_evidences"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-06-27/Microsoft.AppComplianceAutomation.json#/tenant_resourceDefinitions/reports_scopingConfigurations"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-06-27/Microsoft.AppComplianceAutomation.json#/tenant_resourceDefinitions/reports_webhooks"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2015-07-01/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignments"
@@ -611,6 +635,24 @@
                   "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleDefinitions"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-09-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-09-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-09-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2017-09-01/Microsoft.Authorization.json#/resourceDefinitions/roleAssignments"
                 },
                 {
@@ -674,10 +716,61 @@
                   "$ref": "https://schema.management.azure.com/schemas/2021-10-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingSubscriptionAliases"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_associatedTenants"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles_customers_policies"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles_customers_transfers"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles_invoiceSections"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles_invoiceSections_transfers"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingProfiles_policies"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingRoleAssignments"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_billingSubscriptionAliases"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_customers_policies"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_departments_billingRoleAssignments"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_enrollmentAccounts_billingRoleAssignments"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_policies"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#/tenant_resourceDefinitions/billingRequests"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-08-01-preview/Microsoft.Billing.json#/tenant_resourceDefinitions/billingAccounts_migrations"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.BillingBenefits.json#/tenant_resourceDefinitions/reservationOrderAliases"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2022-11-01/Microsoft.BillingBenefits.json#/tenant_resourceDefinitions/savingsPlanOrderAliases"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-11-01-preview/Microsoft.BillingBenefits.json#/tenant_resourceDefinitions/reservationOrderAliases"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-11-01-preview/Microsoft.BillingBenefits.json#/tenant_resourceDefinitions/savingsPlanOrderAliases"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2019-04-01/Microsoft.Capacity.json#/tenant_resourceDefinitions/reservationOrders"
@@ -746,6 +839,12 @@
                   "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.CostManagement.json#/tenant_resourceDefinitions/views"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.CostManagement.json#/tenant_resourceDefinitions/scheduledActions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.CostManagement.json#/tenant_resourceDefinitions/views"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2023-08-01/Microsoft.CostManagement.json#/tenant_resourceDefinitions/scheduledActions"
                 },
                 {
@@ -762,6 +861,24 @@
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2023-11-01/Microsoft.CostManagement.json#/tenant_resourceDefinitions/views"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-08-01/Microsoft.CostManagement.json#/tenant_resourceDefinitions/scheduledActions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-08-01/Microsoft.CostManagement.json#/tenant_resourceDefinitions/views"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.CostManagement.json#/tenant_resourceDefinitions/scheduledActions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.CostManagement.json#/tenant_resourceDefinitions/views"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-03-01/Microsoft.CostManagement.json#/tenant_resourceDefinitions/scheduledActions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-03-01/Microsoft.CostManagement.json#/tenant_resourceDefinitions/views"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2015-01-14-preview/Microsoft.Intune.json#/tenant_resourceDefinitions/locations_androidPolicies"
@@ -849,6 +966,18 @@
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Management.json#/tenant_resourceDefinitions/managementGroups_subscriptions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Management.json#/tenant_resourceDefinitions/managementGroups"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Management.json#/tenant_resourceDefinitions/managementGroups_settings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Management.json#/tenant_resourceDefinitions/managementGroups_subscriptions"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Management.json#/tenant_resourceDefinitions/serviceGroups"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2018-02-01/Microsoft.ManagementPartner.json#/tenant_resourceDefinitions/partners"
@@ -941,6 +1070,21 @@
                   "$ref": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.Marketplace.json#/tenant_resourceDefinitions/privateStores_requestApprovals"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-01-01/Microsoft.Marketplace.json#/tenant_resourceDefinitions/privateStores"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-01-01/Microsoft.Marketplace.json#/tenant_resourceDefinitions/privateStores_adminRequestApprovals"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-01-01/Microsoft.Marketplace.json#/tenant_resourceDefinitions/privateStores_collections"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-01-01/Microsoft.Marketplace.json#/tenant_resourceDefinitions/privateStores_collections_offers"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-01-01/Microsoft.Marketplace.json#/tenant_resourceDefinitions/privateStores_requestApprovals"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2021-05-01-preview/Microsoft.Network.NRP.json#/tenant_resourceDefinitions/managementGroups_networkManagerConnections"
                 },
                 {
@@ -948,6 +1092,18 @@
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2020-09-01-preview/Microsoft.Portal.json#/tenant_resourceDefinitions/tenantConfigurations"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2022-12-01-preview/Microsoft.Portal.json#/tenant_resourceDefinitions/tenantConfigurations"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-04-01-preview/Microsoft.Portal.json#/tenant_resourceDefinitions/tenantConfigurations"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.PortalServices.json#/tenant_resourceDefinitions/copilotSettings"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01-preview/Microsoft.PortalServices.json#/tenant_resourceDefinitions/copilotSettings"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2019-07-01/Microsoft.Resources.json#/tenant_resourceDefinitions/deployments"
@@ -980,6 +1136,9 @@
                   "$ref": "https://schema.management.azure.com/schemas/2023-07-01/Microsoft.Resources.json#/tenant_resourceDefinitions/deployments"
                 },
                 {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-08-01/Microsoft.Resources.json#/tenant_resourceDefinitions/dataBoundaries"
+                },
+                {
                   "$ref": "https://schema.management.azure.com/schemas/2023-02-15-preview/Microsoft.Security.json#/tenant_resourceDefinitions/sensitivitySettings"
                 },
                 {
@@ -996,6 +1155,12 @@
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2021-10-01/Microsoft.Subscription.json#/tenant_resourceDefinitions/policies"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-08-01-preview/Microsoft.Subscription.json#/tenant_resourceDefinitions/aliases"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-08-01-preview/Microsoft.Subscription.json#/tenant_resourceDefinitions/policies"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2015-08-01/Microsoft.Web.json#/tenant_resourceDefinitions/publishingUsers"
@@ -1086,6 +1251,24 @@
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2023-01-01/Microsoft.Web.json#/tenant_resourceDefinitions/sourcecontrols"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2023-12-01/Microsoft.Web.json#/tenant_resourceDefinitions/publishingUsers"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2023-12-01/Microsoft.Web.json#/tenant_resourceDefinitions/sourcecontrols"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Web.json#/tenant_resourceDefinitions/publishingUsers"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Web.json#/tenant_resourceDefinitions/sourcecontrols"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-11-01/Microsoft.Web.json#/tenant_resourceDefinitions/publishingUsers"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2024-11-01/Microsoft.Web.json#/tenant_resourceDefinitions/sourcecontrols"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2022-08-29/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks"
@@ -1212,6 +1395,60 @@
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/2024-02-07-preview/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_preRules"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_certificates"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_fqdnlists"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_postRules"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_prefixlists"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_preRules"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-05-23/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-05-23/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_certificates"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-05-23/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_fqdnlists"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-05-23/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_postRules"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-05-23/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_prefixlists"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-05-23/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_preRules"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-07-07-preview/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-07-07-preview/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_certificates"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-07-07-preview/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_fqdnlists"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-07-07-preview/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_postRules"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-07-07-preview/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_prefixlists"
+                },
+                {
+                  "$ref": "https://schema.management.azure.com/schemas/2025-07-07-preview/PaloAltoNetworks.Cloudngfw.json#/tenant_resourceDefinitions/globalRulestacks_preRules"
                 }
               ]
             }

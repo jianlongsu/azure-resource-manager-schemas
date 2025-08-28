@@ -1,0 +1,3692 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2025-07-01-preview/Microsoft.DeviceRegistry.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.DeviceRegistry",
+  "description": "Microsoft DeviceRegistry Resource Types",
+  "resourceDefinitions": {
+    "assetEndpointProfiles": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Asset Endpoint Profile name parameter."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssetEndpointProfileProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the Asset Endpoint Profile properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DeviceRegistry/assetEndpointProfiles"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "extendedLocation",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/assetEndpointProfiles"
+    },
+    "assets": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Asset name parameter."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the asset properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DeviceRegistry/assets"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "extendedLocation",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/assets"
+    },
+    "namespaces": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemAssignedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (either system assigned, or none)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+              "minLength": 3,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the namespace."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NamespaceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The namespace properties model."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/namespaces_assets_childResource"
+              },
+              {
+                "$ref": "#/definitions/namespaces_devices_childResource"
+              },
+              {
+                "$ref": "#/definitions/namespaces_discoveredAssets_childResource"
+              },
+              {
+                "$ref": "#/definitions/namespaces_discoveredDevices_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DeviceRegistry/namespaces"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/namespaces"
+    },
+    "namespaces_assets": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the asset."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NamespaceAssetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the asset properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DeviceRegistry/namespaces/assets"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "extendedLocation",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/namespaces/assets"
+    },
+    "namespaces_devices": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-zA-Z][a-zA-Z0-9-]*$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the device."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NamespaceDeviceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the device properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DeviceRegistry/namespaces/devices"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/namespaces/devices"
+    },
+    "namespaces_discoveredAssets": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the discovered asset."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NamespaceDiscoveredAssetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the discovered asset properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DeviceRegistry/namespaces/discoveredAssets"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "extendedLocation",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/namespaces/discoveredAssets"
+    },
+    "namespaces_discoveredDevices": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the discovered device."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NamespaceDiscoveredDeviceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the discovered device properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DeviceRegistry/namespaces/discoveredDevices"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "extendedLocation",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/namespaces/discoveredDevices"
+    },
+    "schemaRegistries": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemAssignedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (either system assigned, or none)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Schema registry name parameter."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchemaRegistryProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the schema registry properties."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/schemaRegistries_schemas_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DeviceRegistry/schemaRegistries"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/schemaRegistries"
+    },
+    "schemaRegistries_schemas": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+              "minLength": 3,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Schema name parameter."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchemaProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the schema properties."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/schemaRegistries_schemas_schemaVersions_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DeviceRegistry/schemaRegistries/schemas"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/schemaRegistries/schemas"
+    },
+    "schemaRegistries_schemas_schemaVersions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]*$",
+              "minLength": 1,
+              "maxLength": 10
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Schema version name parameter."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchemaVersionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the schema version properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions"
+    }
+  },
+  "definitions": {
+    "AssetEndpointProfileProperties": {
+      "type": "object",
+      "properties": {
+        "additionalConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF)."
+        },
+        "authentication": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Authentication"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Definition of the client authentication mechanism to the server."
+        },
+        "discoveredAssetEndpointProfileRef": {
+          "type": "string",
+          "description": "Reference to a discovered asset endpoint profile. Populated only if the asset endpoint profile has been created from discovery flow. Discovered asset endpoint profile name must be provided."
+        },
+        "endpointProfileType": {
+          "type": "string",
+          "description": "Defines the configuration for the connector type that is being used with the endpoint profile."
+        },
+        "targetAddress": {
+          "type": "string",
+          "format": "uri",
+          "description": "The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration."
+        }
+      },
+      "required": [
+        "endpointProfileType",
+        "targetAddress"
+      ],
+      "description": "Defines the Asset Endpoint Profile properties."
+    },
+    "AssetProperties": {
+      "type": "object",
+      "properties": {
+        "assetEndpointProfileRef": {
+          "type": "string",
+          "description": "A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name."
+        },
+        "attributes": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A set of key-value pairs that contain custom attributes set by the customer."
+        },
+        "datasets": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Dataset"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of datasets that are part of the asset. Each dataset describes the data points that make up the set."
+        },
+        "defaultDatasetsConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here."
+        },
+        "defaultEventsConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here."
+        },
+        "defaultTopic": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Topic"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Object that describes the topic information."
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the asset."
+        },
+        "discoveredAssetRefs": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Human-readable display name."
+        },
+        "documentationUri": {
+          "type": "string",
+          "description": "Reference to the documentation."
+        },
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enabled/Disabled status of the asset."
+        },
+        "events": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Event"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of events that are part of the asset. Each event can have per-event configuration."
+        },
+        "externalAssetId": {
+          "type": "string",
+          "description": "Asset id provided by the customer."
+        },
+        "hardwareRevision": {
+          "type": "string",
+          "description": "Revision number of the hardware."
+        },
+        "manufacturer": {
+          "type": "string",
+          "description": "Asset manufacturer name."
+        },
+        "manufacturerUri": {
+          "type": "string",
+          "description": "Asset manufacturer URI."
+        },
+        "model": {
+          "type": "string",
+          "description": "Asset model name."
+        },
+        "productCode": {
+          "type": "string",
+          "description": "Asset product code."
+        },
+        "serialNumber": {
+          "type": "string",
+          "description": "Asset serial number."
+        },
+        "softwareRevision": {
+          "type": "string",
+          "description": "Revision number of the software."
+        }
+      },
+      "required": [
+        "assetEndpointProfileRef"
+      ],
+      "description": "Defines the asset properties."
+    },
+    "Authentication": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Anonymous",
+                "Certificate",
+                "UsernamePassword"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the method to authenticate the user of the client at the server."
+        },
+        "usernamePasswordCredentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UsernamePasswordCredentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The credentials for authentication mode UsernamePassword."
+        },
+        "x509Credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/X509Credentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The x509 certificate for authentication mode Certificate."
+        }
+      },
+      "required": [
+        "method"
+      ],
+      "description": "Definition of the client authentication mechanism to the server."
+    },
+    "BrokerStateStoreDestinationConfiguration": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The MQTT broker state store destination key."
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "description": "The configuration for a MQTT broker state store destination."
+    },
+    "DataPoint": {
+      "type": "object",
+      "properties": {
+        "dataPointConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize."
+        },
+        "dataSource": {
+          "type": "string",
+          "description": "The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the data point."
+        },
+        "observabilityMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "Counter",
+                "Gauge",
+                "Histogram",
+                "Log"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "An indication of how the data point should be mapped to OpenTelemetry."
+        }
+      },
+      "required": [
+        "dataSource",
+        "name"
+      ],
+      "description": "Defines the data point properties."
+    },
+    "Dataset": {
+      "type": "object",
+      "properties": {
+        "dataPoints": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataPoint"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of data points that are part of the dataset. Each data point can have per-data point configuration."
+        },
+        "datasetConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the dataset."
+        },
+        "topic": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Topic"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Object that describes the topic information."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Defines the dataset properties."
+    },
+    "DatasetBrokerStateStoreDestination": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BrokerStateStoreDestinationConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The configuration for a MQTT broker state store destination."
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "BrokerStateStore"
+          ]
+        }
+      },
+      "required": [
+        "configuration",
+        "target"
+      ],
+      "description": "The type for a MQTT broker state store destination."
+    },
+    "DatasetDestination": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/DatasetBrokerStateStoreDestination"
+        },
+        {
+          "$ref": "#/definitions/DatasetMqttDestination"
+        },
+        {
+          "$ref": "#/definitions/DatasetStorageDestination"
+        }
+      ],
+      "properties": {},
+      "description": "The type of the destination."
+    },
+    "DatasetMqttDestination": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MqttDestinationConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The configuration for a MQTT destination."
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "Mqtt"
+          ]
+        }
+      },
+      "required": [
+        "configuration",
+        "target"
+      ],
+      "description": "The type for a MQTT destination."
+    },
+    "DatasetStorageDestination": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageDestinationConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The configuration for a storage destination."
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "Storage"
+          ]
+        }
+      },
+      "required": [
+        "configuration",
+        "target"
+      ],
+      "description": "The type for a storage destination."
+    },
+    "DeviceMessagingEndpoint": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "description": "The endpoint address to connect to."
+        },
+        "endpointType": {
+          "type": "string",
+          "description": "Type of connection used for the messaging endpoint."
+        }
+      },
+      "required": [
+        "address"
+      ],
+      "description": "Device messaging endpoint model."
+    },
+    "DeviceRef": {
+      "type": "object",
+      "properties": {
+        "deviceName": {
+          "type": "string",
+          "description": "Name of the device resource"
+        },
+        "endpointName": {
+          "type": "string",
+          "description": "The name of endpoint to use"
+        }
+      },
+      "required": [
+        "deviceName",
+        "endpointName"
+      ],
+      "description": "Defines which device and endpoint to use for this asset"
+    },
+    "DiscoveredInboundEndpoints": {
+      "type": "object",
+      "properties": {
+        "additionalConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF)."
+        },
+        "address": {
+          "type": "string",
+          "description": "The endpoint address & port. This can be either an IP address (e.g., 192.168.1.1) or a fully qualified domain name (FQDN, e.g., server.example.com)."
+        },
+        "endpointType": {
+          "type": "string",
+          "description": "Type of connection endpoint."
+        },
+        "lastUpdatedOn": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp (in UTC) when the endpoint was discovered."
+        },
+        "supportedAuthenticationMethods": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Anonymous",
+                  "Certificate",
+                  "UsernamePassword"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of supported authentication methods supported by device for Inbound connections."
+        },
+        "version": {
+          "type": "string",
+          "description": "Protocol version associated with the endpoint e.g. 1 or 2 for endpointType Microsoft.HTTP, and 3.5 or 5.0 for endpointType Microsoft.Mqtt etc."
+        }
+      },
+      "required": [
+        "address",
+        "endpointType"
+      ],
+      "description": "An endpoint to connect to the device."
+    },
+    "DiscoveredMessagingEndpoints": {
+      "type": "object",
+      "properties": {
+        "inbound": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/DiscoveredInboundEndpoints"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Set of endpoints to connect to the device."
+        },
+        "outbound": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiscoveredOutboundEndpoints"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Property bag contains the device's outbound endpoints"
+        }
+      },
+      "description": "Connection endpoint URL a device can use to connect to a service."
+    },
+    "DiscoveredOutboundEndpoints": {
+      "type": "object",
+      "properties": {
+        "assigned": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/DeviceMessagingEndpoint"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Endpoints the device can connect to."
+        }
+      },
+      "required": [
+        "assigned"
+      ],
+      "description": "Property bag contains the device's outbound endpoints"
+    },
+    "Event": {
+      "type": "object",
+      "properties": {
+        "eventConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize."
+        },
+        "eventNotifier": {
+          "type": "string",
+          "description": "The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the event."
+        },
+        "observabilityMode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "Log"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "An indication of how the event should be mapped to OpenTelemetry."
+        },
+        "topic": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Topic"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Object that describes the topic information."
+        }
+      },
+      "required": [
+        "eventNotifier",
+        "name"
+      ],
+      "description": "Defines the event properties."
+    },
+    "EventDestination": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/EventMqttDestination"
+        },
+        {
+          "$ref": "#/definitions/EventStorageDestination"
+        }
+      ],
+      "properties": {},
+      "description": "The type of the destination."
+    },
+    "EventMqttDestination": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MqttDestinationConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The configuration for a MQTT destination."
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "Mqtt"
+          ]
+        }
+      },
+      "required": [
+        "configuration",
+        "target"
+      ],
+      "description": "The type for a MQTT destination."
+    },
+    "EventStorageDestination": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageDestinationConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The configuration for a storage destination."
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "Storage"
+          ]
+        }
+      },
+      "required": [
+        "configuration",
+        "target"
+      ],
+      "description": "The type for a storage destination."
+    },
+    "ExtendedLocation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The extended location name."
+        },
+        "type": {
+          "type": "string",
+          "description": "The extended location type."
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "description": "The extended location."
+    },
+    "HostAuthentication": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Anonymous",
+                "Certificate",
+                "UsernamePassword"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the method to authenticate the user of the client at the server."
+        },
+        "usernamePasswordCredentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UsernamePasswordCredentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The credentials for authentication mode UsernamePassword."
+        },
+        "x509Credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/X509Credentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The x509 certificate for authentication mode Certificate."
+        }
+      },
+      "required": [
+        "method"
+      ],
+      "description": "Definition of the client authentication mechanism to the host."
+    },
+    "InboundEndpoints": {
+      "type": "object",
+      "properties": {
+        "additionalConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF)."
+        },
+        "address": {
+          "type": "string",
+          "description": "The endpoint address & port. This can be either an IP address (e.g., 192.168.1.1) or a fully qualified domain name (FQDN, e.g., server.example.com)."
+        },
+        "authentication": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HostAuthentication"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Definition of the client authentication mechanism to the host."
+        },
+        "endpointType": {
+          "type": "string",
+          "description": "Type of connection endpoint."
+        },
+        "trustSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TrustSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines server trust settings for an endpoint."
+        },
+        "version": {
+          "type": "string",
+          "description": "Protocol version associated with the endpoint e.g. 1 or 2 for endpointType Microsoft.HTTP, and 3.5 or 5.0 for endpointType Microsoft.Mqtt etc."
+        }
+      },
+      "required": [
+        "address",
+        "endpointType"
+      ],
+      "description": "An endpoint to connect to the device."
+    },
+    "ManagementAction": {
+      "type": "object",
+      "properties": {
+        "actionConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the action."
+        },
+        "actionType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Call",
+                "Read",
+                "Write"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of the action."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the action."
+        },
+        "targetUri": {
+          "type": "string",
+          "description": "The target URI on which a client can invoke the specific action."
+        },
+        "timeoutInSeconds": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Response timeout for the action."
+        },
+        "topic": {
+          "type": "string",
+          "description": "The MQTT topic path on which a client will receive the request for the action."
+        },
+        "typeRef": {
+          "type": "string",
+          "description": "URI or type definition ID."
+        }
+      },
+      "required": [
+        "name",
+        "targetUri"
+      ],
+      "description": "Defines the action properties."
+    },
+    "ManagementGroup": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ManagementAction"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of actions that are part of the management group. Each action can have an individual configuration."
+        },
+        "defaultTimeoutInSeconds": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "default": "100"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Default response timeout for all actions that are part of the management group."
+        },
+        "defaultTopic": {
+          "type": "string",
+          "description": "Default MQTT topic path on which a client will receive the request for all actions that are part of the management group."
+        },
+        "managementGroupConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the management group."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the management group."
+        },
+        "typeRef": {
+          "type": "string",
+          "description": "URI or type definition ID."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Defines the management group properties."
+    },
+    "Messaging": {
+      "type": "object",
+      "properties": {
+        "endpoints": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/MessagingEndpoint"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of messaging endpoints."
+        }
+      },
+      "description": "The namespace messaging endpoints model."
+    },
+    "MessagingEndpoint": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "description": "The endpoint address to connect to."
+        },
+        "endpointType": {
+          "type": "string",
+          "description": "Type of connection used for messaging endpoint."
+        },
+        "resourceId": {
+          "type": "string",
+          "description": "The messaging endpoint Azure resource Id."
+        }
+      },
+      "required": [
+        "address"
+      ],
+      "description": "Namespace messaging endpoint model used by a device to connect to a service."
+    },
+    "MessagingEndpoints": {
+      "type": "object",
+      "properties": {
+        "inbound": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/InboundEndpoints"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Set of endpoints to connect to the device."
+        },
+        "outbound": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OutboundEndpoints"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Property bag contains the device's outbound endpoints"
+        }
+      },
+      "description": "Connection endpoint URL a device can use to connect to a service."
+    },
+    "MqttDestinationConfiguration": {
+      "type": "object",
+      "properties": {
+        "qos": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Qos0",
+                "Qos1"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The MQTT QoS setting. Defaults to QoS 1."
+        },
+        "retain": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Keep",
+                "Never"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'."
+        },
+        "topic": {
+          "type": "string",
+          "description": "The MQTT topic."
+        },
+        "ttl": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The MQTT TTL setting."
+        }
+      },
+      "required": [
+        "topic"
+      ],
+      "description": "The configuration for a MQTT destination."
+    },
+    "NamespaceAssetProperties": {
+      "type": "object",
+      "properties": {
+        "assetTypeRefs": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "URIs or type definition IDs."
+        },
+        "attributes": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A set of key-value pairs that contain custom attributes set by the customer."
+        },
+        "datasets": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NamespaceDataset"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of datasets that are part of the asset. Each dataset describes the data points that make up the set."
+        },
+        "defaultDatasetsConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here."
+        },
+        "defaultDatasetsDestinations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DatasetDestination"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Default destinations for a dataset."
+        },
+        "defaultEventsConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here."
+        },
+        "defaultEventsDestinations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EventDestination"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Default destinations for an event."
+        },
+        "defaultManagementGroupsConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific default configuration for all management groups. Each management group can have its own configuration that overrides the default settings here."
+        },
+        "defaultStreamsConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific default configuration for all streams. Each stream can have its own configuration that overrides the default settings here."
+        },
+        "defaultStreamsDestinations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StreamDestination"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Default destinations for a stream."
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the asset."
+        },
+        "deviceRef": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeviceRef"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines which device and endpoint to use for this asset"
+        },
+        "discoveredAssetRefs": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Human-readable display name."
+        },
+        "documentationUri": {
+          "type": "string",
+          "description": "Asset documentation reference."
+        },
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enabled/disabled status of the asset."
+        },
+        "events": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NamespaceEvent"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of events that are part of the asset. Each event can have per-event configuration."
+        },
+        "externalAssetId": {
+          "type": "string",
+          "description": "Asset ID provided by the customer."
+        },
+        "hardwareRevision": {
+          "type": "string",
+          "description": "Asset hardware revision number."
+        },
+        "managementGroups": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ManagementGroup"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of management groups that are part of the asset. Each management group can have a per-group configuration."
+        },
+        "manufacturer": {
+          "type": "string",
+          "description": "Asset manufacturer."
+        },
+        "manufacturerUri": {
+          "type": "string",
+          "description": "Asset manufacturer URI."
+        },
+        "model": {
+          "type": "string",
+          "description": "Asset model."
+        },
+        "productCode": {
+          "type": "string",
+          "description": "Asset product code."
+        },
+        "serialNumber": {
+          "type": "string",
+          "description": "Asset serial number."
+        },
+        "softwareRevision": {
+          "type": "string",
+          "description": "Asset software revision number."
+        },
+        "streams": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NamespaceStream"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of streams that are part of the asset. Each stream can have a per-stream configuration."
+        }
+      },
+      "required": [
+        "deviceRef"
+      ],
+      "description": "Defines the asset properties."
+    },
+    "NamespaceDataset": {
+      "type": "object",
+      "properties": {
+        "dataPoints": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NamespaceDatasetDataPoint"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of data points that are part of the dataset. Each data point can have per-data point configuration."
+        },
+        "datasetConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset."
+        },
+        "dataSource": {
+          "type": "string",
+          "description": "Reference to a data source for a given dataset."
+        },
+        "destinations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DatasetDestination"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Destinations for a dataset."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the dataset."
+        },
+        "typeRef": {
+          "type": "string",
+          "description": "URI or type definition ID."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Defines the dataset properties."
+    },
+    "NamespaceDatasetDataPoint": {
+      "type": "object",
+      "properties": {
+        "dataPointConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize."
+        },
+        "dataSource": {
+          "type": "string",
+          "description": "The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the data point."
+        },
+        "typeRef": {
+          "type": "string",
+          "description": "URI or type definition ID."
+        }
+      },
+      "required": [
+        "dataSource",
+        "name"
+      ],
+      "description": "Defines the dataset data point properties."
+    },
+    "NamespaceDeviceProperties": {
+      "type": "object",
+      "properties": {
+        "attributes": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A set of key-value pairs that contain custom attributes set by the customer."
+        },
+        "discoveredDeviceRef": {
+          "type": "string",
+          "description": "Reference to a device. Populated only if the device had been created from discovery flow. Discovered device name must be provided."
+        },
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates if the resource is enabled or not."
+        },
+        "endpoints": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MessagingEndpoints"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connection endpoint URL a device can use to connect to a service."
+        },
+        "externalDeviceId": {
+          "type": "string",
+          "description": "The Device ID provided by the customer."
+        },
+        "manufacturer": {
+          "type": "string",
+          "description": "Device manufacturer."
+        },
+        "model": {
+          "type": "string",
+          "description": "Device model."
+        },
+        "operatingSystem": {
+          "type": "string",
+          "description": "Device operating system."
+        },
+        "operatingSystemVersion": {
+          "type": "string",
+          "description": "Device operating system version."
+        }
+      },
+      "description": "Defines the device properties."
+    },
+    "NamespaceDiscoveredAssetProperties": {
+      "type": "object",
+      "properties": {
+        "assetTypeRefs": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "URIs or type definition IDs."
+        },
+        "attributes": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A set of key-value pairs that contain custom attributes."
+        },
+        "datasets": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NamespaceDiscoveredDataset"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of datasets that are part of the asset. Each dataset spec describes the data points that make up the set."
+        },
+        "defaultDatasetsConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here."
+        },
+        "defaultDatasetsDestinations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DatasetDestination"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Default destinations for a dataset."
+        },
+        "defaultEventsConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here."
+        },
+        "defaultEventsDestinations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EventDestination"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Default destinations for an event."
+        },
+        "defaultManagementGroupsConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific default configuration for all management groups. Each management group can have its own configuration that overrides the default settings here."
+        },
+        "defaultStreamsConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific default configuration for all streams. Each stream can have its own configuration that overrides the default settings here."
+        },
+        "defaultStreamsDestinations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StreamDestination"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Default destinations for a stream."
+        },
+        "deviceRef": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeviceRef"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines which device and endpoint to use for this asset"
+        },
+        "discoveryId": {
+          "type": "string",
+          "description": "Identifier used to detect changes in the asset."
+        },
+        "documentationUri": {
+          "type": "string",
+          "description": "Asset documentation reference."
+        },
+        "events": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NamespaceDiscoveredEvent"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of events that are part of the asset. Each event can have per-event configuration."
+        },
+        "hardwareRevision": {
+          "type": "string",
+          "description": "Asset hardware revision number."
+        },
+        "managementGroups": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NamespaceDiscoveredManagementGroup"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of management groups that are part of the asset. Each management group can have a per-group configuration."
+        },
+        "manufacturer": {
+          "type": "string",
+          "description": "Asset manufacturer."
+        },
+        "manufacturerUri": {
+          "type": "string",
+          "description": "Asset manufacturer URI."
+        },
+        "model": {
+          "type": "string",
+          "description": "Asset model."
+        },
+        "productCode": {
+          "type": "string",
+          "description": "Asset product code."
+        },
+        "serialNumber": {
+          "type": "string",
+          "description": "Asset serial number."
+        },
+        "softwareRevision": {
+          "type": "string",
+          "description": "Asset software revision number."
+        },
+        "streams": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NamespaceDiscoveredStream"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of streams that are part of the asset. Each stream can have a per-stream configuration."
+        },
+        "version": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "An integer that is incremented each time the resource is modified."
+        }
+      },
+      "required": [
+        "deviceRef",
+        "discoveryId",
+        "version"
+      ],
+      "description": "Defines the discovered asset properties."
+    },
+    "NamespaceDiscoveredDataset": {
+      "type": "object",
+      "properties": {
+        "dataPoints": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NamespaceDiscoveredDatasetDataPoint"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of data points that are part of the dataset. Each data point can have per-data point configuration."
+        },
+        "datasetConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset."
+        },
+        "dataSource": {
+          "type": "string",
+          "description": "Reference to a data source for a given dataset."
+        },
+        "destinations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DatasetDestination"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Destinations for a dataset."
+        },
+        "lastUpdatedOn": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp (in UTC) indicating when the dataset was added or modified."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the dataset."
+        },
+        "typeRef": {
+          "type": "string",
+          "description": "URI or type definition ID."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Defines the dataset properties."
+    },
+    "NamespaceDiscoveredDatasetDataPoint": {
+      "type": "object",
+      "properties": {
+        "dataPointConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize."
+        },
+        "dataSource": {
+          "type": "string",
+          "description": "The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset."
+        },
+        "lastUpdatedOn": {
+          "type": "string",
+          "format": "date-time",
+          "description": "UTC timestamp indicating when the data point was added or modified."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the data point."
+        },
+        "typeRef": {
+          "type": "string",
+          "description": "URI or type definition ID."
+        }
+      },
+      "required": [
+        "dataSource",
+        "name"
+      ],
+      "description": "Defines the discovered dataset data point properties."
+    },
+    "NamespaceDiscoveredDeviceProperties": {
+      "type": "object",
+      "properties": {
+        "attributes": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A set of key-value pairs that contain custom attributes."
+        },
+        "discoveryId": {
+          "type": "string",
+          "description": "Identifier used to detect changes in the discovered device."
+        },
+        "endpoints": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiscoveredMessagingEndpoints"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connection endpoint URL a device can use to connect to a service."
+        },
+        "externalDeviceId": {
+          "type": "string",
+          "description": "A device ID that represents the device in a system external to Azure. Unique within scope of an Azure tenant."
+        },
+        "manufacturer": {
+          "type": "string",
+          "description": "Device manufacturer."
+        },
+        "model": {
+          "type": "string",
+          "description": "Device model."
+        },
+        "operatingSystem": {
+          "type": "string",
+          "description": "Device operating system name."
+        },
+        "operatingSystemVersion": {
+          "type": "string",
+          "description": "Device operating system version."
+        },
+        "version": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "An integer that is incremented each time the resource is modified."
+        }
+      },
+      "required": [
+        "discoveryId",
+        "version"
+      ],
+      "description": "Defines the discovered device properties."
+    },
+    "NamespaceDiscoveredEvent": {
+      "type": "object",
+      "properties": {
+        "dataPoints": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NamespaceDiscoveredEventDataPoint"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of data points that are part of the event. Each data point can have a per-data point configuration."
+        },
+        "destinations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EventDestination"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Destinations for an event."
+        },
+        "eventConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize."
+        },
+        "eventNotifier": {
+          "type": "string",
+          "description": "The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset."
+        },
+        "lastUpdatedOn": {
+          "type": "string",
+          "format": "date-time",
+          "description": "UTC timestamp indicating when the event was added or modified."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the event."
+        },
+        "typeRef": {
+          "type": "string",
+          "description": "URI or type definition ID."
+        }
+      },
+      "required": [
+        "eventNotifier",
+        "name"
+      ],
+      "description": "Defines the event properties."
+    },
+    "NamespaceDiscoveredEventDataPoint": {
+      "type": "object",
+      "properties": {
+        "dataPointConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize."
+        },
+        "dataSource": {
+          "type": "string",
+          "description": "The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset."
+        },
+        "lastUpdatedOn": {
+          "type": "string",
+          "format": "date-time",
+          "description": "UTC timestamp indicating when the data point was added or modified."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the data point."
+        }
+      },
+      "required": [
+        "dataSource",
+        "name"
+      ],
+      "description": "Defines the discovered event data point properties."
+    },
+    "NamespaceDiscoveredManagementAction": {
+      "type": "object",
+      "properties": {
+        "actionConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the action."
+        },
+        "actionType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Call",
+                "Read",
+                "Write"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of the action."
+        },
+        "lastUpdatedOn": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp (in UTC) indicating when the management action was added or modified."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the action."
+        },
+        "targetUri": {
+          "type": "string",
+          "description": "The target URI on which a client can invoke the specific action."
+        },
+        "timeoutInSeconds": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Response timeout for the action."
+        },
+        "topic": {
+          "type": "string",
+          "description": "The MQTT topic path on which a client will receive the request for the action."
+        },
+        "typeRef": {
+          "type": "string",
+          "description": "URI or type definition ID."
+        }
+      },
+      "required": [
+        "name",
+        "targetUri"
+      ],
+      "description": "Defines the action properties."
+    },
+    "NamespaceDiscoveredManagementGroup": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NamespaceDiscoveredManagementAction"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of actions that are part of the management group. Each action can have an individual configuration."
+        },
+        "defaultTimeoutInSeconds": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "default": "100"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Default response timeout for all actions that are part of the management group."
+        },
+        "defaultTopic": {
+          "type": "string",
+          "description": "Default MQTT topic path on which a client will receive the request for all actions that are part of the management group."
+        },
+        "lastUpdatedOn": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp (in UTC) indicating when the management group was added or modified."
+        },
+        "managementGroupConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the management group."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the management group."
+        },
+        "typeRef": {
+          "type": "string",
+          "description": "URI or type definition ID."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Defines the management group properties."
+    },
+    "NamespaceDiscoveredStream": {
+      "type": "object",
+      "properties": {
+        "destinations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StreamDestination"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Destinations for a stream."
+        },
+        "lastUpdatedOn": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp (in UTC) indicating when the stream was added or modified."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the stream definition."
+        },
+        "streamConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the specific stream."
+        },
+        "typeRef": {
+          "type": "string",
+          "description": "URI or type definition ID."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Defines the stream properties."
+    },
+    "NamespaceEvent": {
+      "type": "object",
+      "properties": {
+        "dataPoints": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NamespaceEventDataPoint"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of data points that are part of the event. Each data point can have a per-data point configuration."
+        },
+        "destinations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EventDestination"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Destinations for an event."
+        },
+        "eventConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize."
+        },
+        "eventNotifier": {
+          "type": "string",
+          "description": "The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the event."
+        },
+        "typeRef": {
+          "type": "string",
+          "description": "URI or type definition ID."
+        }
+      },
+      "required": [
+        "eventNotifier",
+        "name"
+      ],
+      "description": "Defines the event properties."
+    },
+    "NamespaceEventDataPoint": {
+      "type": "object",
+      "properties": {
+        "dataPointConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize."
+        },
+        "dataSource": {
+          "type": "string",
+          "description": "The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the data point."
+        }
+      },
+      "required": [
+        "dataSource",
+        "name"
+      ],
+      "description": "Defines the event data point properties."
+    },
+    "NamespaceProperties": {
+      "type": "object",
+      "properties": {
+        "messaging": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Messaging"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The namespace messaging endpoints model."
+        }
+      },
+      "description": "The namespace properties model."
+    },
+    "NamespaceStream": {
+      "type": "object",
+      "properties": {
+        "destinations": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StreamDestination"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Destinations for a stream."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the stream definition."
+        },
+        "streamConfiguration": {
+          "type": "string",
+          "description": "Stringified JSON that contains connector-specific configuration for the specific stream."
+        },
+        "typeRef": {
+          "type": "string",
+          "description": "URI or type definition ID."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Defines the stream properties."
+    },
+    "namespaces_assets_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the asset."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NamespaceAssetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the asset properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "assets"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "extendedLocation",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/namespaces/assets"
+    },
+    "namespaces_devices_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-zA-Z][a-zA-Z0-9-]*$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the device."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NamespaceDeviceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the device properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "devices"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/namespaces/devices"
+    },
+    "namespaces_discoveredAssets_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the discovered asset."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NamespaceDiscoveredAssetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the discovered asset properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "discoveredAssets"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "extendedLocation",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/namespaces/discoveredAssets"
+    },
+    "namespaces_discoveredDevices_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "extendedLocation": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The extended location."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the discovered device."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NamespaceDiscoveredDeviceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the discovered device properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "discoveredDevices"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "extendedLocation",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/namespaces/discoveredDevices"
+    },
+    "OutboundEndpoints": {
+      "type": "object",
+      "properties": {
+        "assigned": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/DeviceMessagingEndpoint"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Endpoints the device can connect to."
+        },
+        "unassigned": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/DeviceMessagingEndpoint"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Set of most recently removed endpoints."
+        }
+      },
+      "required": [
+        "assigned"
+      ],
+      "description": "Property bag contains the device's outbound endpoints"
+    },
+    "SchemaProperties": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the schema."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Human-readable display name."
+        },
+        "format": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "JsonSchema/draft-07",
+                "Delta/1.0"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Format of the schema."
+        },
+        "schemaType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "MessageSchema"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of the schema."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Schema tags."
+        }
+      },
+      "required": [
+        "format",
+        "schemaType"
+      ],
+      "description": "Defines the schema properties."
+    },
+    "schemaRegistries_schemas_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+              "minLength": 3,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Schema name parameter."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchemaProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the schema properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "schemas"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/schemaRegistries/schemas"
+    },
+    "schemaRegistries_schemas_schemaVersions_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-07-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]*$",
+              "minLength": 1,
+              "maxLength": 10
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Schema version name parameter."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchemaVersionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defines the schema version properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "schemaVersions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions"
+    },
+    "SchemaRegistryProperties": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the schema registry."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Human-readable display name."
+        },
+        "namespace": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+              "maxLength": 32
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Schema registry namespace. Uniquely identifies a schema registry within a tenant."
+        },
+        "storageAccountContainerUrl": {
+          "type": "string",
+          "description": "The Storage Account's Container URL where schemas will be stored."
+        }
+      },
+      "required": [
+        "namespace",
+        "storageAccountContainerUrl"
+      ],
+      "description": "Defines the schema registry properties."
+    },
+    "SchemaVersionProperties": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the schema."
+        },
+        "schemaContent": {
+          "type": "string",
+          "description": "Schema content."
+        }
+      },
+      "required": [
+        "schemaContent"
+      ],
+      "description": "Defines the schema version properties."
+    },
+    "StorageDestinationConfiguration": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "The storage destination path."
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "description": "The configuration for a storage destination."
+    },
+    "StreamDestination": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/StreamMqttDestination"
+        },
+        {
+          "$ref": "#/definitions/StreamStorageDestination"
+        }
+      ],
+      "properties": {},
+      "description": "The type of the destination."
+    },
+    "StreamMqttDestination": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MqttDestinationConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The configuration for a MQTT destination."
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "Mqtt"
+          ]
+        }
+      },
+      "required": [
+        "configuration",
+        "target"
+      ],
+      "description": "The type for a MQTT destination."
+    },
+    "StreamStorageDestination": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageDestinationConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The configuration for a storage destination."
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "Storage"
+          ]
+        }
+      },
+      "required": [
+        "configuration",
+        "target"
+      ],
+      "description": "The type for a storage destination."
+    },
+    "SystemAssignedServiceIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Managed service identity (either system assigned, or none)"
+    },
+    "Topic": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "The topic path for messages published to an MQTT broker."
+        },
+        "retain": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Keep",
+                "Never"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'."
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "description": "Object that describes the topic information."
+    },
+    "TrustSettings": {
+      "type": "object",
+      "properties": {
+        "trustList": {
+          "type": "string",
+          "description": "Defines a secret reference for certificates to trust."
+        }
+      },
+      "description": "Defines server trust settings for an endpoint."
+    },
+    "UsernamePasswordCredentials": {
+      "type": "object",
+      "properties": {
+        "passwordSecretName": {
+          "type": "string",
+          "description": "The name of the secret containing the password."
+        },
+        "usernameSecretName": {
+          "type": "string",
+          "description": "The name of the secret containing the username."
+        }
+      },
+      "required": [
+        "passwordSecretName",
+        "usernameSecretName"
+      ],
+      "description": "The credentials for authentication mode UsernamePassword."
+    },
+    "X509Credentials": {
+      "type": "object",
+      "properties": {
+        "certificateSecretName": {
+          "type": "string",
+          "description": "The name of the secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx)."
+        }
+      },
+      "required": [
+        "certificateSecretName"
+      ],
+      "description": "The x509 certificate for authentication mode Certificate."
+    }
+  }
+}

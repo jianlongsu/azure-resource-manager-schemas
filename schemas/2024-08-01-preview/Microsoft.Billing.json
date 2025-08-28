@@ -1,0 +1,100 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-08-01-preview/Microsoft.Billing.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Billing",
+  "description": "Microsoft Billing Resource Types",
+  "resourceDefinitions": {},
+  "tenant_resourceDefinitions": {
+    "billingAccounts_migrations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-08-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Migration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Migration Details."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/migrations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/migrations"
+    }
+  },
+  "definitions": {
+    "Migration": {
+      "type": "object",
+      "properties": {
+        "destinationBillingScope": {
+          "type": "string",
+          "description": "Destination billing scope to be mapped."
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Draft",
+                "InProgress",
+                "Completed",
+                "Failed",
+                "CompletedWithErrors"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Migration Status."
+        }
+      },
+      "description": "Migration Details."
+    }
+  }
+}

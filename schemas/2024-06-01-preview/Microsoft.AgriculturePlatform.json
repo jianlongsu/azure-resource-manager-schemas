@@ -1,0 +1,369 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-06-01-preview/Microsoft.AgriculturePlatform.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.AgriculturePlatform",
+  "description": "Microsoft AgriculturePlatform Resource Types",
+  "resourceDefinitions": {
+    "agriServices": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-06-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the AgriService resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgriServiceResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details of the Agriculture AgriDataManager."
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AgriculturePlatform/agriServices"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AgriculturePlatform/agriServices"
+    }
+  },
+  "definitions": {
+    "AgriServiceConfig": {
+      "type": "object",
+      "properties": {},
+      "description": "Config of the AgriService resource instance."
+    },
+    "AgriServiceResourceProperties": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgriServiceConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Config of the AgriService resource instance."
+        },
+        "dataConnectorCredentials": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataConnectorCredentialMap"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Data connector credentials of AgriService instance."
+        },
+        "installedSolutions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/InstalledSolutionMap"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "AgriService installed solutions."
+        }
+      },
+      "description": "Details of the Agriculture AgriDataManager."
+    },
+    "DataConnectorCredentialMap": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The key representing the credential."
+        },
+        "value": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataConnectorCredentials"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties related to an AgriService data connector."
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "description": "Mapping of data connector credentials."
+    },
+    "DataConnectorCredentials": {
+      "type": "object",
+      "properties": {
+        "clientId": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Client Id associated with the provider, if type of credentials is OAuthClientCredentials."
+        },
+        "keyName": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Name of the key vault key."
+        },
+        "keyVaultUri": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Uri of the key vault"
+        },
+        "keyVersion": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Version of the key vault key."
+        },
+        "kind": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "OAuthClientCredentials",
+                "ApiKeyAuthCredentials"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of credential."
+        }
+      },
+      "description": "The properties related to an AgriService data connector."
+    },
+    "InstalledSolutionMap": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The key representing the installed solution."
+        },
+        "value": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Solution"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Installed data manager for Agriculture solution detail."
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "description": "Mapping of installed solutions."
+    },
+    "ManagedServiceIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
+    },
+    "Sku": {
+      "type": "object",
+      "properties": {
+        "capacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted."
+        },
+        "family": {
+          "type": "string",
+          "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the SKU. E.g. P3. It is typically a letter+number code"
+        },
+        "size": {
+          "type": "string",
+          "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. "
+        },
+        "tier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Free",
+                "Basic",
+                "Standard",
+                "Premium"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "The resource model definition representing SKU"
+    },
+    "Solution": {
+      "type": "object",
+      "properties": {
+        "applicationName": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Application name of the solution."
+        },
+        "marketPlacePublisherId": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Marketplace publisher Id."
+        },
+        "partnerId": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Partner Id."
+        },
+        "planId": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Plan Id."
+        },
+        "saasSubscriptionId": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Saas subscription Id."
+        },
+        "saasSubscriptionName": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Saas subscription name."
+        }
+      },
+      "description": "Installed data manager for Agriculture solution detail."
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User assigned identity properties"
+    }
+  }
+}

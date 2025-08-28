@@ -1,0 +1,206 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2025-06-01-preview/Microsoft.StorageDiscovery.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.StorageDiscovery",
+  "description": "Microsoft StorageDiscovery Resource Types",
+  "resourceDefinitions": {
+    "storageDiscoveryWorkspaces": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-06-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$",
+              "minLength": 4,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the StorageDiscoveryWorkspace"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageDiscoveryWorkspaceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Storage Discovery Workspace Properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.StorageDiscovery/storageDiscoveryWorkspaces"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.StorageDiscovery/storageDiscoveryWorkspaces"
+    }
+  },
+  "definitions": {
+    "StorageDiscoveryScope": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]+([ -][a-zA-Z0-9]+)*$",
+              "minLength": 4,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Display name of the collection"
+        },
+        "resourceTypes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Microsoft.Storage/storageAccounts"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource types for the collection"
+        },
+        "tagKeysOnly": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The storage account tags keys to filter"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        }
+      },
+      "required": [
+        "displayName",
+        "resourceTypes"
+      ],
+      "description": "Storage Discovery Scope. This had added validations"
+    },
+    "StorageDiscoveryWorkspaceProperties": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "The description of the storage discovery workspace"
+        },
+        "scopes": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StorageDiscoveryScope"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The scopes of the storage discovery workspace."
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Standard",
+                "Free"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The storage discovery sku."
+        },
+        "workspaceRoots": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The view level storage discovery data estate"
+        }
+      },
+      "required": [
+        "scopes",
+        "workspaceRoots"
+      ],
+      "description": "Storage Discovery Workspace Properties"
+    }
+  }
+}

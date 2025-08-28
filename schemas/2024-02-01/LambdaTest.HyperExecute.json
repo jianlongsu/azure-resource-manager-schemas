@@ -1,0 +1,367 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-02-01/LambdaTest.HyperExecute.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "LambdaTest.HyperExecute",
+  "description": "LambdaTest HyperExecute Resource Types",
+  "resourceDefinitions": {
+    "organizations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-02-01"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_\\-.: ]*$",
+              "minLength": 1,
+              "maxLength": 50
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Organization resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OrganizationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties specific to Organization"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "LambdaTest.HyperExecute/organizations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "LambdaTest.HyperExecute/organizations"
+    }
+  },
+  "definitions": {
+    "LiftrBaseMarketplaceDetails": {
+      "type": "object",
+      "properties": {
+        "offerDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseOfferDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Offer details for the marketplace that is selected by the user"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Azure subscription id for the the marketplace offer is purchased from"
+        }
+      },
+      "required": [
+        "offerDetails"
+      ],
+      "description": "Marketplace details for an organization"
+    },
+    "LiftrBaseOfferDetails": {
+      "type": "object",
+      "properties": {
+        "offerId": {
+          "type": "string",
+          "description": "Offer Id for the marketplace offer"
+        },
+        "planId": {
+          "type": "string",
+          "description": "Plan Id for the marketplace offer"
+        },
+        "planName": {
+          "type": "string",
+          "description": "Plan Name for the marketplace offer"
+        },
+        "publisherId": {
+          "type": "string",
+          "description": "Publisher Id for the marketplace offer"
+        },
+        "termId": {
+          "type": "string",
+          "description": "Plan Display Name for the marketplace offer"
+        },
+        "termUnit": {
+          "type": "string",
+          "description": "Plan Display Name for the marketplace offer"
+        }
+      },
+      "required": [
+        "offerId",
+        "planId",
+        "publisherId"
+      ],
+      "description": "Offer details for the marketplace that is selected by the user"
+    },
+    "LiftrBaseSingleSignOnPropertiesV2": {
+      "type": "object",
+      "properties": {
+        "aadDomains": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of AAD domains fetched from Microsoft Graph for user."
+        },
+        "enterpriseAppId": {
+          "type": "string",
+          "description": "AAD enterprise application Id used to setup SSO"
+        },
+        "state": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Initial",
+                "Enable",
+                "Disable"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "State of the Single Sign On for the resource."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Saml",
+                "OpenId"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of Single Sign-On mechanism being used."
+        },
+        "url": {
+          "type": "string",
+          "description": "A string that represents a URI."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Properties specific to Single Sign On Resource"
+    },
+    "LiftrBaseUserDetails": {
+      "type": "object",
+      "properties": {
+        "emailAddress": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9._%+-]+@(?:[A-Za-z0-9-]+\\.)+[A-Za-z]{2,}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Reusable representation of an email address."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "First name of the user"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Last name of the user"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "User's phone number"
+        },
+        "upn": {
+          "type": "string",
+          "description": "User's principal name"
+        }
+      },
+      "description": "User details for an organization"
+    },
+    "ManagedServiceIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
+    },
+    "OrganizationProperties": {
+      "type": "object",
+      "properties": {
+        "marketplace": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseMarketplaceDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Marketplace details for an organization"
+        },
+        "partnerProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PartnerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Partner's specific Properties"
+        },
+        "singleSignOnProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseSingleSignOnPropertiesV2"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties specific to Single Sign On Resource"
+        },
+        "user": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseUserDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "User details for an organization"
+        }
+      },
+      "required": [
+        "marketplace",
+        "partnerProperties",
+        "user"
+      ],
+      "description": "Properties specific to Organization"
+    },
+    "PartnerProperties": {
+      "type": "object",
+      "properties": {
+        "licensesSubscribed": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The number of licenses subscribed"
+        }
+      },
+      "required": [
+        "licensesSubscribed"
+      ],
+      "description": "Partner's specific Properties"
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User assigned identity properties"
+    }
+  }
+}

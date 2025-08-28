@@ -517,7 +517,7 @@
             "2015-05-01"
           ]
         },
-        "CustomEmails": {
+        "customEmails": {
           "oneOf": [
             {
               "type": "array",
@@ -531,7 +531,7 @@
           ],
           "description": "Custom email addresses for this rule notifications"
         },
-        "Enabled": {
+        "enabled": {
           "oneOf": [
             {
               "type": "boolean"
@@ -542,19 +542,15 @@
           ],
           "description": "A flag that indicates whether this rule is enabled by the user"
         },
-        "LastUpdatedTime": {
+        "lastUpdatedTime": {
           "type": "string",
           "description": "The last time this rule was updated"
-        },
-        "Name": {
-          "type": "string",
-          "description": "The rule name"
         },
         "name": {
           "type": "string",
           "description": "The ProactiveDetection configuration ID. This is unique within a Application Insights component."
         },
-        "RuleDefinitions": {
+        "ruleDefinitions": {
           "oneOf": [
             {
               "$ref": "#/definitions/ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions"
@@ -565,7 +561,7 @@
           ],
           "description": "Static definitions of the ProactiveDetection configuration rule (same values for all components)."
         },
-        "SendEmailsToSubscriptionOwners": {
+        "sendEmailsToSubscriptionOwners": {
           "oneOf": [
             {
               "type": "boolean"
@@ -1494,7 +1490,7 @@
             "2015-05-01"
           ]
         },
-        "CustomEmails": {
+        "customEmails": {
           "oneOf": [
             {
               "type": "array",
@@ -1508,7 +1504,7 @@
           ],
           "description": "Custom email addresses for this rule notifications"
         },
-        "Enabled": {
+        "enabled": {
           "oneOf": [
             {
               "type": "boolean"
@@ -1519,19 +1515,15 @@
           ],
           "description": "A flag that indicates whether this rule is enabled by the user"
         },
-        "LastUpdatedTime": {
+        "lastUpdatedTime": {
           "type": "string",
           "description": "The last time this rule was updated"
-        },
-        "Name": {
-          "type": "string",
-          "description": "The rule name"
         },
         "name": {
           "type": "string",
           "description": "The ProactiveDetection configuration ID. This is unique within a Application Insights component."
         },
-        "RuleDefinitions": {
+        "ruleDefinitions": {
           "oneOf": [
             {
               "$ref": "#/definitions/ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions"
@@ -1542,7 +1534,7 @@
           ],
           "description": "Static definitions of the ProactiveDetection configuration rule (same values for all components)."
         },
-        "SendEmailsToSubscriptionOwners": {
+        "sendEmailsToSubscriptionOwners": {
           "oneOf": [
             {
               "type": "boolean"

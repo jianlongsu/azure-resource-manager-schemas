@@ -1,0 +1,401 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2025-04-15-preview/Microsoft.ComputeSchedule.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.ComputeSchedule",
+  "description": "Microsoft ComputeSchedule Resource Types",
+  "resourceDefinitions": {
+    "scheduledActions": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-15-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the ScheduledAction"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduledActionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Scheduled action properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ComputeSchedule/scheduledActions"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ComputeSchedule/scheduledActions"
+    }
+  },
+  "definitions": {
+    "ExecutionParameters": {
+      "type": "object",
+      "properties": {
+        "optimizationPreference": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Cost",
+                "Availability",
+                "CostAvailabilityBalanced"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details that could optimize the user's request."
+        },
+        "retryPolicy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RetryPolicy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The retry policy for the user request"
+        }
+      },
+      "description": "Extra details needed to run the user's request"
+    },
+    "NotificationProperties": {
+      "type": "object",
+      "properties": {
+        "destination": {
+          "type": "string",
+          "description": "Where the notification should be sent. For email, it should follow email format."
+        },
+        "disabled": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tells if the notification is enabled or not."
+        },
+        "language": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "en-us"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The language the notification should be sent on."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Email"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of notification to be sent."
+        }
+      },
+      "required": [
+        "destination",
+        "language",
+        "type"
+      ],
+      "description": "The information about notifications to be send to about upcoming operations."
+    },
+    "RetryPolicy": {
+      "type": "object",
+      "properties": {
+        "retryCount": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retry count for user request"
+        },
+        "retryWindowInMinutes": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Retry window in minutes for user request"
+        }
+      },
+      "description": "The retry policy for the user request"
+    },
+    "ScheduledActionProperties": {
+      "type": "object",
+      "properties": {
+        "actionType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Internal",
+                "Start",
+                "Deallocate",
+                "Hibernate"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The action the scheduled action should perform in the resources."
+        },
+        "disabled": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tell if the scheduled action is disabled or not"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time when the scheduled action is supposed to stop scheduling"
+        },
+        "notificationSettings": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NotificationProperties"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The notification settings for the scheduled action"
+        },
+        "resourceType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "VirtualMachine",
+                "VirtualMachineScaleSet"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of resource the scheduled action is targeting."
+        },
+        "schedule": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduledActionsSchedule"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specify the schedule in which the scheduled action is supposed to follow"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time which the scheduled action is supposed to start running"
+        }
+      },
+      "required": [
+        "actionType",
+        "notificationSettings",
+        "resourceType",
+        "schedule",
+        "startTime"
+      ],
+      "description": "Scheduled action properties"
+    },
+    "ScheduledActionsSchedule": {
+      "type": "object",
+      "properties": {
+        "deadlineType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "InitiateAt",
+                "CompleteBy"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of deadline the scheduled action is supposed to follow for the schedule. If no value is passed, it will default to InitiateAt."
+        },
+        "executionParameters": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExecutionParameters"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Extra details needed to run the user's request"
+        },
+        "requestedDaysOfTheMonth": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The days of the month the scheduled action is supposed to run on. If empty, it means it will run on every day of the month."
+        },
+        "requestedMonths": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                  "All"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The months the scheduled action is supposed to run on"
+        },
+        "requestedWeekDays": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                  "All"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The week days the scheduled action is supposed to run on"
+        },
+        "scheduledTime": {
+          "type": "string",
+          "format": "time",
+          "description": "The time the scheduled action is supposed to run on"
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "The timezone the scheduled time is specified on"
+        }
+      },
+      "required": [
+        "requestedDaysOfTheMonth",
+        "requestedMonths",
+        "requestedWeekDays",
+        "scheduledTime",
+        "timeZone"
+      ],
+      "description": "Specify the schedule in which the scheduled action is supposed to follow"
+    }
+  }
+}

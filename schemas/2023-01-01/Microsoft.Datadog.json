@@ -835,7 +835,7 @@
       "properties": {
         "name": {
           "type": "string",
-          "description": "Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'linking'."
+          "description": "Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'Linked'."
         }
       },
       "required": [

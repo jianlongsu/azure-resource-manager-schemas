@@ -19,7 +19,7 @@
         },
         "name": {
           "type": "string",
-          "description": "Configuration assignment name"
+          "description": "The name of the ConfigurationAssignment"
         },
         "properties": {
           "oneOf": [
@@ -62,7 +62,7 @@
         },
         "name": {
           "type": "string",
-          "description": "Maintenance Configuration Name"
+          "description": "The name of the MaintenanceConfiguration"
         },
         "properties": {
           "oneOf": [
@@ -122,7 +122,7 @@
         },
         "name": {
           "type": "string",
-          "description": "Configuration assignment name"
+          "description": "The name of the ConfigurationAssignment"
         },
         "properties": {
           "oneOf": [
@@ -163,7 +163,7 @@
         },
         "name": {
           "type": "string",
-          "description": "ApplyUpdate name"
+          "description": "The name of the ApplyUpdate"
         },
         "properties": {
           "oneOf": [
@@ -206,7 +206,7 @@
         },
         "name": {
           "type": "string",
-          "description": "Configuration assignment name"
+          "description": "The name of the ConfigurationAssignment"
         },
         "properties": {
           "oneOf": [
@@ -385,7 +385,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Classification category of patches to be patched"
+          "description": "Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'."
         },
         "packageNameMasksToExclude": {
           "oneOf": [
@@ -477,7 +477,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "Classification category of patches to be patched"
+          "description": "Classification category of patches to be patched. Allowed values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', and 'Updates'."
         },
         "excludeKbsRequiringReboot": {
           "oneOf": [

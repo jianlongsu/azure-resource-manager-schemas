@@ -1,0 +1,129 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.Resources.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Resources",
+  "description": "Microsoft Resources Resource Types",
+  "resourceDefinitions": {},
+  "unknown_resourceDefinitions": {
+    "tags": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-03-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "default"
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A dictionary of name and value pairs."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Resources/tags"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Resources/tags"
+    }
+  },
+  "definitions": {
+    "Tags": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "A dictionary of name and value pairs."
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "resourceGroups": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._\\(\\)]+$",
+              "maxLength": 90,
+              "description": "the resource group name"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Resources/resourceGroups"
+          ]
+        },
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-03-01"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "the resource group location"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource group tags."
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "apiVersion",
+        "location"
+      ],
+      "description": "Microsoft.Resources/resourceGroups"
+    }
+  }
+}

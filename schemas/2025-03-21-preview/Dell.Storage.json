@@ -1,0 +1,365 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2025-03-21-preview/Dell.Storage.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Dell.Storage",
+  "description": "Dell Storage Resource Types",
+  "resourceDefinitions": {
+    "filesystems": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-03-21-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the filesystem resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseStorageFileSystemResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties specific to the Dell File System resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Dell.Storage/filesystems"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Dell.Storage/filesystems"
+    }
+  },
+  "definitions": {
+    "LiftrBaseEncryptionIdentityProperties": {
+      "type": "object",
+      "properties": {
+        "identityResourceId": {
+          "type": "string",
+          "description": "User-assigned identity resource id - Only when user opts for UserAssigned identity and hence optional"
+        },
+        "identityType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "SystemAssigned",
+                "UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity type - SystemAssigned/UserAssigned - Only UserAssigned is supported now."
+        }
+      },
+      "description": "EncryptionIdentityProperties of Dell FileSystem resource"
+    },
+    "LiftrBaseEncryptionProperties": {
+      "type": "object",
+      "properties": {
+        "encryptionIdentityProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseEncryptionIdentityProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "EncryptionIdentityProperties of Dell FileSystem resource"
+        },
+        "encryptionType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Microsoft-managed keys (MMK)",
+                "Customer-managed keys (CMK)"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Encryption Type - MMK/CMK."
+        },
+        "keyUrl": {
+          "type": "string",
+          "description": "Versioned Encryption Key Url - Only when user opts for CMK and hence optional"
+        }
+      },
+      "required": [
+        "encryptionType"
+      ],
+      "description": "EncryptionProperties of Dell FileSystem resource"
+    },
+    "LiftrBaseMarketplaceDetails": {
+      "type": "object",
+      "properties": {
+        "endDate": {
+          "type": "string",
+          "description": "End Date of the subscription"
+        },
+        "marketplaceSubscriptionId": {
+          "type": "string",
+          "description": "Marketplace Subscription Id"
+        },
+        "offerId": {
+          "type": "string",
+          "description": "Offer Id"
+        },
+        "planId": {
+          "type": "string",
+          "description": "Plan Id"
+        },
+        "planName": {
+          "type": "string",
+          "description": "Plan Name"
+        },
+        "privateOfferId": {
+          "type": "string",
+          "description": "Private Offer Id"
+        },
+        "publisherId": {
+          "type": "string",
+          "description": "Publisher Id"
+        },
+        "termUnit": {
+          "type": "string",
+          "description": "Term Unit"
+        }
+      },
+      "required": [
+        "offerId",
+        "planId",
+        "planName"
+      ],
+      "description": "MarketplaceDetails of Dell FileSystem resource"
+    },
+    "LiftrBaseStorageCapacity": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "description": "Current Capacity of the resource"
+        },
+        "incremental": {
+          "type": "string",
+          "description": "Units to be increased"
+        },
+        "max": {
+          "type": "string",
+          "description": "Maximum Capacity"
+        },
+        "min": {
+          "type": "string",
+          "description": "Minimum Capacity"
+        }
+      },
+      "description": "Capacity for a Resource"
+    },
+    "LiftrBaseStorageFileSystemResourceProperties": {
+      "type": "object",
+      "properties": {
+        "capacity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseStorageCapacity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Capacity for a Resource"
+        },
+        "delegatedSubnetCidr": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}/(16|24)$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Domain range for the delegated subnet"
+        },
+        "delegatedSubnetId": {
+          "type": "string",
+          "description": "Delegated subnet id for Vnet injection"
+        },
+        "dellReferenceNumber": {
+          "type": "string",
+          "description": "DellReferenceNumber of the resource"
+        },
+        "encryption": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseEncryptionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "EncryptionProperties of Dell FileSystem resource"
+        },
+        "fileSystemId": {
+          "type": "string",
+          "description": "File system Id of the resource"
+        },
+        "marketplace": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseMarketplaceDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "MarketplaceDetails of Dell FileSystem resource"
+        },
+        "oneFsUrl": {
+          "type": "string",
+          "description": "OneFS url"
+        },
+        "smartConnectFqdn": {
+          "type": "string",
+          "description": "Smart Connect FQDN of the resource"
+        },
+        "user": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LiftrBaseUserDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "User Details of Dell FileSystem resource"
+        }
+      },
+      "required": [
+        "delegatedSubnetCidr",
+        "delegatedSubnetId",
+        "dellReferenceNumber",
+        "encryption",
+        "marketplace",
+        "user"
+      ],
+      "description": "Properties specific to the Dell File System resource"
+    },
+    "LiftrBaseUserDetails": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "User Email"
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "description": "User Details of Dell FileSystem resource"
+    },
+    "ManagedServiceIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User assigned identity properties"
+    }
+  }
+}

@@ -1,0 +1,1205 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-11-01-preview/Microsoft.BillingBenefits.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.BillingBenefits",
+  "description": "Microsoft BillingBenefits Resource Types",
+  "resourceDefinitions": {
+    "discounts": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-11-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Managed service identity (system assigned and/or user assigned identities)"
+        },
+        "kind": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-\\w\\._,\\(\\)]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "managedBy": {
+          "type": "string",
+          "description": "The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource."
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_\\-\\.]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the discount"
+        },
+        "plan": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Plan"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Plan for the resource."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiscountProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties belonging to discounts."
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.BillingBenefits/discounts"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.BillingBenefits/discounts"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "reservationOrderAliases": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-11-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The Azure Region where the reservation benefits are applied to."
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_\\-\\.]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the reservation order alias"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ReservationOrderAliasRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Reservation properties"
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceSku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.BillingBenefits/reservationOrderAliases"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "sku",
+        "type"
+      ],
+      "description": "Microsoft.BillingBenefits/reservationOrderAliases"
+    },
+    "savingsPlanOrderAliases": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-11-01-preview"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "Resource provider kind"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_\\-\\.]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the savings plan order alias"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SavingsPlanOrderAliasProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Savings plan properties"
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ResourceSku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.BillingBenefits/savingsPlanOrderAliases"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "sku",
+        "type"
+      ],
+      "description": "Microsoft.BillingBenefits/savingsPlanOrderAliases"
+    }
+  },
+  "definitions": {
+    "AppliedScopeProperties": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "Display name"
+        },
+        "managementGroupId": {
+          "type": "string",
+          "description": "Fully-qualified identifier of the management group where the benefit must be applied."
+        },
+        "resourceGroupId": {
+          "type": "string",
+          "description": "Fully-qualified identifier of the resource group."
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "Fully-qualified identifier of the subscription."
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "Tenant ID where the benefit is applied."
+        }
+      },
+      "description": "Properties specific to applied scope type. Not required if not applicable."
+    },
+    "CatalogClaimsItem": {
+      "type": "object",
+      "properties": {
+        "catalogClaimsItemType": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "description": "Catalog claim for a discount."
+    },
+    "Commitment": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "currencyCode": {
+          "type": "string",
+          "description": "The ISO 4217 3-letter currency code for the currency used by this purchase record."
+        },
+        "grain": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Hourly",
+                "FullTerm",
+                "Unknown"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Commitment grain."
+        }
+      },
+      "description": "Commitment towards the benefit."
+    },
+    "ConditionsItem": {
+      "type": "object",
+      "properties": {
+        "conditionName": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "These items are open-ended strings."
+        }
+      },
+      "description": "Condition for a discount."
+    },
+    "CustomPriceProperties": {
+      "type": "object",
+      "properties": {
+        "billingPeriod": {
+          "type": "string",
+          "description": "The billing period of the priceable node. Validation: Optional, Maximum length 128 characters. Only allowed if the availability derived by market, product, sku, and claims has terms and at least one of those terms has a billing period. When specified, termUnits must be specified."
+        },
+        "catalogClaims": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CatalogClaimsItem"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of BigCat claims. Validation: Required. Must contain AgreementType, NationalCloud, and PricingAudience claims. Additionally requires AccessPass claim when creating custom price with action == consume on the pricing instructions."
+        },
+        "catalogId": {
+          "type": "string",
+          "description": "The catalog instance where the priceable node lives. Validation: Required. No defined format, will vary per team."
+        },
+        "marketSetPrices": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MarketSetPricesItems"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of market set prices of the priceable node. Validation: Required. Must contain at least one element."
+        },
+        "meterType": {
+          "type": "string",
+          "description": "Must be present if the market, product, sku, and claims, and optional term information resolves to multiple availabilities that only differ by meter type. Validation: Maximum length 128 characters."
+        },
+        "ruleType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "FixedPriceLock",
+                "FixedListPrice",
+                "PriceCeiling"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of the priceable node pricing rule. Validation: Required. Supported values are fixedPriceLock, fixedListPrice, and priceCeiling."
+        },
+        "termUnits": {
+          "type": "string",
+          "description": "The term units for the priceable node. Validation: Optional, Maximum length 128 characters. Must be present if and only if the availability derived by market, product, sku, and claims has terms."
+        }
+      },
+      "required": [
+        "catalogClaims",
+        "catalogId",
+        "marketSetPrices",
+        "ruleType"
+      ],
+      "description": "Custom price properties for a given discount."
+    },
+    "DiscountProperties": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/EntityTypeAffiliateDiscount"
+        },
+        {
+          "$ref": "#/definitions/EntityTypePrimaryDiscount"
+        }
+      ],
+      "properties": {
+        "appliedScopeType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "BillingAccount",
+                "BillingProfile",
+                "Customer"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of applied scopes supported for discounts."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "This defines a user friendly display name for the discount."
+        },
+        "productCode": {
+          "type": "string",
+          "description": "This is the catalog UPN for the product."
+        },
+        "startAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Start date of the discount. Value is the date the discount started or will start in the future."
+        },
+        "systemId": {
+          "type": "string",
+          "description": "This is the globally unique identifier of the Discount which will not change for the lifetime of the Discount."
+        }
+      },
+      "required": [
+        "productCode",
+        "startAt"
+      ],
+      "description": "Properties belonging to discounts."
+    },
+    "DiscountTypeCustomPrice": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/DiscountTypeCustomPriceMultiCurrency"
+        }
+      ],
+      "properties": {
+        "customPriceProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomPriceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Custom price properties for a given discount."
+        },
+        "discountType": {
+          "type": "string",
+          "enum": [
+            "CustomPrice"
+          ]
+        },
+        "productFamilyName": {
+          "type": "string",
+          "description": "Product family for which the discount is given. Validation: Optional"
+        },
+        "productId": {
+          "type": "string",
+          "description": "Product ID for which the discount is given. Validation: Optional. No specific format, example: DZH318Z09V6F"
+        },
+        "skuId": {
+          "type": "string",
+          "description": "ResourceSku for the given discount. Validation: Optional."
+        }
+      },
+      "required": [
+        "discountType"
+      ],
+      "description": "Discount type properties including product family name, product id, sku, and custom price properties. Allows a single entry in marketSetPrices."
+    },
+    "DiscountTypeCustomPriceMultiCurrency": {
+      "type": "object",
+      "properties": {
+        "discountType": {
+          "type": "string",
+          "enum": [
+            "CustomPriceMultiCurrency"
+          ]
+        }
+      },
+      "required": [
+        "discountType"
+      ],
+      "description": "Discount type properties including product family name, product id, sku, and custom price properties. Allows multiple entries in marketSetPrices."
+    },
+    "DiscountTypeProduct": {
+      "type": "object",
+      "properties": {
+        "discountType": {
+          "type": "string",
+          "enum": [
+            "Product"
+          ]
+        },
+        "productFamilyName": {
+          "type": "string",
+          "description": "Product family for which the discount is given. Validation: Optional"
+        },
+        "productId": {
+          "type": "string",
+          "description": "Product ID for which the discount is given. Validation: Optional. No specific format, example: DZH318Z09V6F"
+        }
+      },
+      "required": [
+        "discountType"
+      ],
+      "description": "Discount type properties including product family name and product id."
+    },
+    "DiscountTypeProductFamily": {
+      "type": "object",
+      "properties": {
+        "discountType": {
+          "type": "string",
+          "enum": [
+            "ProductFamily"
+          ]
+        },
+        "productFamilyName": {
+          "type": "string",
+          "description": "Product family for which the discount is given. Validation: Optional"
+        }
+      },
+      "required": [
+        "discountType"
+      ],
+      "description": "Discount type properties including product family name"
+    },
+    "DiscountTypeProductSku": {
+      "type": "object",
+      "properties": {
+        "discountType": {
+          "type": "string",
+          "enum": [
+            "Sku"
+          ]
+        },
+        "productFamilyName": {
+          "type": "string",
+          "description": "Product family for which the discount is given. Validation: Optional"
+        },
+        "productId": {
+          "type": "string",
+          "description": "Product ID for which the discount is given. Validation: Optional. No specific format, example: DZH318Z09V6F"
+        },
+        "skuId": {
+          "type": "string",
+          "description": "ResourceSku for the given discount. Validation: Optional."
+        }
+      },
+      "required": [
+        "discountType"
+      ],
+      "description": "Discount type properties including product family name, product id, and sku id."
+    },
+    "DiscountTypeProperties": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/DiscountTypeCustomPrice"
+        },
+        {
+          "$ref": "#/definitions/DiscountTypeProduct"
+        },
+        {
+          "$ref": "#/definitions/DiscountTypeProductFamily"
+        },
+        {
+          "$ref": "#/definitions/DiscountTypeProductSku"
+        }
+      ],
+      "properties": {
+        "applyDiscountOn": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Purchase",
+                "Consume",
+                "Renew"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values."
+        },
+        "conditions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ConditionsItem"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Array of conditions for the discount. Validation: Optional. Maximum length is 1000."
+        },
+        "discountCombinationRule": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "BestOf",
+                "Stackable"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf."
+        },
+        "discountPercentage": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Discount percentage provided for the customer. Validation: Required unless this is a price rule."
+        },
+        "priceGuaranteeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PriceGuaranteeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Set only in price guarantee scenario."
+        }
+      },
+      "required": [
+        "applyDiscountOn"
+      ],
+      "description": "This defines the conditions for a given discount type."
+    },
+    "EntityTypeAffiliateDiscount": {
+      "type": "object",
+      "properties": {
+        "entityType": {
+          "type": "string",
+          "enum": [
+            "Affiliate"
+          ]
+        }
+      },
+      "required": [
+        "entityType"
+      ],
+      "description": "Entity type for affiliate discounts"
+    },
+    "EntityTypePrimaryDiscount": {
+      "type": "object",
+      "properties": {
+        "discountTypeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiscountTypeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This defines the conditions for a given discount type."
+        },
+        "endAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "End date of the discount. No duration will be supported. Allowed value is any date greater than or equal to startDate."
+        },
+        "entityType": {
+          "type": "string",
+          "enum": [
+            "Primary"
+          ]
+        }
+      },
+      "required": [
+        "endAt",
+        "entityType"
+      ],
+      "description": "Entity type for primary discounts"
+    },
+    "ManagedServiceIdentity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned,UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed)."
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests."
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Managed service identity (system assigned and/or user assigned identities)"
+    },
+    "MarketSetPricesItems": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "description": "The currency of the locked price value. Validation: Required. Must be a valid ISO 4217 3-letter currency code."
+        },
+        "markets": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The locked price for the priceable node. Validation: Required. Must be greater than or equal to 0. If the case of billing plans. This represents the price for each cycle charge."
+        }
+      },
+      "required": [
+        "currency",
+        "markets",
+        "value"
+      ],
+      "description": "Items in the MarketSetPrices array."
+    },
+    "Plan": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A user defined name of the 3rd Party Artifact that is being procured."
+        },
+        "product": {
+          "type": "string",
+          "description": "The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding."
+        },
+        "promotionCode": {
+          "type": "string",
+          "description": "A publisher provided promotion code as provisioned in Data Market for the said product/artifact."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic"
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of the desired product/artifact."
+        }
+      },
+      "required": [
+        "name",
+        "product",
+        "publisher"
+      ],
+      "description": "Plan for the resource."
+    },
+    "PriceGuaranteeProperties": {
+      "type": "object",
+      "properties": {
+        "priceGuaranteeDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date on which prices are to be used for guarantee calculation. Validation: expected to be 00 hours, Format: 2024-09-30T00:00:00Z. Must be in UTC."
+        },
+        "pricingPolicy": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Protected",
+                "Locked"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Supported values: Protected, Locked."
+        }
+      },
+      "description": "Set only in price guarantee scenario."
+    },
+    "ReservationOrderAliasRequestProperties": {
+      "type": "object",
+      "properties": {
+        "appliedScopeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AppliedScopeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties specific to applied scope type. Not required if not applicable."
+        },
+        "appliedScopeType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Single",
+                "Shared",
+                "ManagementGroup"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of the Applied Scope."
+        },
+        "billingPlan": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "P1M"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represents the billing plan in ISO 8601 format. Required only for monthly billing plans."
+        },
+        "billingScopeId": {
+          "type": "string",
+          "description": "Subscription that will be charged for purchasing the benefit"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name"
+        },
+        "quantity": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Total Quantity of the SKUs purchased in the Reservation."
+        },
+        "renew": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Setting this to true will automatically purchase a new benefit on the expiration date time."
+        },
+        "reservedResourceProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ReservationOrderAliasRequestPropertiesReservedResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties specific to each reserved resource type. Not required if not applicable."
+        },
+        "reservedResourceType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "VirtualMachines",
+                "SqlDatabases",
+                "SuseLinux",
+                "CosmosDb",
+                "RedHat",
+                "SqlDataWarehouse",
+                "VMwareCloudSimple",
+                "RedHatOsa",
+                "Databricks",
+                "AppService",
+                "ManagedDisk",
+                "BlockBlob",
+                "RedisCache",
+                "AzureDataExplorer",
+                "MySql",
+                "MariaDb",
+                "PostgreSql",
+                "DedicatedHost",
+                "SapHana",
+                "SqlAzureHybridBenefit",
+                "AVS",
+                "DataFactory",
+                "NetAppStorage",
+                "AzureFiles",
+                "SqlEdge",
+                "VirtualMachineSoftware"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of the resource that is being reserved."
+        },
+        "reviewDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "This is the date-time when the Azure Hybrid Benefit needs to be reviewed."
+        },
+        "term": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "P1Y",
+                "P3Y",
+                "P5Y"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represent benefit term in ISO 8601 format."
+        }
+      },
+      "description": "Reservation properties"
+    },
+    "ReservationOrderAliasRequestPropertiesReservedResourceProperties": {
+      "type": "object",
+      "properties": {
+        "instanceFlexibility": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "On",
+                "Off"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Turning this on will apply the reservation discount to other VMs in the same VM size group."
+        }
+      },
+      "description": "Properties specific to each reserved resource type. Not required if not applicable."
+    },
+    "ResourceSku": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "SavingsPlanOrderAliasProperties": {
+      "type": "object",
+      "properties": {
+        "appliedScopeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AppliedScopeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties specific to applied scope type. Not required if not applicable."
+        },
+        "appliedScopeType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Single",
+                "Shared",
+                "ManagementGroup"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of the Applied Scope."
+        },
+        "billingPlan": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "P1M"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represents the billing plan in ISO 8601 format. Required only for monthly billing plans."
+        },
+        "billingScopeId": {
+          "type": "string",
+          "description": "Subscription that will be charged for purchasing the benefit"
+        },
+        "commitment": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Commitment"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Commitment towards the benefit."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name"
+        },
+        "renew": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Setting this to true will automatically purchase a new benefit on the expiration date time."
+        },
+        "term": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "P1Y",
+                "P3Y",
+                "P5Y"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represent benefit term in ISO 8601 format."
+        }
+      },
+      "description": "Savings plan properties"
+    },
+    "Sku": {
+      "type": "object",
+      "properties": {
+        "capacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted."
+        },
+        "family": {
+          "type": "string",
+          "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the SKU. E.g. P3. It is typically a letter+number code"
+        },
+        "size": {
+          "type": "string",
+          "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code."
+        },
+        "tier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Free",
+                "Basic",
+                "Standard",
+                "Premium"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "The resource model definition representing SKU"
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User assigned identity properties"
+    }
+  }
+}

@@ -552,13 +552,16 @@
         "virtualNetworks": {
           "oneOf": [
             {
-              "$ref": "#/definitions/VirtualNetworkPropertiesList"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VirtualNetworkProperties"
+              }
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "A list of private link resources"
+          "description": "Array of virtual networks."
         }
       },
       "description": "Settings concerning network injection."
@@ -651,30 +654,6 @@
         }
       },
       "description": "Settings concerning the virtual network."
-    },
-    "VirtualNetworkPropertiesList": {
-      "type": "object",
-      "properties": {
-        "nextLink": {
-          "type": "string",
-          "description": "Next page link if any."
-        },
-        "value": {
-          "oneOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/VirtualNetworkProperties"
-              }
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ],
-          "description": "Array of virtual networks."
-        }
-      },
-      "description": "A list of private link resources"
     }
   }
 }

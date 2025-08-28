@@ -1,0 +1,3970 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2025-04-01-preview/Microsoft.CognitiveServices.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.CognitiveServices",
+  "description": "Microsoft CognitiveServices Resource Types",
+  "resourceDefinitions": {
+    "accounts": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Identity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity for the resource."
+        },
+        "kind": {
+          "type": "string",
+          "description": "The kind (type) of cognitive service account."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
+              "minLength": 2,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of Cognitive Services account."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AccountProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of Cognitive Services account."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/accounts_privateEndpointConnections_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_deployments_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_commitmentPlans_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_encryptionScopes_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_raiPolicies_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_raiBlocklists_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_defenderForAISettings_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_projects_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_connections_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_capabilityHosts_childResource"
+              }
+            ]
+          }
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts"
+    },
+    "accounts_capabilityHosts": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9\\-_]{0,254}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the capability host associated with the Cognitive Services Resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CapabilityHost"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts/capabilityHosts"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/capabilityHosts"
+    },
+    "accounts_commitmentPlans": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "The kind (type) of cognitive service account."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the commitmentPlan associated with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CommitmentPlanProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of Cognitive Services account commitment plan."
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts/commitmentPlans"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/commitmentPlans"
+    },
+    "accounts_connections": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{2,32}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Friendly name of the connection"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionPropertiesV2"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connection property base schema."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts/connections"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/connections"
+    },
+    "accounts_defenderForAISettings": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the defender for AI setting."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DefenderForAISettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Defender for AI resource properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts/defenderForAISettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/defenderForAISettings"
+    },
+    "accounts_deployments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the deployment associated with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeploymentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of Cognitive Services account deployment."
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts/deployments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/deployments"
+    },
+    "accounts_encryptionScopes": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the encryptionScope associated with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EncryptionScopeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties to EncryptionScope"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts/encryptionScopes"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/encryptionScopes"
+    },
+    "accounts_privateEndpointConnections": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The location of the private endpoint connection"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the private endpoint connection associated with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateEndpointConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of the PrivateEndpointConnectProperties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts/privateEndpointConnections"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/privateEndpointConnections"
+    },
+    "accounts_projects": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Identity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity for the resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
+              "minLength": 2,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of Cognitive Services account's project."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProjectProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of Cognitive Services Project'."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/accounts_projects_connections_childResource"
+              },
+              {
+                "$ref": "#/definitions/accounts_projects_capabilityHosts_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts/projects"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/projects"
+    },
+    "accounts_projects_capabilityHosts": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9\\-_]{0,254}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the capability host associated with the Cognitive Services Resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CapabilityHost"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts/projects/capabilityHosts"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/projects/capabilityHosts"
+    },
+    "accounts_projects_connections": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{2,32}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Friendly name of the connection"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionPropertiesV2"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connection property base schema."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts/projects/connections"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/projects/connections"
+    },
+    "accounts_raiBlocklists": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the RaiBlocklist associated with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiBlocklistProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "RAI Custom Blocklist properties."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/accounts_raiBlocklists_raiBlocklistItems_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts/raiBlocklists"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/raiBlocklists"
+    },
+    "accounts_raiBlocklists_raiBlocklistItems": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the RaiBlocklist Item associated with the custom blocklist"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiBlocklistItemProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "RAI Custom Blocklist Item properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems"
+    },
+    "accounts_raiPolicies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the RaiPolicy associated with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure OpenAI Content Filters properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/accounts/raiPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/raiPolicies"
+    },
+    "commitmentPlans": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "The kind (type) of cognitive service account."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the commitmentPlan associated with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CommitmentPlanProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of Cognitive Services account commitment plan."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/commitmentPlans_accountAssociations_childResource"
+              }
+            ]
+          }
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/commitmentPlans"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/commitmentPlans"
+    },
+    "commitmentPlans_accountAssociations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the commitment plan association with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CommitmentPlanAccountAssociationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The commitment plan account association properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.CognitiveServices/commitmentPlans/accountAssociations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/commitmentPlans/accountAssociations"
+    }
+  },
+  "definitions": {
+    "AADAuthTypeConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "AAD"
+          ]
+        }
+      },
+      "required": [
+        "authType"
+      ],
+      "description": "This connection type covers the AAD auth for any applicable Azure service"
+    },
+    "AccessKeyAuthTypeConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "AccessKey"
+          ]
+        },
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionAccessKey"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "authType"
+      ]
+    },
+    "AccountKeyAuthTypeConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "AccountKey"
+          ]
+        },
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionAccountKey"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Account key object for connection credential."
+        }
+      },
+      "required": [
+        "authType"
+      ],
+      "description": "This connection type covers the account key connection for Azure storage"
+    },
+    "AccountProperties": {
+      "type": "object",
+      "properties": {
+        "allowedFqdnList": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "allowProjectManagement": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies whether this resource support project management as child resources, used as containers for access management, data isolation and cost in AI Foundry."
+        },
+        "amlWorkspace": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/UserOwnedAmlWorkspace"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The user owned AML account for Cognitive Services account."
+        },
+        "apiProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApiProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The api properties for special APIs."
+        },
+        "associatedProjects": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies the projects that are associated with this resource."
+        },
+        "customSubDomainName": {
+          "type": "string",
+          "description": "Optional subdomain name used for token-based authentication."
+        },
+        "defaultProject": {
+          "type": "string",
+          "description": "Specifies the project that is targeted when data plane endpoints are called without a project parameter."
+        },
+        "disableLocalAuth": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "dynamicThrottlingEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The flag to enable dynamic throttling."
+        },
+        "encryption": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Encryption"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties to configure Encryption"
+        },
+        "locations": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MultiRegionSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The multiregion settings Cognitive Services account."
+        },
+        "migrationToken": {
+          "type": "string",
+          "description": "Resource migration token."
+        },
+        "networkAcls": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NetworkRuleSet"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A set of rules governing the network accessibility."
+        },
+        "networkInjections": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NetworkInjection"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "publicNetworkAccess": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Whether or not public endpoint access is allowed for this account."
+        },
+        "raiMonitorConfig": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiMonitorConfig"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cognitive Services Rai Monitor Config."
+        },
+        "restore": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "restrictOutboundNetworkAccess": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "userOwnedStorage": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserOwnedStorage"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The storage accounts for this resource."
+        }
+      },
+      "description": "Properties of Cognitive Services account."
+    },
+    "accounts_capabilityHosts_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9\\-_]{0,254}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the capability host associated with the Cognitive Services Resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CapabilityHost"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "capabilityHosts"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/capabilityHosts"
+    },
+    "accounts_commitmentPlans_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "The kind (type) of cognitive service account."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the commitmentPlan associated with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CommitmentPlanProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of Cognitive Services account commitment plan."
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "commitmentPlans"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/commitmentPlans"
+    },
+    "accounts_connections_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{2,32}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Friendly name of the connection"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionPropertiesV2"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connection property base schema."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "connections"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/connections"
+    },
+    "accounts_defenderForAISettings_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the defender for AI setting."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DefenderForAISettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Defender for AI resource properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "defenderForAISettings"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/defenderForAISettings"
+    },
+    "accounts_deployments_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the deployment associated with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeploymentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of Cognitive Services account deployment."
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The resource model definition representing SKU"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "deployments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/deployments"
+    },
+    "accounts_encryptionScopes_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the encryptionScope associated with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EncryptionScopeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties to EncryptionScope"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "encryptionScopes"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/encryptionScopes"
+    },
+    "accounts_privateEndpointConnections_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The location of the private endpoint connection"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the private endpoint connection associated with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateEndpointConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of the PrivateEndpointConnectProperties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "privateEndpointConnections"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/privateEndpointConnections"
+    },
+    "accounts_projects_capabilityHosts_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9\\-_]{0,254}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the capability host associated with the Cognitive Services Resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CapabilityHost"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "capabilityHosts"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/projects/capabilityHosts"
+    },
+    "accounts_projects_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "identity": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Identity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identity for the resource."
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
+              "minLength": 2,
+              "maxLength": 64
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of Cognitive Services account's project."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProjectProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of Cognitive Services Project'."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "projects"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/projects"
+    },
+    "accounts_projects_connections_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{2,32}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Friendly name of the connection"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionPropertiesV2"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Connection property base schema."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "connections"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/projects/connections"
+    },
+    "accounts_raiBlocklists_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the RaiBlocklist associated with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiBlocklistProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "RAI Custom Blocklist properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "raiBlocklists"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/raiBlocklists"
+    },
+    "accounts_raiBlocklists_raiBlocklistItems_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the RaiBlocklist Item associated with the custom blocklist"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiBlocklistItemProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "RAI Custom Blocklist Item properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "raiBlocklistItems"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems"
+    },
+    "accounts_raiPolicies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the RaiPolicy associated with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RaiPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure OpenAI Content Filters properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "raiPolicies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/accounts/raiPolicies"
+    },
+    "ApiKeyAuthConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "ApiKey"
+          ]
+        },
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionApiKey"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Api key object for connection credential."
+        }
+      },
+      "required": [
+        "authType"
+      ],
+      "description": "This connection type covers the generic ApiKey auth connection categories, for examples:\r\nAzureOpenAI:\r\n    Category:= AzureOpenAI\r\n    AuthType:= ApiKey (as type discriminator)\r\n    Credentials:= {ApiKey} as .ApiKey\r\n    Target:= {ApiBase}\r\n            \r\nCognitiveService:\r\n    Category:= CognitiveService\r\n    AuthType:= ApiKey (as type discriminator)\r\n    Credentials:= {SubscriptionKey} as ApiKey\r\n    Target:= ServiceRegion={serviceRegion}\r\n            \r\nCognitiveSearch:\r\n    Category:= CognitiveSearch\r\n    AuthType:= ApiKey (as type discriminator)\r\n    Credentials:= {Key} as ApiKey\r\n    Target:= {Endpoint}\r\n            \r\nUse Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields"
+    },
+    "ApiProperties": {
+      "type": "object",
+      "properties": {
+        "aadClientId": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "(Metrics Advisor Only) The Azure AD Client Id (Application Id)."
+        },
+        "aadTenantId": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "(Metrics Advisor Only) The Azure AD Tenant Id."
+        },
+        "additionalProperties": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {}
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Unmatched properties from the message are deserialized this collection"
+        },
+        "eventHubConnectionString": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^( *)Endpoint=sb://(.*);( *)SharedAccessKeyName=(.*);( *)SharedAccessKey=(.*)$",
+              "maxLength": 1000
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "(Personalization Only) The flag to enable statistics of Bing Search."
+        },
+        "qnaAzureSearchEndpointId": {
+          "type": "string",
+          "description": "(QnAMaker Only) The Azure Search endpoint id of QnAMaker."
+        },
+        "qnaAzureSearchEndpointKey": {
+          "type": "string",
+          "description": "(QnAMaker Only) The Azure Search endpoint key of QnAMaker."
+        },
+        "qnaRuntimeEndpoint": {
+          "type": "string",
+          "description": "(QnAMaker Only) The runtime endpoint of QnAMaker."
+        },
+        "statisticsEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "(Bing Search Only) The flag to enable statistics of Bing Search."
+        },
+        "storageAccountConnectionString": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^(( *)DefaultEndpointsProtocol=(http|https)( *);( *))?AccountName=(.*)AccountKey=(.*)EndpointSuffix=(.*)$",
+              "maxLength": 1000
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "(Personalization Only) The storage account connection string."
+        },
+        "superUser": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "(Metrics Advisor Only) The super user of Metrics Advisor."
+        },
+        "websiteName": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "(Metrics Advisor Only) The website name of Metrics Advisor."
+        }
+      },
+      "description": "The api properties for special APIs."
+    },
+    "CapabilityHost": {
+      "type": "object",
+      "properties": {
+        "aiServicesConnections": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of AI services connections."
+        },
+        "capabilityHostKind": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Agents"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Kind of this capability host."
+        },
+        "customerSubnet": {
+          "type": "string",
+          "description": "Customer subnet info to help set up this capability host."
+        },
+        "description": {
+          "type": "string",
+          "description": "The asset description text."
+        },
+        "storageConnections": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of Storage connections."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Tag dictionary. Tags can be added, removed, and updated."
+        },
+        "threadStorageConnections": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of Thread storage connections."
+        },
+        "vectorStoreConnections": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of VectorStore connections."
+        }
+      }
+    },
+    "CommitmentPeriod": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Commitment period commitment count."
+        },
+        "tier": {
+          "type": "string",
+          "description": "Commitment period commitment tier."
+        }
+      },
+      "description": "Cognitive Services account commitment period."
+    },
+    "CommitmentPlanAccountAssociationProperties": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "type": "string",
+          "description": "The Azure resource id of the account."
+        }
+      },
+      "description": "The commitment plan account association properties."
+    },
+    "CommitmentPlanProperties": {
+      "type": "object",
+      "properties": {
+        "autoRenew": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "AutoRenew commitment plan."
+        },
+        "commitmentPlanGuid": {
+          "type": "string",
+          "description": "Commitment plan guid."
+        },
+        "current": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CommitmentPeriod"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cognitive Services account commitment period."
+        },
+        "hostingModel": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Web",
+                "ConnectedContainer",
+                "DisconnectedContainer",
+                "ProvisionedWeb"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Account hosting model."
+        },
+        "next": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CommitmentPeriod"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cognitive Services account commitment period."
+        },
+        "planType": {
+          "type": "string",
+          "description": "Commitment plan type."
+        }
+      },
+      "description": "Properties of Cognitive Services account commitment plan."
+    },
+    "commitmentPlans_accountAssociations_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2025-04-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the commitment plan association with the Cognitive Services Account"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CommitmentPlanAccountAssociationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The commitment plan account association properties."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "accountAssociations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.CognitiveServices/commitmentPlans/accountAssociations"
+    },
+    "ConnectionAccessKey": {
+      "type": "object",
+      "properties": {
+        "accessKeyId": {
+          "type": "string"
+        },
+        "secretAccessKey": {
+          "type": "string"
+        }
+      }
+    },
+    "ConnectionAccountKey": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        }
+      },
+      "description": "Account key object for connection credential."
+    },
+    "ConnectionApiKey": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        }
+      },
+      "description": "Api key object for connection credential."
+    },
+    "ConnectionManagedIdentity": {
+      "type": "object",
+      "properties": {
+        "clientId": {
+          "type": "string"
+        },
+        "resourceId": {
+          "type": "string"
+        }
+      }
+    },
+    "ConnectionOAuth2": {
+      "type": "object",
+      "properties": {
+        "authUrl": {
+          "type": "string",
+          "format": "url",
+          "description": "Required by Concur connection category"
+        },
+        "clientId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Client id in the format of UUID"
+        },
+        "clientSecret": {
+          "type": "string"
+        },
+        "developerToken": {
+          "type": "string",
+          "description": "Required by GoogleAdWords connection category"
+        },
+        "password": {
+          "type": "string"
+        },
+        "refreshToken": {
+          "type": "string",
+          "description": "Required by GoogleBigQuery, GoogleAdWords, Hubspot, QuickBooks, Square, Xero, Zoho\r\nwhere user needs to get RefreshToken offline"
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "Required by QuickBooks and Xero connection categories"
+        },
+        "username": {
+          "type": "string",
+          "description": "Concur, ServiceNow auth server AccessToken grant type is 'Password'\r\nwhich requires UsernamePassword"
+        }
+      },
+      "description": "ClientId and ClientSecret are required. Other properties are optional\r\ndepending on each OAuth2 provider's implementation."
+    },
+    "ConnectionPersonalAccessToken": {
+      "type": "object",
+      "properties": {
+        "pat": {
+          "type": "string"
+        }
+      }
+    },
+    "ConnectionPropertiesV2": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/PATAuthTypeConnectionProperties"
+        },
+        {
+          "$ref": "#/definitions/ManagedIdentityAuthTypeConnectionProperties"
+        },
+        {
+          "$ref": "#/definitions/UsernamePasswordAuthTypeConnectionProperties"
+        },
+        {
+          "$ref": "#/definitions/NoneAuthTypeConnectionProperties"
+        },
+        {
+          "$ref": "#/definitions/SASAuthTypeConnectionProperties"
+        },
+        {
+          "$ref": "#/definitions/AccountKeyAuthTypeConnectionProperties"
+        },
+        {
+          "$ref": "#/definitions/ServicePrincipalAuthTypeConnectionProperties"
+        },
+        {
+          "$ref": "#/definitions/AccessKeyAuthTypeConnectionProperties"
+        },
+        {
+          "$ref": "#/definitions/ApiKeyAuthConnectionProperties"
+        },
+        {
+          "$ref": "#/definitions/CustomKeysConnectionProperties"
+        },
+        {
+          "$ref": "#/definitions/OAuth2AuthTypeConnectionProperties"
+        },
+        {
+          "$ref": "#/definitions/AADAuthTypeConnectionProperties"
+        }
+      ],
+      "properties": {
+        "category": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "PythonFeed",
+                "ContainerRegistry",
+                "Git",
+                "S3",
+                "Snowflake",
+                "AzureSqlDb",
+                "AzureSynapseAnalytics",
+                "AzureMySqlDb",
+                "AzurePostgresDb",
+                "ADLSGen2",
+                "Redis",
+                "ApiKey",
+                "AzureOpenAI",
+                "AIServices",
+                "CognitiveSearch",
+                "CognitiveService",
+                "CustomKeys",
+                "AzureBlob",
+                "AzureOneLake",
+                "CosmosDb",
+                "CosmosDbMongoDbApi",
+                "AzureDataExplorer",
+                "AzureMariaDb",
+                "AzureDatabricksDeltaLake",
+                "AzureSqlMi",
+                "AzureTableStorage",
+                "AmazonRdsForOracle",
+                "AmazonRdsForSqlServer",
+                "AmazonRedshift",
+                "Db2",
+                "Drill",
+                "GoogleBigQuery",
+                "Greenplum",
+                "Hbase",
+                "Hive",
+                "Impala",
+                "Informix",
+                "MariaDb",
+                "MicrosoftAccess",
+                "MySql",
+                "Netezza",
+                "Oracle",
+                "Phoenix",
+                "PostgreSql",
+                "Presto",
+                "SapOpenHub",
+                "SapBw",
+                "SapHana",
+                "SapTable",
+                "Spark",
+                "SqlServer",
+                "Sybase",
+                "Teradata",
+                "Vertica",
+                "Pinecone",
+                "Cassandra",
+                "Couchbase",
+                "MongoDbV2",
+                "MongoDbAtlas",
+                "AmazonS3Compatible",
+                "FileServer",
+                "FtpServer",
+                "GoogleCloudStorage",
+                "Hdfs",
+                "OracleCloudStorage",
+                "Sftp",
+                "GenericHttp",
+                "ODataRest",
+                "Odbc",
+                "GenericRest",
+                "AmazonMws",
+                "Concur",
+                "Dynamics",
+                "DynamicsAx",
+                "DynamicsCrm",
+                "GoogleAdWords",
+                "Hubspot",
+                "Jira",
+                "Magento",
+                "Marketo",
+                "Office365",
+                "Eloqua",
+                "Responsys",
+                "OracleServiceCloud",
+                "PayPal",
+                "QuickBooks",
+                "Salesforce",
+                "SalesforceServiceCloud",
+                "SalesforceMarketingCloud",
+                "SapCloudForCustomer",
+                "SapEcc",
+                "ServiceNow",
+                "SharePointOnlineList",
+                "Shopify",
+                "Square",
+                "WebTable",
+                "Xero",
+                "Zoho",
+                "GenericContainerRegistry",
+                "Elasticsearch",
+                "OpenAI",
+                "Serp",
+                "BingLLMSearch",
+                "Serverless",
+                "ManagedOnlineEndpoint"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Category of the connection."
+        },
+        "error": {
+          "type": "string"
+        },
+        "expiryTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "isSharedToAll": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "metadata": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Store user metadata for this connection"
+        },
+        "peRequirement": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Required",
+                "NotRequired",
+                "NotApplicable"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "peStatus": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Inactive",
+                "Active",
+                "NotApplicable"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sharedUserList": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "target": {
+          "type": "string"
+        },
+        "useWorkspaceManagedIdentity": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Connection property base schema."
+    },
+    "ConnectionServicePrincipal": {
+      "type": "object",
+      "properties": {
+        "clientId": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
+        },
+        "tenantId": {
+          "type": "string"
+        }
+      }
+    },
+    "ConnectionSharedAccessSignature": {
+      "type": "object",
+      "properties": {
+        "sas": {
+          "type": "string"
+        }
+      }
+    },
+    "ConnectionUsernamePassword": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string"
+        },
+        "securityToken": {
+          "type": "string",
+          "description": "Optional, required by connections like SalesForce for extra security in addition to UsernamePassword"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomBlocklistConfig": {
+      "type": "object",
+      "properties": {
+        "blocking": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If blocking would occur."
+        },
+        "blocklistName": {
+          "type": "string",
+          "description": "Name of ContentFilter."
+        },
+        "source": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Prompt",
+                "Completion"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Gets or sets the source to which filter applies."
+    },
+    "CustomKeys": {
+      "type": "object",
+      "properties": {
+        "keys": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Custom Keys credential object"
+    },
+    "CustomKeysConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "CustomKeys"
+          ]
+        },
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomKeys"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Custom Keys credential object"
+        }
+      },
+      "required": [
+        "authType"
+      ],
+      "description": "Category:= CustomKeys\r\nAuthType:= CustomKeys (as type discriminator)\r\nCredentials:= {CustomKeys} as CustomKeys\r\nTarget:= {any value}\r\nUse Metadata property bag for ApiVersion and other metadata fields"
+    },
+    "DefenderForAISettingProperties": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Disabled",
+                "Enabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Defender for AI state on the AI resource."
+        }
+      },
+      "description": "The Defender for AI resource properties."
+    },
+    "DeploymentCapacitySettings": {
+      "type": "object",
+      "properties": {
+        "designatedCapacity": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The designated capacity."
+        },
+        "priority": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The priority of this capacity setting."
+        }
+      },
+      "description": "Internal use only."
+    },
+    "DeploymentModel": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "description": "Deployment model format."
+        },
+        "name": {
+          "type": "string",
+          "description": "Deployment model name."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "Deployment model publisher."
+        },
+        "source": {
+          "type": "string",
+          "description": "Optional. Deployment model source ARM resource ID."
+        },
+        "sourceAccount": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Optional. Source of the model, another Microsoft.CognitiveServices accounts ARM resource ID."
+        },
+        "version": {
+          "type": "string",
+          "description": "Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API."
+        }
+      },
+      "description": "Properties of Cognitive Services account deployment model."
+    },
+    "DeploymentProperties": {
+      "type": "object",
+      "properties": {
+        "capacitySettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeploymentCapacitySettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Internal use only."
+        },
+        "currentCapacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The current capacity."
+        },
+        "model": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeploymentModel"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of Cognitive Services account deployment model."
+        },
+        "parentDeploymentName": {
+          "type": "string",
+          "description": "The name of parent deployment."
+        },
+        "raiPolicyName": {
+          "type": "string",
+          "description": "The name of RAI policy."
+        },
+        "scaleSettings": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeploymentScaleSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)"
+        },
+        "spilloverDeploymentName": {
+          "type": "string",
+          "description": "Specifies the deployment name that should serve requests when the request would have otherwise been throttled due to reaching current deployment throughput limit."
+        },
+        "versionUpgradeOption": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "OnceNewDefaultVersionAvailable",
+                "OnceCurrentVersionExpired",
+                "NoAutoUpgrade"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Deployment model version upgrade option."
+        }
+      },
+      "description": "Properties of Cognitive Services account deployment."
+    },
+    "DeploymentScaleSettings": {
+      "type": "object",
+      "properties": {
+        "capacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Deployment capacity."
+        },
+        "scaleType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Standard",
+                "Manual"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Deployment scale type."
+        }
+      },
+      "description": "Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)"
+    },
+    "Encryption": {
+      "type": "object",
+      "properties": {
+        "keySource": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Microsoft.CognitiveServices",
+                "Microsoft.KeyVault"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enumerates the possible value of keySource for Encryption."
+        },
+        "keyVaultProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KeyVaultProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties to configure keyVault Properties"
+        }
+      },
+      "description": "Properties to configure Encryption"
+    },
+    "EncryptionScopeProperties": {
+      "type": "object",
+      "properties": {
+        "keySource": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Microsoft.CognitiveServices",
+                "Microsoft.KeyVault"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Enumerates the possible value of keySource for Encryption."
+        },
+        "keyVaultProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/KeyVaultProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Properties to configure keyVault Properties"
+        },
+        "state": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Disabled",
+                "Enabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The encryptionScope state."
+        }
+      },
+      "description": "Properties to EncryptionScope"
+    },
+    "Identity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "SystemAssigned",
+                "UserAssigned",
+                "SystemAssigned, UserAssigned"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The identity type."
+        },
+        "userAssignedIdentities": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/UserAssignedIdentity"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}"
+        }
+      },
+      "description": "Identity for the resource."
+    },
+    "IpRule": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78)."
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "description": "A rule governing the accessibility from a specific ip address or ip range."
+    },
+    "KeyVaultProperties": {
+      "type": "object",
+      "properties": {
+        "identityClientId": {
+          "type": "string"
+        },
+        "keyName": {
+          "type": "string",
+          "description": "Name of the Key from KeyVault"
+        },
+        "keyVaultUri": {
+          "type": "string",
+          "description": "Uri of KeyVault"
+        },
+        "keyVersion": {
+          "type": "string",
+          "description": "Version of the Key from KeyVault"
+        }
+      },
+      "description": "Properties to configure keyVault Properties"
+    },
+    "ManagedIdentityAuthTypeConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "ManagedIdentity"
+          ]
+        },
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionManagedIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "authType"
+      ]
+    },
+    "MultiRegionSettings": {
+      "type": "object",
+      "properties": {
+        "regions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RegionSetting"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "routingMethod": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Priority",
+                "Weighted",
+                "Performance"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Multiregion routing methods."
+        }
+      },
+      "description": "The multiregion settings Cognitive Services account."
+    },
+    "NetworkInjection": {
+      "type": "object",
+      "properties": {
+        "scenario": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "none",
+                "agent"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Specifies what features in AI Foundry network injection applies to. Currently only supports 'agent' for agent scenarios. 'none' means no network injection."
+        },
+        "subnetArmId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Specify the subnet for which your Agent Client is injected into."
+        },
+        "useMicrosoftManagedNetwork": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Boolean to enable Microsoft Managed Network for subnet delegation"
+        }
+      },
+      "description": "Specifies in AI Foundry where virtual network injection occurs to secure scenarios like Agents entirely within the user's private network, eliminating public internet exposure while maintaining control over network configurations and resources."
+    },
+    "NetworkRuleSet": {
+      "type": "object",
+      "properties": {
+        "bypass": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "AzureServices"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Setting for trusted services."
+        },
+        "defaultAction": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Allow",
+                "Deny"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated."
+        },
+        "ipRules": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IpRule"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of IP address rules."
+        },
+        "virtualNetworkRules": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VirtualNetworkRule"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of virtual network rules."
+        }
+      },
+      "description": "A set of rules governing the network accessibility."
+    },
+    "NoneAuthTypeConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "None"
+          ]
+        }
+      },
+      "required": [
+        "authType"
+      ]
+    },
+    "OAuth2AuthTypeConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "OAuth2"
+          ]
+        },
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionOAuth2"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ClientId and ClientSecret are required. Other properties are optional\r\ndepending on each OAuth2 provider's implementation."
+        }
+      },
+      "required": [
+        "authType"
+      ]
+    },
+    "PATAuthTypeConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "PAT"
+          ]
+        },
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionPersonalAccessToken"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "authType"
+      ]
+    },
+    "PrivateEndpoint": {
+      "type": "object",
+      "properties": {},
+      "description": "The Private Endpoint resource."
+    },
+    "PrivateEndpointConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "groupIds": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The private link resource group ids."
+        },
+        "privateEndpoint": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateEndpoint"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Private Endpoint resource."
+        },
+        "privateLinkServiceConnectionState": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PrivateLinkServiceConnectionState"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A collection of information about the state of the connection between service consumer and provider."
+        },
+        "provisioningState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Creating",
+                "Deleting",
+                "Failed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The provisioning state of the private endpoint connection resource."
+        }
+      },
+      "required": [
+        "privateLinkServiceConnectionState"
+      ],
+      "description": "Properties of the PrivateEndpointConnectProperties."
+    },
+    "PrivateLinkServiceConnectionState": {
+      "type": "object",
+      "properties": {
+        "actionsRequired": {
+          "type": "string",
+          "description": "A message indicating if changes on the service provider require any updates on the consumer."
+        },
+        "description": {
+          "type": "string",
+          "description": "The reason for approval/rejection of the connection."
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Pending",
+                "Approved",
+                "Rejected"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service."
+        }
+      },
+      "description": "A collection of information about the state of the connection between service consumer and provider."
+    },
+    "ProjectProperties": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "The description of the Cognitive Services Project."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name of the Cognitive Services Project."
+        }
+      },
+      "description": "Properties of Cognitive Services Project'."
+    },
+    "RaiBlocklistItemProperties": {
+      "type": "object",
+      "properties": {
+        "isRegex": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If the pattern is a regex pattern."
+        },
+        "pattern": {
+          "type": "string",
+          "description": "Pattern to match against."
+        }
+      },
+      "description": "RAI Custom Blocklist Item properties."
+    },
+    "RaiBlocklistProperties": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the block list."
+        }
+      },
+      "description": "RAI Custom Blocklist properties."
+    },
+    "RaiMonitorConfig": {
+      "type": "object",
+      "properties": {
+        "adxStorageResourceId": {
+          "type": "string",
+          "description": "The storage resource Id."
+        },
+        "identityClientId": {
+          "type": "string",
+          "description": "The identity client Id to access the storage."
+        }
+      },
+      "description": "Cognitive Services Rai Monitor Config."
+    },
+    "RaiPolicyContentFilter": {
+      "type": "object",
+      "properties": {
+        "blocking": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If blocking would occur."
+        },
+        "enabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If the ContentFilter is enabled."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of ContentFilter."
+        },
+        "severityThreshold": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Low",
+                "Medium",
+                "High"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Level at which content is filtered."
+        },
+        "source": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Prompt",
+                "Completion"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "description": "Azure OpenAI Content Filter."
+    },
+    "RaiPolicyProperties": {
+      "type": "object",
+      "properties": {
+        "basePolicyName": {
+          "type": "string",
+          "description": "Name of Rai policy."
+        },
+        "contentFilters": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RaiPolicyContentFilter"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of Content Filters."
+        },
+        "customBlocklists": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CustomBlocklistConfig"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of custom Blocklist."
+        },
+        "mode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Default",
+                "Deferred",
+                "Blocking",
+                "Asynchronous_filter"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-04-01-preview. It is the same as 'Deferred' in previous version."
+        }
+      },
+      "description": "Azure OpenAI Content Filters properties."
+    },
+    "RegionSetting": {
+      "type": "object",
+      "properties": {
+        "customsubdomain": {
+          "type": "string",
+          "description": "Maps the region to the regional custom subdomain."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the region."
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A value for priority or weighted routing methods."
+        }
+      },
+      "description": "The call rate limit Cognitive Services account."
+    },
+    "SASAuthTypeConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "SAS"
+          ]
+        },
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionSharedAccessSignature"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "authType"
+      ]
+    },
+    "ServicePrincipalAuthTypeConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "ServicePrincipal"
+          ]
+        },
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionServicePrincipal"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "authType"
+      ]
+    },
+    "Sku": {
+      "type": "object",
+      "properties": {
+        "capacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted."
+        },
+        "family": {
+          "type": "string",
+          "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the SKU. Ex - P3. It is typically a letter+number code"
+        },
+        "size": {
+          "type": "string",
+          "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. "
+        },
+        "tier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Free",
+                "Basic",
+                "Standard",
+                "Premium",
+                "Enterprise"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "The resource model definition representing SKU"
+    },
+    "UserAssignedIdentity": {
+      "type": "object",
+      "properties": {},
+      "description": "User-assigned managed identity."
+    },
+    "UsernamePasswordAuthTypeConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "authType": {
+          "type": "string",
+          "enum": [
+            "UsernamePassword"
+          ]
+        },
+        "credentials": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ConnectionUsernamePassword"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "authType"
+      ]
+    },
+    "UserOwnedAmlWorkspace": {
+      "type": "object",
+      "properties": {
+        "identityClientId": {
+          "type": "string",
+          "description": "Identity Client id of a AML account resource."
+        },
+        "resourceId": {
+          "type": "string",
+          "description": "Full resource id of a AML account resource."
+        }
+      },
+      "description": "The user owned AML account for Cognitive Services account."
+    },
+    "UserOwnedStorage": {
+      "type": "object",
+      "properties": {
+        "identityClientId": {
+          "type": "string"
+        },
+        "resourceId": {
+          "type": "string",
+          "description": "Full resource id of a Microsoft.Storage resource."
+        }
+      },
+      "description": "The user owned storage for Cognitive Services account."
+    },
+    "VirtualNetworkRule": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'."
+        },
+        "ignoreMissingVnetServiceEndpoint": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Ignore missing vnet service endpoint or not."
+        },
+        "state": {
+          "type": "string",
+          "description": "Gets the state of virtual network rule."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "description": "A rule governing the accessibility from a specific virtual network."
+    }
+  }
+}
